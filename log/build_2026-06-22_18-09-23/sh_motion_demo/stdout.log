@@ -1,0 +1,22 @@
+running develop
+running egg_info
+creating sh_motion_demo.egg-info
+writing sh_motion_demo.egg-info/PKG-INFO
+writing dependency_links to sh_motion_demo.egg-info/dependency_links.txt
+writing entry points to sh_motion_demo.egg-info/entry_points.txt
+writing requirements to sh_motion_demo.egg-info/requires.txt
+writing top-level names to sh_motion_demo.egg-info/top_level.txt
+writing manifest file 'sh_motion_demo.egg-info/SOURCES.txt'
+reading manifest file 'sh_motion_demo.egg-info/SOURCES.txt'
+writing manifest file 'sh_motion_demo.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/sejong/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages/sh-motion-demo.egg-link (link to .)
+Installing wave script to /home/sejong/SH_ws/install/sh_motion_demo/lib/sh_motion_demo
+
+Installed /home/sejong/SH_ws/build/sh_motion_demo
+running symlink_data
+creating /home/sejong/SH_ws/install/sh_motion_demo/share/ament_index
+creating /home/sejong/SH_ws/install/sh_motion_demo/share/ament_index/resource_index
+creating /home/sejong/SH_ws/install/sh_motion_demo/share/ament_index/resource_index/packages
+symbolically linking /home/sejong/SH_ws/build/sh_motion_demo/resource/sh_motion_demo -> /home/sejong/SH_ws/install/sh_motion_demo/share/ament_index/resource_index/packages
+symbolically linking /home/sejong/SH_ws/build/sh_motion_demo/package.xml -> /home/sejong/SH_ws/install/sh_motion_demo/share/sh_motion_demo

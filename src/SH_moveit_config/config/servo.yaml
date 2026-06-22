@@ -1,0 +1,30 @@
+###############################################
+# servo.yaml 핵심 설정
+###############################################
+use_gazebo: false # RViz 가짜 컨트롤러를 쓸 때는 반드시 false! (나중에 Gazebo 쓸 때 true로 변경)
+
+# 로봇의 베이스 링크와 끝단(End Effector) 링크 이름
+robot_link_command_frame: "base_link" 
+ee_frame_name: "right_rubber_hand" # 제어할 손끝 링크 이름 (앞서 에러 났던 그 이름입니다)
+
+# 제어 그룹 (Setup Assistant에서 만든 arm 그룹 이름)
+move_group_name: "right_arm"
+
+joint_command_in_topic: "~/delta_joint_cmds"
+
+# 출력 타입 (RViz Fake Controller는 보통 JointTrajectory를 잘 받습니다)
+command_out_type: "trajectory_msgs/JointTrajectory"
+command_out_topic: "/right_arm_controller/joint_trajectory"
+
+command_in_type: "speed_units"
+scale:
+  linear: 0.4
+  rotational: 0.4
+  joint: 0.5
+
+lower_singularity_threshold: 17.0
+hard_stop_singularity_threshold: 30.0
+collision_check_rate: 10.0
+collision_check_type: "threshold_distance"
+self_collision_proximity_threshold: 0.01
+scene_collision_proximity_threshold: 0.02

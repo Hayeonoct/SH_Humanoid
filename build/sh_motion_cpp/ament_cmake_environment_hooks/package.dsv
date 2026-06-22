@@ -1,0 +1,4 @@
+source;share/sh_motion_cpp/local_setup.bash
+source;share/sh_motion_cpp/local_setup.dsv
+source;share/sh_motion_cpp/local_setup.sh
+source;share/sh_motion_cpp/local_setup.zsh
