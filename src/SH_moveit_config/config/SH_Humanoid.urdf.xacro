@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="SH_Humanoid">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import SH_Humanoid urdf file -->
+    <xacro:include filename="$(find SH_Humanoid_description)/urdf/SH_Humanoid.urdf" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="SH_Humanoid.ros2_control.xacro" />
+
+
+    <xacro:SH_Humanoid_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

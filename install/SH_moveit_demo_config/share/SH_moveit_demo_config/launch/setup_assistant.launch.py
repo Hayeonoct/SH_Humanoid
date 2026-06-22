@@ -1,0 +1,1 @@
+/home/sejong/WS/SH_Humanoid/SH_ws/src/SH_moveit_demo_config/launch/setup_assistant.launch.py

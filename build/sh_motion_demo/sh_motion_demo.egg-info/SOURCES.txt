@@ -1,0 +1,13 @@
+package.xml
+setup.cfg
+setup.py
+resource/sh_motion_demo
+sh_motion_demo/__init__.py
+sh_motion_demo/wave.py
+sh_motion_demo.egg-info/PKG-INFO
+sh_motion_demo.egg-info/SOURCES.txt
+sh_motion_demo.egg-info/dependency_links.txt
+sh_motion_demo.egg-info/entry_points.txt
+sh_motion_demo.egg-info/requires.txt
+sh_motion_demo.egg-info/top_level.txt
+sh_motion_demo.egg-info/zip-safe

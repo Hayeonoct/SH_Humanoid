@@ -1,0 +1,2 @@
+[console_scripts]
+wave = sh_motion_demo.wave:main

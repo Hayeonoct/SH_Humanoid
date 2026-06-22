@@ -1,0 +1,26 @@
+use_gazebo: false
+check_collisions: false
+
+robot_link_command_frame: base_link
+ee_frame_name: right_rubber_hand
+move_group_name: right_arm
+
+joint_command_in_topic: ~/delta_joint_cmds
+
+command_out_type: trajectory_msgs/JointTrajectory
+command_out_topic: /right_arm_controller/joint_trajectory
+
+command_in_type: speed_units
+
+scale:
+  linear: 0.4
+  rotational: 0.4
+  joint: 0.5
+
+lower_singularity_threshold: 17.0
+hard_stop_singularity_threshold: 30.0
+
+collision_check_rate: 10.0
+collision_check_type: threshold_distance
+self_collision_proximity_threshold: 0.01
+scene_collision_proximity_threshold: 0.02
