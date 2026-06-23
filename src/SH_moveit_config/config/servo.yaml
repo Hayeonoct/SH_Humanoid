@@ -16,12 +16,18 @@ joint_command_in_topic: "~/delta_joint_cmds"
 command_out_type: "trajectory_msgs/JointTrajectory"
 command_out_topic: "/right_arm_controller/joint_trajectory"
 
+publish_joint_positions: true
+publish_joint_velocities: true
+publish_joint_accelerations: true
+
 command_in_type: "speed_units"
 scale:
   linear: 0.4
   rotational: 0.4
   joint: 0.5
 
+
+low_pass_filter_coeff: 2.0
 lower_singularity_threshold: 17.0
 hard_stop_singularity_threshold: 30.0
 collision_check_rate: 10.0
