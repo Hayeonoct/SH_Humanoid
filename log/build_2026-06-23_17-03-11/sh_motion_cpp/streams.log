@@ -1,0 +1,23 @@
+[0.116s] Invoking command in '/home/sejong/SH_ws/build/sh_motion_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sejong/SH_ws/install/sh_motion_demo:/home/sejong/SH_ws/install/SH_Humanoid_description:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/sejong/SH_ws/build/sh_motion_cpp -- -j24 -l24
+[0.156s] [100%] Built target wave
+[0.229s] Invoked command in '/home/sejong/SH_ws/build/sh_motion_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sejong/SH_ws/install/sh_motion_demo:/home/sejong/SH_ws/install/SH_Humanoid_description:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/sejong/SH_ws/build/sh_motion_cpp -- -j24 -l24
+[0.239s] Invoking command in '/home/sejong/SH_ws/build/sh_motion_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sejong/SH_ws/install/sh_motion_demo:/home/sejong/SH_ws/install/SH_Humanoid_description:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/sejong/SH_ws/build/sh_motion_cpp
+[0.243s] -- Install configuration: ""
+[0.243s] -- Execute custom install script
+[0.244s] -- Up-to-date symlink: /home/sejong/SH_ws/install/sh_motion_cpp/lib/sh_motion_cpp/wave
+[0.244s] -- Up-to-date symlink: /home/sejong/SH_ws/install/sh_motion_cpp/share/ament_index/resource_index/package_run_dependencies/sh_motion_cpp
+[0.244s] -- Up-to-date symlink: /home/sejong/SH_ws/install/sh_motion_cpp/share/ament_index/resource_index/parent_prefix_path/sh_motion_cpp
+[0.244s] -- Up-to-date symlink: /home/sejong/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/environment/ament_prefix_path.sh
+[0.244s] -- Up-to-date symlink: /home/sejong/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/environment/ament_prefix_path.dsv
+[0.244s] -- Up-to-date symlink: /home/sejong/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/environment/path.sh
+[0.244s] -- Up-to-date symlink: /home/sejong/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/environment/path.dsv
+[0.244s] -- Up-to-date symlink: /home/sejong/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/local_setup.bash
+[0.244s] -- Up-to-date symlink: /home/sejong/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/local_setup.sh
+[0.244s] -- Up-to-date symlink: /home/sejong/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/local_setup.zsh
+[0.244s] -- Up-to-date symlink: /home/sejong/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/local_setup.dsv
+[0.244s] -- Symlinking: /home/sejong/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/package.dsv
+[0.249s] -- Up-to-date symlink: /home/sejong/SH_ws/install/sh_motion_cpp/share/ament_index/resource_index/packages/sh_motion_cpp
+[0.249s] -- Up-to-date symlink: /home/sejong/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/cmake/sh_motion_cppConfig.cmake
+[0.249s] -- Up-to-date symlink: /home/sejong/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/cmake/sh_motion_cppConfig-version.cmake
+[0.249s] -- Up-to-date symlink: /home/sejong/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/package.xml
+[0.250s] Invoked command in '/home/sejong/SH_ws/build/sh_motion_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sejong/SH_ws/install/sh_motion_demo:/home/sejong/SH_ws/install/SH_Humanoid_description:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/sejong/SH_ws/build/sh_motion_cpp
