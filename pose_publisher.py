@@ -62,25 +62,44 @@ class RealSenseJointPublisher(Node):
             self.current_joints[name] = msg.position[i]
 
     def get_pixel_3d_point(self, depth_frame, u, v, box_size=5):
-        u = int(max(0, min(u, 639)))
-        v = int(max(0, min(v, 449)))
-        
+        # 실제 depth frame 해상도 읽기
+        width = depth_frame.get_width()
+        height = depth_frame.get_height()
+
+        # MediaPipe에서 나온 픽셀 좌표가 이미지 밖으로 나가지 않게 제한
+        u = int(max(0, min(round(u), width - 1)))
+        v = int(max(0, min(round(v), height - 1)))
+
         depths = []
         half_box = box_size // 2
-        for i in range(-half_box, half_box + 1):
-            for j in range(-half_box, half_box + 1):
-                cur_u = int(max(0, min(u + i, 639)))
-                cur_v = int(max(0, min(v + j, 449)))
+
+        # 중심 픽셀 주변 box_size x box_size 영역의 depth 수집
+        for du in range(-half_box, half_box + 1):
+            for dv in range(-half_box, half_box + 1):
+                cur_u = int(max(0, min(u + du, width - 1)))
+                cur_v = int(max(0, min(v + dv, height - 1)))
+
                 d = depth_frame.get_distance(cur_u, cur_v)
-                if 0.1 < d < 2.5: 
+
+                # 너무 가깝거나 너무 먼 depth는 노이즈로 보고 제외
+                if 0.1 < d < 2.5:
                     depths.append(d)
-        
+
+        # 유효한 depth가 없으면 3D 좌표 계산 불가
         if not depths:
             return None
-            
-        median_depth = np.median(depths)
-        point3d = rs.rs2_deproject_pixel_to_point(self.intrinsics, [u, v], median_depth)
-        return np.array(point3d)
+
+        # 주변 depth의 중앙값 사용
+        median_depth = float(np.median(depths))
+
+        # 2D pixel + depth → 3D camera coordinate
+        point3d = rs.rs2_deproject_pixel_to_point(
+            self.intrinsics,
+            [u, v],
+            median_depth
+        )
+
+        return np.array(point3d, dtype=np.float32)
 
     # --- [핵심 추가] 카메라 좌표계를 base_link로 변환하는 함수 ---
     def transform_to_base_link(self, point3d, camera_frame="camera_color_optical_frame", target_frame="base_link"):
@@ -139,15 +158,35 @@ class RealSenseJointPublisher(Node):
             p_wr = self.transform_to_base_link(p_wr_cam)
             p_idx = self.transform_to_base_link(p_idx_cam)
 
+            pinky_u, pinky_v = int(landmarks[18].x * w), int(landmarks[18].y * h)
+            p_pinky_cam = self.get_pixel_3d_point(depth_frame, pinky_u, pinky_v)
+            p_pinky = self.transform_to_base_link(p_pinky_cam)
+
             if all(p is not None for p in [p_sh, p_el, p_wr, p_idx]):
+                if np.linalg.norm(p_wr - p_sh) > 0.8:
+                    return 
+                
                 v_upper = self.normalize(p_el - p_sh)
                 v_lower = self.normalize(p_wr - p_el)
                 v_hand = self.normalize(p_idx - p_wr)
+                v_pinky = self.normalize(p_pinky - p_wr)
+                v_palm_normal = self.normalize(np.cross(v_hand, v_pinky))
+
 
                 # ==========================================
                 # 🛠️ base_link 기준 순수 기구학 매핑 (atan2 기반)
                 # 일반적인 ROS 로봇 (X: 전방, Y: 좌측, Z: 상단) 가정
                 # ==========================================
+
+                # 1. 앞으로 뻗을 때 로봇도 앞으로 뻗도록 (X축 반전)
+                v_upper[0] = -v_upper[0]
+                v_lower[0] = -v_lower[0]
+                v_hand[0]  = -v_hand[0]
+
+                # 2. 바깥(오른쪽)으로 뻗을 때 로봇도 바깥으로 (Y축 반전)
+                # v_upper[1] = -v_upper[1]
+                # v_lower[1] = -v_lower[1]
+                # v_hand[1]  = -v_hand[1]
 
                 # 1. joint1: 어깨 회전 (Yaw)
                 # 팔이 전방(X)을 향하면 0, 좌측(Y)을 향하면 +각도, 우측을 향하면 -각도
@@ -156,20 +195,22 @@ class RealSenseJointPublisher(Node):
                 # 2. joint2: 팔 들어올림 (Pitch)
                 # 수평 길이(XY_norm) 대비 수직 높이(Z)의 비율로 각도 계산
                 xy_norm = np.linalg.norm([v_upper[0], v_upper[1]])
-                target_joint2 = -np.arctan2(v_upper[2], xy_norm)
+                target_joint2 = -np.arctan2(v_upper[2], xy_norm) - 1.57
 
                 # 3. joint3: (Coupling 유지 - 추후 Twist 제어로 전환 시 제거 예정)
-                target_joint3 = target_joint2 * 0.35
+                roll_angle = np.arcsin(np.clip(v_lower[2], -1.0, 1.0))
+                target_joint3 = roll_angle - 1.57
 
                 # 4. joint4: 팔꿈치 관절
                 elbow_flex = np.arccos(np.clip(np.dot(v_upper, v_lower), -1.0, 1.0))
-                # Z축 기준 외적으로 굽힘 방향 판별
+                # Z축 기준 외적으로 굽힘 방향 판별  
                 cross_elbow = np.cross(v_upper, v_lower)
                 sign_elbow = np.sign(cross_elbow[2]) if abs(cross_elbow[2]) > 0.01 else 1.0
-                target_joint4 = -elbow_flex * sign_elbow
+                target_joint4 = elbow_flex * sign_elbow
 
                 # 5. joint5: (Coupling 유지)
-                target_joint5 = target_joint4 * -0.2
+                target_joint5 = np.arctan2(v_palm_normal[1], v_palm_normal[2])
+                target_joint5 = np.clip(target_joint5, -1.5, 1.5)
 
                 # 6. joint6: 손목 관절
                 wrist_flex = np.arccos(np.clip(np.dot(v_lower, v_hand), -1.0, 1.0))
