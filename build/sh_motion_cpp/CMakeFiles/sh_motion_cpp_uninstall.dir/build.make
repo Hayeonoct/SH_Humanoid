@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sejong/SH_ws/src/sh_motion_cpp
+CMAKE_SOURCE_DIR = /home/sejong/Desktop/SH_ws/src/sh_motion_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sejong/SH_ws/build/sh_motion_cpp
+CMAKE_BINARY_DIR = /home/sejong/Desktop/SH_ws/build/sh_motion_cpp
 
 # Utility rule file for sh_motion_cpp_uninstall.
 
@@ -67,7 +67,7 @@ include CMakeFiles/sh_motion_cpp_uninstall.dir/compiler_depend.make
 include CMakeFiles/sh_motion_cpp_uninstall.dir/progress.make
 
 CMakeFiles/sh_motion_cpp_uninstall:
-	/usr/bin/cmake -P /home/sejong/SH_ws/build/sh_motion_cpp/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+	/usr/bin/cmake -P /home/sejong/Desktop/SH_ws/build/sh_motion_cpp/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
 
 sh_motion_cpp_uninstall: CMakeFiles/sh_motion_cpp_uninstall
 sh_motion_cpp_uninstall: CMakeFiles/sh_motion_cpp_uninstall.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/sh_motion_cpp_uninstall.dir/clean:
 .PHONY : CMakeFiles/sh_motion_cpp_uninstall.dir/clean
 
 CMakeFiles/sh_motion_cpp_uninstall.dir/depend:
-	cd /home/sejong/SH_ws/build/sh_motion_cpp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sejong/SH_ws/src/sh_motion_cpp /home/sejong/SH_ws/src/sh_motion_cpp /home/sejong/SH_ws/build/sh_motion_cpp /home/sejong/SH_ws/build/sh_motion_cpp /home/sejong/SH_ws/build/sh_motion_cpp/CMakeFiles/sh_motion_cpp_uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/sejong/Desktop/SH_ws/build/sh_motion_cpp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sejong/Desktop/SH_ws/src/sh_motion_cpp /home/sejong/Desktop/SH_ws/src/sh_motion_cpp /home/sejong/Desktop/SH_ws/build/sh_motion_cpp /home/sejong/Desktop/SH_ws/build/sh_motion_cpp /home/sejong/Desktop/SH_ws/build/sh_motion_cpp/CMakeFiles/sh_motion_cpp_uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/sh_motion_cpp_uninstall.dir/depend
 

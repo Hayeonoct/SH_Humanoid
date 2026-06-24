@@ -1,1 +1,1 @@
-/home/sejong/SH_ws/src/SH_Humanoid_description/setup.py
+/home/sejong/Desktop/SH_ws/src/SH_Humanoid_description/setup.py

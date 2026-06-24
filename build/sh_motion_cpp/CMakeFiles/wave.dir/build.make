@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sejong/SH_ws/src/sh_motion_cpp
+CMAKE_SOURCE_DIR = /home/sejong/Desktop/SH_ws/src/sh_motion_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sejong/SH_ws/build/sh_motion_cpp
+CMAKE_BINARY_DIR = /home/sejong/Desktop/SH_ws/build/sh_motion_cpp
 
 # Include any dependencies generated for this target.
 include CMakeFiles/wave.dir/depend.make
@@ -70,18 +70,18 @@ include CMakeFiles/wave.dir/progress.make
 include CMakeFiles/wave.dir/flags.make
 
 CMakeFiles/wave.dir/src/wave.cpp.o: CMakeFiles/wave.dir/flags.make
-CMakeFiles/wave.dir/src/wave.cpp.o: /home/sejong/SH_ws/src/sh_motion_cpp/src/wave.cpp
+CMakeFiles/wave.dir/src/wave.cpp.o: /home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/wave.cpp
 CMakeFiles/wave.dir/src/wave.cpp.o: CMakeFiles/wave.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sejong/SH_ws/build/sh_motion_cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/wave.dir/src/wave.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/wave.dir/src/wave.cpp.o -MF CMakeFiles/wave.dir/src/wave.cpp.o.d -o CMakeFiles/wave.dir/src/wave.cpp.o -c /home/sejong/SH_ws/src/sh_motion_cpp/src/wave.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sejong/Desktop/SH_ws/build/sh_motion_cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/wave.dir/src/wave.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/wave.dir/src/wave.cpp.o -MF CMakeFiles/wave.dir/src/wave.cpp.o.d -o CMakeFiles/wave.dir/src/wave.cpp.o -c /home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/wave.cpp
 
 CMakeFiles/wave.dir/src/wave.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/wave.dir/src/wave.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sejong/SH_ws/src/sh_motion_cpp/src/wave.cpp > CMakeFiles/wave.dir/src/wave.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/wave.cpp > CMakeFiles/wave.dir/src/wave.cpp.i
 
 CMakeFiles/wave.dir/src/wave.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/wave.dir/src/wave.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sejong/SH_ws/src/sh_motion_cpp/src/wave.cpp -o CMakeFiles/wave.dir/src/wave.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/wave.cpp -o CMakeFiles/wave.dir/src/wave.cpp.s
 
 # Object files for target wave
 wave_OBJECTS = \
@@ -138,10 +138,10 @@ wave: /opt/ros/jazzy/lib/libcomposition_interfaces__rosidl_generator_py.so
 wave: /opt/ros/jazzy/lib/libcomposition_interfaces__rosidl_typesupport_c.so
 wave: /opt/ros/jazzy/lib/libcomposition_interfaces__rosidl_generator_c.so
 wave: /opt/ros/jazzy/lib/libmoveit_collision_detection_bullet.so.2.12.4
-wave: /usr/lib/x86_64-linux-gnu/libBulletDynamics.so
-wave: /usr/lib/x86_64-linux-gnu/libBulletCollision.so
-wave: /usr/lib/x86_64-linux-gnu/libLinearMath.so
-wave: /usr/lib/x86_64-linux-gnu/libBulletSoftBody.so
+wave: /usr/lib/aarch64-linux-gnu/libBulletDynamics.so
+wave: /usr/lib/aarch64-linux-gnu/libBulletCollision.so
+wave: /usr/lib/aarch64-linux-gnu/libLinearMath.so
+wave: /usr/lib/aarch64-linux-gnu/libBulletSoftBody.so
 wave: /opt/ros/jazzy/lib/libmoveit_collision_distance_field.so.2.12.4
 wave: /opt/ros/jazzy/lib/libmoveit_constraint_samplers.so.2.12.4
 wave: /opt/ros/jazzy/lib/libmoveit_distance_field.so.2.12.4
@@ -163,13 +163,13 @@ wave: /opt/ros/jazzy/lib/libmoveit_robot_model.so.2.12.4
 wave: /opt/ros/jazzy/lib/libmoveit_exceptions.so.2.12.4
 wave: /opt/ros/jazzy/lib/libsrdfdom.so.2.0.7
 wave: /opt/ros/jazzy/lib/liburdf.so
-wave: /opt/ros/jazzy/lib/x86_64-linux-gnu/libruckig.so
+wave: /opt/ros/jazzy/lib/aarch64-linux-gnu/libruckig.so
 wave: /opt/ros/jazzy/lib/libmoveit_transforms.so.2.12.4
-wave: /opt/ros/jazzy/lib/x86_64-linux-gnu/liburdfdom_sensor.so.4.0
-wave: /opt/ros/jazzy/lib/x86_64-linux-gnu/liburdfdom_model_state.so.4.0
-wave: /opt/ros/jazzy/lib/x86_64-linux-gnu/liburdfdom_model.so.4.0
-wave: /opt/ros/jazzy/lib/x86_64-linux-gnu/liburdfdom_world.so.4.0
-wave: /opt/ros/jazzy/lib/libgeometric_shapes.so.2.3.2
+wave: /opt/ros/jazzy/lib/aarch64-linux-gnu/liburdfdom_sensor.so.4.0
+wave: /opt/ros/jazzy/lib/aarch64-linux-gnu/liburdfdom_model_state.so.4.0
+wave: /opt/ros/jazzy/lib/aarch64-linux-gnu/liburdfdom_model.so.4.0
+wave: /opt/ros/jazzy/lib/aarch64-linux-gnu/liburdfdom_world.so.4.0
+wave: /opt/ros/jazzy/lib/libgeometric_shapes.so.2.3.4
 wave: /opt/ros/jazzy/lib/libvisualization_msgs__rosidl_typesupport_fastrtps_c.so
 wave: /opt/ros/jazzy/lib/libvisualization_msgs__rosidl_typesupport_fastrtps_cpp.so
 wave: /opt/ros/jazzy/lib/libvisualization_msgs__rosidl_typesupport_introspection_c.so
@@ -178,13 +178,14 @@ wave: /opt/ros/jazzy/lib/libvisualization_msgs__rosidl_typesupport_cpp.so
 wave: /opt/ros/jazzy/lib/libvisualization_msgs__rosidl_generator_py.so
 wave: /opt/ros/jazzy/lib/libvisualization_msgs__rosidl_typesupport_c.so
 wave: /opt/ros/jazzy/lib/libvisualization_msgs__rosidl_generator_c.so
-wave: /usr/lib/x86_64-linux-gnu/libfcl.so.0.7.0
-wave: /usr/lib/x86_64-linux-gnu/libccd.so.2.0
-wave: /usr/lib/x86_64-linux-gnu/libm.so
-wave: /usr/lib/x86_64-linux-gnu/liboctomap.so.1.9.7
-wave: /usr/lib/x86_64-linux-gnu/liboctomath.so.1.9.7
-wave: /opt/ros/jazzy/lib/libresource_retriever.so
+wave: /usr/lib/aarch64-linux-gnu/libfcl.so.0.7.0
+wave: /usr/lib/aarch64-linux-gnu/libccd.so.2.0
+wave: /usr/lib/aarch64-linux-gnu/libm.so
+wave: /usr/lib/aarch64-linux-gnu/liboctomap.so.1.9.7
+wave: /usr/lib/aarch64-linux-gnu/liboctomath.so.1.9.7
 wave: /opt/ros/jazzy/lib/librandom_numbers.so
+wave: /usr/lib/aarch64-linux-gnu/libboost_random.so.1.83.0
+wave: /opt/ros/jazzy/lib/libresource_retriever.so
 wave: /opt/ros/jazzy/lib/libmoveit_utils.so.2.12.4
 wave: /opt/ros/jazzy/lib/libmoveit_msgs__rosidl_typesupport_fastrtps_c.so
 wave: /opt/ros/jazzy/lib/libmoveit_msgs__rosidl_typesupport_introspection_c.so
@@ -233,22 +234,22 @@ wave: /opt/ros/jazzy/lib/libshape_msgs__rosidl_generator_c.so
 wave: /opt/ros/jazzy/lib/libtrajectory_msgs__rosidl_typesupport_c.so
 wave: /opt/ros/jazzy/lib/libtrajectory_msgs__rosidl_generator_c.so
 wave: /opt/ros/jazzy/lib/librsl.so
-wave: /usr/lib/x86_64-linux-gnu/libfmt.so.9.1.0
-wave: /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.83.0
-wave: /usr/lib/x86_64-linux-gnu/libboost_iostreams.so.1.83.0
-wave: /usr/lib/x86_64-linux-gnu/libboost_serialization.so.1.83.0
-wave: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.83.0
-wave: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.83.0
-wave: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.83.0
-wave: /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.83.0
-wave: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.83.0
-wave: /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.83.0
-wave: /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.83.0
+wave: /usr/lib/aarch64-linux-gnu/libfmt.so.9.1.0
+wave: /usr/lib/aarch64-linux-gnu/libboost_chrono.so.1.83.0
+wave: /usr/lib/aarch64-linux-gnu/libboost_iostreams.so.1.83.0
+wave: /usr/lib/aarch64-linux-gnu/libboost_serialization.so.1.83.0
+wave: /usr/lib/aarch64-linux-gnu/libboost_thread.so.1.83.0
+wave: /usr/lib/aarch64-linux-gnu/libboost_system.so.1.83.0
+wave: /usr/lib/aarch64-linux-gnu/libboost_filesystem.so.1.83.0
+wave: /usr/lib/aarch64-linux-gnu/libboost_atomic.so.1.83.0
+wave: /usr/lib/aarch64-linux-gnu/libboost_date_time.so.1.83.0
+wave: /usr/lib/aarch64-linux-gnu/libboost_program_options.so.1.83.0
+wave: /usr/lib/aarch64-linux-gnu/libboost_regex.so.1.83.0
 wave: /opt/ros/jazzy/lib/libwarehouse_ros.so
 wave: /opt/ros/jazzy/lib/libstatic_transform_broadcaster_node.so
 wave: /opt/ros/jazzy/lib/libclass_loader.so
-wave: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.1.0
-wave: /usr/lib/x86_64-linux-gnu/libtinyxml2.so.10.0.0
+wave: /usr/lib/aarch64-linux-gnu/libconsole_bridge.so.1.0
+wave: /usr/lib/aarch64-linux-gnu/libtinyxml2.so.10.0.0
 wave: /opt/ros/jazzy/lib/libtf2_ros.so
 wave: /opt/ros/jazzy/lib/libmessage_filters.so
 wave: /opt/ros/jazzy/lib/librclcpp_action.so
@@ -360,10 +361,10 @@ wave: /opt/ros/jazzy/lib/libstd_msgs__rosidl_generator_c.so
 wave: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_generator_c.so
 wave: /opt/ros/jazzy/lib/librosidl_runtime_c.so
 wave: /opt/ros/jazzy/lib/librcutils.so
-wave: /usr/lib/x86_64-linux-gnu/liborocos-kdl.so
-wave: /usr/lib/x86_64-linux-gnu/libcrypto.so
+wave: /usr/lib/aarch64-linux-gnu/liborocos-kdl.so
+wave: /usr/lib/aarch64-linux-gnu/libcrypto.so
 wave: CMakeFiles/wave.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/sejong/SH_ws/build/sh_motion_cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable wave"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/sejong/Desktop/SH_ws/build/sh_motion_cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable wave"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/wave.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -375,6 +376,6 @@ CMakeFiles/wave.dir/clean:
 .PHONY : CMakeFiles/wave.dir/clean
 
 CMakeFiles/wave.dir/depend:
-	cd /home/sejong/SH_ws/build/sh_motion_cpp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sejong/SH_ws/src/sh_motion_cpp /home/sejong/SH_ws/src/sh_motion_cpp /home/sejong/SH_ws/build/sh_motion_cpp /home/sejong/SH_ws/build/sh_motion_cpp /home/sejong/SH_ws/build/sh_motion_cpp/CMakeFiles/wave.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/sejong/Desktop/SH_ws/build/sh_motion_cpp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sejong/Desktop/SH_ws/src/sh_motion_cpp /home/sejong/Desktop/SH_ws/src/sh_motion_cpp /home/sejong/Desktop/SH_ws/build/sh_motion_cpp /home/sejong/Desktop/SH_ws/build/sh_motion_cpp /home/sejong/Desktop/SH_ws/build/sh_motion_cpp/CMakeFiles/wave.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/wave.dir/depend
 

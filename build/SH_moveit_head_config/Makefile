@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sejong/SH_ws/src/SH_moveit_head_config
+CMAKE_SOURCE_DIR = /home/sejong/Desktop/SH_ws/src/SH_moveit_head_config
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sejong/SH_ws/build/SH_moveit_head_config
+CMAKE_BINARY_DIR = /home/sejong/Desktop/SH_ws/build/SH_moveit_head_config
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -142,9 +142,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sejong/SH_ws/build/SH_moveit_head_config/CMakeFiles /home/sejong/SH_ws/build/SH_moveit_head_config//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sejong/Desktop/SH_ws/build/SH_moveit_head_config/CMakeFiles /home/sejong/Desktop/SH_ws/build/SH_moveit_head_config//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sejong/SH_ws/build/SH_moveit_head_config/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sejong/Desktop/SH_ws/build/SH_moveit_head_config/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

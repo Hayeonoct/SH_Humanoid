@@ -1,1 +1,1 @@
-/home/sejong/SH_ws/build/SH_Humanoid_description/launch/display.launch.py
+/home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/launch/display.launch.py

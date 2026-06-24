@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sejong/SH_ws/src/sh_motion_cpp
+CMAKE_SOURCE_DIR = /home/sejong/Desktop/SH_ws/src/sh_motion_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sejong/SH_ws/build/sh_motion_cpp
+CMAKE_BINARY_DIR = /home/sejong/Desktop/SH_ws/build/sh_motion_cpp
 
 # Utility rule file for uninstall.
 
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/sejong/SH_ws/build/sh_motion_cpp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sejong/SH_ws/src/sh_motion_cpp /home/sejong/SH_ws/src/sh_motion_cpp /home/sejong/SH_ws/build/sh_motion_cpp /home/sejong/SH_ws/build/sh_motion_cpp /home/sejong/SH_ws/build/sh_motion_cpp/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/sejong/Desktop/SH_ws/build/sh_motion_cpp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sejong/Desktop/SH_ws/src/sh_motion_cpp /home/sejong/Desktop/SH_ws/src/sh_motion_cpp /home/sejong/Desktop/SH_ws/build/sh_motion_cpp /home/sejong/Desktop/SH_ws/build/sh_motion_cpp /home/sejong/Desktop/SH_ws/build/sh_motion_cpp/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/uninstall.dir/depend
 

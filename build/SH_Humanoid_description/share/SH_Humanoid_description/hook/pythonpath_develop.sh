@@ -1,3 +1,3 @@
 # generated from colcon_core/shell/template/hook_prepend_value.sh.em
 
-_colcon_prepend_unique_value PYTHONPATH "/home/sejong/SH_ws/build/SH_Humanoid_description"
+_colcon_prepend_unique_value PYTHONPATH "/home/sejong/Desktop/SH_ws/build/SH_Humanoid_description"

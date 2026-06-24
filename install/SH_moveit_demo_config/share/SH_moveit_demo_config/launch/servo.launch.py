@@ -1,1 +1,1 @@
-/home/sejong/SH_ws/src/SH_moveit_demo_config/launch/servo.launch.py
+/home/sejong/Desktop/SH_ws/src/SH_moveit_demo_config/launch/servo.launch.py

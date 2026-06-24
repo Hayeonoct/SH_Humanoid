@@ -1,0 +1,63 @@
+[0.013s] Invoking command in '/home/sejong/Desktop/SH_ws/build/SH_moveit_demo_config': AMENT_PREFIX_PATH=/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description:/home/sejong/Desktop/SH_ws/install/sh_motion_demo:/opt/ros/jazzy CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sejong/Desktop/SH_ws/install/sh_motion_demo:/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sejong/Desktop/SH_ws/build/SH_Humanoid_description:/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/lib/python3.12/site-packages:/home/sejong/SH_ws/build/sh_motion_demo:/home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages:/home/sejong/SH_ws/build/SH_Humanoid_description:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake /home/sejong/Desktop/SH_ws/src/SH_moveit_demo_config -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config
+[0.072s] -- The C compiler identification is GNU 13.3.0
+[0.131s] -- The CXX compiler identification is GNU 13.3.0
+[0.148s] -- Detecting C compiler ABI info
+[0.239s] -- Detecting C compiler ABI info - done
+[0.251s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.254s] -- Detecting C compile features
+[0.254s] -- Detecting C compile features - done
+[0.263s] -- Detecting CXX compiler ABI info
+[0.370s] -- Detecting CXX compiler ABI info - done
+[0.382s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.383s] -- Detecting CXX compile features
+[0.384s] -- Detecting CXX compile features - done
+[0.387s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.563s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.658s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.771s] WARNING: Package name "SH_moveit_demo_config" does not follow the naming conventions. It should start with a lower case letter and only contain lower case letters, digits, underscores, and dashes.
+[0.798s] -- Configuring done (0.8s)
+[0.804s] -- Generating done (0.0s)
+[0.806s] -- Build files have been written to: /home/sejong/Desktop/SH_ws/build/SH_moveit_demo_config
+[0.818s] Invoked command in '/home/sejong/Desktop/SH_ws/build/SH_moveit_demo_config' returned '0': AMENT_PREFIX_PATH=/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description:/home/sejong/Desktop/SH_ws/install/sh_motion_demo:/opt/ros/jazzy CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sejong/Desktop/SH_ws/install/sh_motion_demo:/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sejong/Desktop/SH_ws/build/SH_Humanoid_description:/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/lib/python3.12/site-packages:/home/sejong/SH_ws/build/sh_motion_demo:/home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages:/home/sejong/SH_ws/build/SH_Humanoid_description:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake /home/sejong/Desktop/SH_ws/src/SH_moveit_demo_config -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config
+[0.818s] Invoking command in '/home/sejong/Desktop/SH_ws/build/SH_moveit_demo_config': AMENT_PREFIX_PATH=/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description:/home/sejong/Desktop/SH_ws/install/sh_motion_demo:/opt/ros/jazzy CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sejong/Desktop/SH_ws/install/sh_motion_demo:/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sejong/Desktop/SH_ws/build/SH_Humanoid_description:/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/lib/python3.12/site-packages:/home/sejong/SH_ws/build/sh_motion_demo:/home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages:/home/sejong/SH_ws/build/SH_Humanoid_description:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake --build /home/sejong/Desktop/SH_ws/build/SH_moveit_demo_config -- -j14 -l14
+[0.858s] Invoked command in '/home/sejong/Desktop/SH_ws/build/SH_moveit_demo_config' returned '0': AMENT_PREFIX_PATH=/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description:/home/sejong/Desktop/SH_ws/install/sh_motion_demo:/opt/ros/jazzy CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sejong/Desktop/SH_ws/install/sh_motion_demo:/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sejong/Desktop/SH_ws/build/SH_Humanoid_description:/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/lib/python3.12/site-packages:/home/sejong/SH_ws/build/sh_motion_demo:/home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages:/home/sejong/SH_ws/build/SH_Humanoid_description:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake --build /home/sejong/Desktop/SH_ws/build/SH_moveit_demo_config -- -j14 -l14
+[0.860s] Invoking command in '/home/sejong/Desktop/SH_ws/build/SH_moveit_demo_config': AMENT_PREFIX_PATH=/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description:/home/sejong/Desktop/SH_ws/install/sh_motion_demo:/opt/ros/jazzy CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sejong/Desktop/SH_ws/install/sh_motion_demo:/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sejong/Desktop/SH_ws/build/SH_Humanoid_description:/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/lib/python3.12/site-packages:/home/sejong/SH_ws/build/sh_motion_demo:/home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages:/home/sejong/SH_ws/build/SH_Humanoid_description:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake --install /home/sejong/Desktop/SH_ws/build/SH_moveit_demo_config
+[0.871s] -- Install configuration: ""
+[0.871s] -- Execute custom install script
+[0.871s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/ament_index/resource_index/package_run_dependencies/SH_moveit_demo_config
+[0.879s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/ament_index/resource_index/parent_prefix_path/SH_moveit_demo_config
+[0.888s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/environment/ament_prefix_path.sh
+[0.900s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/environment/ament_prefix_path.dsv
+[0.909s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/environment/path.sh
+[0.919s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/environment/path.dsv
+[0.928s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/local_setup.bash
+[0.937s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/local_setup.sh
+[0.946s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/local_setup.zsh
+[0.955s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/local_setup.dsv
+[0.968s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/package.dsv
+[0.977s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/ament_index/resource_index/packages/SH_moveit_demo_config
+[0.987s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/cmake/SH_moveit_demo_configConfig.cmake
+[0.996s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/cmake/SH_moveit_demo_configConfig-version.cmake
+[1.007s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/package.xml
+[1.018s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/launch/demo.launch.py
+[1.027s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/launch/move_group.launch.py
+[1.040s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/launch/moveit_rviz.launch.py
+[1.047s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/launch/rsp.launch.py
+[1.056s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/launch/servo.launch.py
+[1.067s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/launch/setup_assistant.launch.py
+[1.076s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/launch/spawn_controllers.launch.py
+[1.084s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/launch/static_virtual_joint_tfs.launch.py
+[1.094s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/launch/warehouse_db.launch.py
+[1.104s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/SH_Humanoid.ros2_control.xacro
+[1.115s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/SH_Humanoid.srdf
+[1.128s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/SH_Humanoid.urdf.xacro
+[1.138s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/initial_positions.yaml
+[1.149s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/joint_limits.yaml
+[1.160s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/kinematics.yaml
+[1.171s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/moveit.rviz
+[1.182s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/moveit_controllers.yaml
+[1.192s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/pilz_cartesian_limits.yaml
+[1.203s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/ros2_controllers.yaml
+[1.215s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/servo.yaml
+[1.224s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/.setup_assistant
+[1.241s] Invoked command in '/home/sejong/Desktop/SH_ws/build/SH_moveit_demo_config' returned '0': AMENT_PREFIX_PATH=/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description:/home/sejong/Desktop/SH_ws/install/sh_motion_demo:/opt/ros/jazzy CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sejong/Desktop/SH_ws/install/sh_motion_demo:/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sejong/Desktop/SH_ws/build/SH_Humanoid_description:/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/lib/python3.12/site-packages:/home/sejong/SH_ws/build/sh_motion_demo:/home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages:/home/sejong/SH_ws/build/SH_Humanoid_description:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/cmake --install /home/sejong/Desktop/SH_ws/build/SH_moveit_demo_config
