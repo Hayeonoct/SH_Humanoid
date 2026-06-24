@@ -162,6 +162,20 @@ class RealSenseJointPublisher(Node):
             p_pinky_cam = self.get_pixel_3d_point(depth_frame, pinky_u, pinky_v)
             p_pinky = self.transform_to_base_link(p_pinky_cam)
 
+            # ==========================================
+            # 🛡️ 방어 로직 추가: 하나라도 감지 안 되면 대기(스킵)
+            # ==========================================
+            required_points = [p_sh, p_el, p_wr, p_idx, p_pinky]
+            
+            # 리스트 안에 None이 하나라도 존재하면 현재 프레임은 무시하고 종료(대기)
+            if any(p is None for p in required_points):
+                self.get_logger().info('관절 좌표를 찾을 수 없어 대기 중...', throttle_duration_sec=2.0)
+                return 
+
+            # 이상적인 팔 길이 범위를 벗어난 노이즈 데이터 차단
+            if np.linalg.norm(p_wr - p_sh) > 0.8:
+                return
+
             if all(p is not None for p in [p_sh, p_el, p_wr, p_idx]):
                 if np.linalg.norm(p_wr - p_sh) > 0.8:
                     return 

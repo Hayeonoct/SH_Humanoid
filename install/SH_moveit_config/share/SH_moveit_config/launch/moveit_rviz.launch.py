@@ -1,1 +1,1 @@
-/home/sejong/SH_ws/src/SH_moveit_config/launch/moveit_rviz.launch.py
+/home/sejong/Desktop/SH_ws/src/SH_moveit_config/launch/moveit_rviz.launch.py

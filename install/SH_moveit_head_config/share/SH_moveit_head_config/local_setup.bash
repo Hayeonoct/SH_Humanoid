@@ -1,1 +1,1 @@
-/home/sejong/SH_ws/build/SH_moveit_head_config/ament_cmake_environment_hooks/local_setup.bash
+/home/sejong/Desktop/SH_ws/build/SH_moveit_head_config/ament_cmake_environment_hooks/local_setup.bash

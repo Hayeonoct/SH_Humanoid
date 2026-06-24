@@ -1,8 +1,8 @@
-# Install script for directory: /home/sejong/SH_ws/src/sh_motion_cpp
+# Install script for directory: /home/sejong/Desktop/SH_ws/src/sh_motion_cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/sejong/SH_ws/install/sh_motion_cpp")
+  set(CMAKE_INSTALL_PREFIX "/home/sejong/Desktop/SH_ws/install/sh_motion_cpp")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,7 +43,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/sejong/SH_ws/build/sh_motion_cpp/ament_cmake_symlink_install/ament_cmake_symlink_install.cmake")
+  include("/home/sejong/Desktop/SH_ws/build/sh_motion_cpp/ament_cmake_symlink_install/ament_cmake_symlink_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -54,5 +54,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/sejong/SH_ws/build/sh_motion_cpp/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/sejong/Desktop/SH_ws/build/sh_motion_cpp/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
