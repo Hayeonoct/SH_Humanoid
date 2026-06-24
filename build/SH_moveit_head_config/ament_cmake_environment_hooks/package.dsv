@@ -1,0 +1,4 @@
+source;share/SH_moveit_head_config/local_setup.bash
+source;share/SH_moveit_head_config/local_setup.dsv
+source;share/SH_moveit_head_config/local_setup.sh
+source;share/SH_moveit_head_config/local_setup.zsh
