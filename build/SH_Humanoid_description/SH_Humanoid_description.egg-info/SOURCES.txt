@@ -11,6 +11,7 @@ SH_Humanoid_description.egg-info/zip-safe
 config/display.rviz
 launch/display.launch.py
 launch/gazebo.launch.py
+meshes/Head__1__1.stl
 meshes/arm1_l_1.stl
 meshes/arm1_r_1.stl
 meshes/arm2_l_1.stl
@@ -145,4 +146,5 @@ urdf/SH_Humanoid.gazebo
 urdf/SH_Humanoid.trans
 urdf/SH_Humanoid.urdf
 urdf/SH_Humanoid.xacro
+urdf/SH_Humanoid_head.urdf
 urdf/materials.xacro
