@@ -1,3 +1,4 @@
+//trajectory_bridge_node.cpp
 #include <memory>
 #include <array>
 #include <mutex>
@@ -82,7 +83,7 @@ private:
     // -------------------------------------------------------
 
     static constexpr int CONTROL_PERIOD_MS = 20;
-    static constexpr double CONTROL_PERIOD_SEC = 0.02;
+    static constexpr double CONTROL_PERIOD_SEC = 0.005;
 
     // 200Hz로 바꾸고 싶으면 위 두 값을 아래처럼 변경:
     // static constexpr int CONTROL_PERIOD_MS = 5;

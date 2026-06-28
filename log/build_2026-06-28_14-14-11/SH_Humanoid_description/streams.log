@@ -1,0 +1,171 @@
+[0.787s] Invoking command in '/home/sejong/Desktop/SH_ws/build/SH_Humanoid_description': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/build --no-deps symlink_data --force
+[0.890s] /usr/lib/python3/dist-packages/setuptools/dist.py:744: SetuptoolsDeprecationWarning: Invalid dash-separated options
+[0.890s] !!
+[0.890s] 
+[0.890s]         ********************************************************************************
+[0.891s]         Usage of dash-separated 'script-dir' will not be supported in future
+[0.891s]         versions. Please use the underscore name 'script_dir' instead.
+[0.891s] 
+[0.891s]         This deprecation is overdue, please update your project and remove deprecated
+[0.891s]         calls to avoid build errors in the future.
+[0.891s] 
+[0.891s]         See https://setuptools.pypa.io/en/latest/userguide/declarative_config.html for details.
+[0.891s]         ********************************************************************************
+[0.891s] 
+[0.892s] !!
+[0.892s]   opt = self.warn_dash_deprecation(opt, section)
+[1.011s] running develop
+[1.127s] running egg_info
+[1.138s] writing SH_Humanoid_description.egg-info/PKG-INFO
+[1.139s] writing dependency_links to SH_Humanoid_description.egg-info/dependency_links.txt
+[1.139s] writing requirements to SH_Humanoid_description.egg-info/requires.txt
+[1.139s] writing top-level names to SH_Humanoid_description.egg-info/top_level.txt
+[1.164s] reading manifest file 'SH_Humanoid_description.egg-info/SOURCES.txt'
+[1.165s] writing manifest file 'SH_Humanoid_description.egg-info/SOURCES.txt'
+[1.176s] running build_ext
+[1.176s] Creating /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/lib/python3.12/site-packages/SH-Humanoid-description.egg-link (link to .)
+[1.177s] 
+[1.177s] Installed /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description
+[1.177s] running symlink_data
+[1.177s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/resource/SH_Humanoid_description -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/ament_index/resource_index/packages
+[1.178s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/package.xml -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description
+[1.178s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/launch/display.launch.py -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/launch
+[1.178s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/launch/gazebo.launch.py -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/launch
+[1.178s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/urdf/SH_Humanoid.xacro -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/urdf
+[1.179s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/urdf/SH_Humanoid.trans -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/urdf
+[1.179s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/urdf/materials.xacro -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/urdf
+[1.179s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/urdf/SH_Humanoid(with hand, fingers).urdf -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/urdf
+[1.179s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/urdf/SH_Humanoid_head.urdf -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/urdf
+[1.179s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/urdf/SH_Humanoid.gazebo -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/urdf
+[1.179s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/urdf/SH_Humanoid.urdf -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/urdf
+[1.179s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_ring_force_sensor_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.179s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_little_force_sensor_3.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.179s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_little_force_sensor_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.180s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_index_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.180s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_hip_yaw_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.180s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_hand_index_1_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.180s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_hip_pitch_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.180s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_hand_index_0_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.181s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_shoulder_pitch_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.181s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_wrist_yaw_link_5010.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.181s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_wrist_pitch_link_5010.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.181s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_index_force_sensor_3.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.181s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/Head__1__1.stl -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.181s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/arm7_l_1.stl -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.181s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_middle_force_sensor_3.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.181s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_little_force_sensor_3.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.181s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_ankle_roll_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.182s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_base_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.182s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_shoulder_roll_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.182s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_little_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.182s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_wrist_pitch_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.183s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_hand_palm_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.183s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_hand_middle_0_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.183s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_ring_force_sensor_3.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.183s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_thumb_force_sensor_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.183s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_thumb_force_sensor_4.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.183s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_ring_force_sensor_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.184s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_knee_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.184s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_wrist_roll_link_5010.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.184s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_base_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.184s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_thumb_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.184s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_index_force_sensor_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.184s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_little_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.185s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_index_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.185s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/arm5_l_1.stl -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.185s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_rubber_hand.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.185s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/arm7_r_1.stl -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.185s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_ring_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.185s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/arm3_l_1.stl -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.185s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_ring_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.186s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_palm_force_sensor.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.186s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_thumb_force_sensor_3.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.186s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/arm6_r_1.stl -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.186s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_thumb_force_sensor_4.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.186s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_hand_middle_0_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.186s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_hand_palm_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.187s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_elbow_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.187s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_ring_force_sensor_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.187s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_index_force_sensor_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.187s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_middle_force_sensor_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.187s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_thumb_4.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.187s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_shoulder_roll_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.187s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_middle_force_sensor_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.188s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_wrist_roll_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.188s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_ring_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.188s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_thumb_swing.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.188s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_thumb_force_sensor_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.188s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_wrist_pitch_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.188s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_knee_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.189s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/arm1_l_1.stl -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.189s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_ring_force_sensor_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.189s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/base_link.stl -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.189s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_wrist_pitch_link_5010.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.189s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_ring_force_sensor_3.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.189s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_middle_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.190s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_index_force_sensor_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.190s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_wrist_roll_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.190s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_thumb_3.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.190s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_palm_force_sensor.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.191s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/arm6_l_1.stl -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.191s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_shoulder_yaw_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.191s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_little_force_sensor_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.191s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_little_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.191s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_thumb_3.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.191s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_middle_force_sensor_3.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.192s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/arm2_r_1.stl -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.192s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_hand_thumb_2_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.192s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_ankle_pitch_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.192s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/arm4_l_1.stl -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.192s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_middle_force_sensor_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.193s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_hand_thumb_0_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.193s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_rubber_hand.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.193s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_hip_yaw_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.193s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_shoulder_pitch_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.193s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_wrist_yaw_link_5010.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.193s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_elbow_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.194s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_hand_thumb_0_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.194s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_thumb_force_sensor_3.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.194s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_index_force_sensor_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.194s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/arm4_r_1.stl -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.194s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_hand_thumb_1_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.194s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_hand_middle_1_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.195s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_thumb_4.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.195s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_thumb_force_sensor_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.195s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_shoulder_yaw_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.195s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/arm2_l_1.stl -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.195s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/arm5_r_1.stl -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.195s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_hand_index_1_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.196s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_middle_force_sensor_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.196s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_wrist_roll_rubber_hand.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.196s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_thumb_force_sensor_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.196s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_ankle_pitch_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.196s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_ring_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.197s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_middle_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.197s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_little_force_sensor_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.197s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_index_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.197s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_little_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.197s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_middle_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.197s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_hip_pitch_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.197s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/arm1_r_1.stl -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.197s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_middle_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.198s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_thumb_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.198s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_hand_thumb_1_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.198s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_wrist_roll_rubber_hand.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.198s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_index_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.199s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_index_force_sensor_3.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.199s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_hip_roll_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.199s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_wrist_yaw_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.199s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_wrist_yaw_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.199s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_ankle_roll_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.199s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_hand_thumb_2_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.199s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_little_force_sensor_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.199s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_hand_middle_1_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.200s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/arm3_r_1.stl -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.200s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_hand_index_0_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.200s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_hip_roll_link.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.200s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_thumb_1.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.200s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/right_thumb_2.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.200s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/meshes/left_wrist_roll_link_5010.STL -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/meshes
+[1.200s] symbolically linking /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/config/display.rviz -> /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/share/SH_Humanoid_description/config
+[1.233s] Invoked command in '/home/sejong/Desktop/SH_ws/build/SH_Humanoid_description' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/build --no-deps symlink_data --force
