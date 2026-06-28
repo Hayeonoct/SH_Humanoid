@@ -1,0 +1,11 @@
+{
+  "package_name": "ros2_interfaces",
+  "non_idl_tuples": [
+    "/home/sejong/Desktop/SH_ws/src/ros2_interfaces:msg/UpperBodyCommand.msg",
+    "/home/sejong/Desktop/SH_ws/src/ros2_interfaces:msg/UpperBodySystemState.msg",
+    "/home/sejong/Desktop/SH_ws/src/ros2_interfaces:msg/UpperMotorState.msg",
+    "/home/sejong/Desktop/SH_ws/src/ros2_interfaces:srv/EnableMotors.srv",
+    "/home/sejong/Desktop/SH_ws/src/ros2_interfaces:srv/SetRunMode.srv",
+    "/home/sejong/Desktop/SH_ws/src/ros2_interfaces:srv/SimpleMotorResult.srv"
+  ]
+}

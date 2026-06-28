@@ -1,0 +1,21 @@
+[01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:63:5:[m[K [01;31m[Kerror: [m[Kinvalid use of template-name ‘[01m[Krclcpp::Publisher[m[K’ without an argument list
+   63 |     [01;31m[Krclcpp[m[K::Publisher
+      |     [01;31m[K^~~~~~[m[K
+[01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:64:31:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+   64 |         ros2_interfaces::msg::[01;31m[KUpperBodyCommand[m[K>::SharedPtr command_pub_;
+      |                               [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |                                               [32m[K;[m[K
+[01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:64:47:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K>[m[K’ token
+   64 |         ros2_interfaces::msg::UpperBodyCommand[01;31m[K>[m[K::SharedPtr command_pub_;
+      |                                               [01;31m[K^[m[K
+[01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:[m[K In constructor ‘[01m[KTrajectoryBridge::[01;32m[KTrajectoryBridge[m[K()[m[K’:
+[01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:48:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kcommand_pub_[m[K’ was not declared in this scope
+   48 |         [01;31m[Kcommand_pub_[m[K =
+      |         [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:[m[K In member function ‘[01m[Kvoid TrajectoryBridge::[01;32m[KpublishCommand[m[K(double)[m[K’:
+[01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:263:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kcommand_pub_[m[K’ was not declared in this scope
+  263 |         [01;31m[Kcommand_pub_[m[K->publish(cmd);
+      |         [01;31m[K^~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/trajectory_bridge_node.dir/build.make:76: CMakeFiles/trajectory_bridge_node.dir/src/trajectory_bridge_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:167: CMakeFiles/trajectory_bridge_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

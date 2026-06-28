@@ -14,6 +14,7 @@
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/cmake/SH_moveit_head_configConfig-version.cmake
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/package.xml
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/demo.launch.py
+/home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/demo_bridge.launch.py
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/move_group.launch.py
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/moveit_rviz.launch.py
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/rsp.launch.py
@@ -31,6 +32,10 @@
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/moveit.rviz
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/moveit_controllers.yaml
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/pilz_cartesian_limits.yaml
+/home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/poses/home.yaml
+/home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/poses/wave_left.yaml
+/home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/poses/wave_ready.yaml
+/home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/poses/wave_right.yaml
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/ros2_controllers.yaml
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/servo.yaml
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/.setup_assistant

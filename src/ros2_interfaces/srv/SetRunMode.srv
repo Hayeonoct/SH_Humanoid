@@ -1,0 +1,9 @@
+# Request
+uint8 mode
+uint8[] motor_id_list
+---
+# Response
+bool success
+string message
+uint8[] applied_motor_ids
+uint8[] failed_motor_ids

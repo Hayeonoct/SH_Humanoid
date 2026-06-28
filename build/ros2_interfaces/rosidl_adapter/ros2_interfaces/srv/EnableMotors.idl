@@ -1,0 +1,27 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from ros2_interfaces/srv/EnableMotors.srv
+// generated code does not contain a copyright notice
+
+
+module ros2_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      "Request")
+    struct EnableMotors_Request {
+      boolean enable_all;
+
+      sequence<uint8> motor_id_list;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct EnableMotors_Response {
+      boolean success;
+
+      string message;
+
+      sequence<uint8> enabled_motor_ids;
+
+      sequence<uint8> failed_motor_ids;
+    };
+  };
+};

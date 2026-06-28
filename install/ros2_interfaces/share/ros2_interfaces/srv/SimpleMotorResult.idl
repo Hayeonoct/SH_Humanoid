@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from ros2_interfaces/srv/SimpleMotorResult.srv
+// generated code does not contain a copyright notice
+
+
+module ros2_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      "Request")
+    struct SimpleMotorResult_Request {
+      sequence<uint8> motor_id_list;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct SimpleMotorResult_Response {
+      boolean success;
+
+      string message;
+    };
+  };
+};

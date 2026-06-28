@@ -1,0 +1,25 @@
+[ 16%] [32mBuilding CXX object CMakeFiles/trajectory_bridge_node.dir/src/trajectory_bridge_node.cpp.o[0m
+[ 50%] Built target joint_state_bridge
+[ 83%] Built target wave
+[100%] [32m[1mLinking CXX executable trajectory_bridge_node[0m
+[100%] Built target trajectory_bridge_node
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/lib/sh_motion_cpp/wave
+-- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/lib/sh_motion_cpp/trajectory_bridge_node
+-- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/lib/sh_motion_cpp/joint_state_bridge
+-- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/share/ament_index/resource_index/package_run_dependencies/sh_motion_cpp
+-- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/share/ament_index/resource_index/parent_prefix_path/sh_motion_cpp
+-- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/environment/path.sh
+-- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/environment/path.dsv
+-- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/local_setup.bash
+-- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/local_setup.sh
+-- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/local_setup.zsh
+-- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/local_setup.dsv
+-- Symlinking: /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/package.dsv
+-- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/share/ament_index/resource_index/packages/sh_motion_cpp
+-- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/cmake/sh_motion_cppConfig.cmake
+-- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/cmake/sh_motion_cppConfig-version.cmake
+-- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/package.xml

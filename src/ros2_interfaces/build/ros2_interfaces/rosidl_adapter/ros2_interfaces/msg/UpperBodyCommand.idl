@@ -1,0 +1,43 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ros2_interfaces/msg/UpperBodyCommand.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module ros2_interfaces {
+  module msg {
+    typedef uint8 uint8__15[15];
+    typedef float float__15[15];
+    module UpperBodyCommand_Constants {
+      @verbatim (language="comment", text=
+        "Command modes")
+      const uint8 STOP = 0;
+      const uint8 POSITION = 1;
+      const uint8 VELOCITY = 2;
+      const uint8 TORQUE = 3;
+      const uint8 POSITION_VELOCITY = 4;
+      const uint8 IMPEDANCE = 5;
+    };
+    @verbatim (language="comment", text=
+      "Upper body command for 15 motors.")
+    struct UpperBodyCommand {
+      std_msgs::msg::Header header;
+
+      uint8 command_mode;
+
+      uint8__15 motor_id;
+
+      float__15 position;
+
+      float__15 velocity;
+
+      float__15 effort;
+
+      float__15 kp;
+
+      float__15 kd;
+
+      float duration;
+    };
+  };
+};

@@ -1,0 +1,371 @@
+[0.018s] Invoking command in '/Volumes/Data/SamHyun/HRController/build/ros2_interfaces/ros2_interfaces': CONDA_PROMPT_MODIFIER=(ros2_humble) SHLVL=2 _=/usr/bin/env /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/bin/cmake /Volumes/Data/SamHyun/HRController/ros2_interfaces -DPython3_EXECUTABLE=/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/bin/python -DPython3_INCLUDE_DIR=/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/include/python3.10 -DPython3_LIBRARY=/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/lib/libpython3.10.dylib -DPython3_NumPy_INCLUDE_DIRS=/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/lib/python3.10/site-packages/numpy/core/include -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/Volumes/Data/SamHyun/HRController/install/ros2_interfaces
+[0.043s] CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.043s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.043s]   CMake.
+[0.043s] 
+[0.043s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.043s]   to tell CMake that the project requires at least <min> but has been updated
+[0.043s]   to work with policies introduced by <max> or earlier.
+[0.043s] 
+[0.043s] 
+[0.184s] -- The C compiler identification is AppleClang 21.0.0.21000101
+[0.301s] -- The CXX compiler identification is AppleClang 21.0.0.21000101
+[0.339s] -- Detecting C compiler ABI info
+[0.578s] -- Detecting C compiler ABI info - done
+[0.597s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.597s] -- Detecting C compile features
+[0.598s] -- Detecting C compile features - done
+[0.605s] -- Detecting CXX compiler ABI info
+[0.849s] -- Detecting CXX compiler ABI info - done
+[0.872s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.872s] -- Detecting CXX compile features
+[0.873s] -- Detecting CXX compile features - done
+[0.887s] -- Found ament_cmake: 1.3.3 (/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/ament_cmake/cmake)
+[1.027s] -- Found Python3: /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/bin/python (found version "3.10.20") found components: Interpreter
+[1.249s] -- Found rosidl_default_generators: 1.2.0 (/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_default_generators/cmake)
+[1.262s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.294s] -- Found rosidl_adapter: 3.1.4 (/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_adapter/cmake)
+[1.416s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.525s] -- Found std_msgs: 4.2.3 (/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/std_msgs/cmake)
+[2.112s] -- Found ament_cmake_ros: 0.10.0 (/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/ament_cmake_ros/cmake)
+[2.736s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.473s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.475s] CMake Warning (dev) at /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:20 (find_package):
+[3.475s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[3.475s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[3.475s]   the cmake_policy command to set the policy and suppress this warning.
+[3.475s] 
+[3.475s] Call Stack (most recent call first):
+[3.475s]   /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+[3.475s]   /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+[3.476s]   CMakeLists.txt:8 (rosidl_generate_interfaces)
+[3.476s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[3.476s] 
+[3.492s] -- Found PythonInterp: /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/bin/python3 (found suitable version "3.10.20", minimum required is "3.6")
+[3.502s] -- Found python_cmake_module: 0.10.0 (/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/python_cmake_module/cmake)
+[3.503s] CMake Warning (dev) at /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/python_cmake_module/cmake/Modules/FindPythonExtra.cmake:52 (find_package):
+[3.503s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[3.503s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[3.503s]   the cmake_policy command to set the policy and suppress this warning.
+[3.503s] 
+[3.503s] Call Stack (most recent call first):
+[3.503s]   /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:23 (find_package)
+[3.503s]   /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+[3.503s]   /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+[3.503s]   CMakeLists.txt:8 (rosidl_generate_interfaces)
+[3.503s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[3.503s] 
+[3.541s] -- Using PythonExtra_INCLUDE_DIRS: /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/include/python3.10;/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/include/python3.10
+[3.567s] -- Using PythonExtra_LIBRARIES: /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/lib/libpython3.10.dylib
+[3.588s] -- Found PythonExtra: .so
+[3.930s] -- Found Python3: /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/include/python3.10 (found version "3.10.20") found components: Development NumPy Interpreter Development.Module Development.Embed
+[4.046s] -- Configuring done (4.0s)
+[4.151s] -- Generating done (0.1s)
+[4.151s] CMake Warning:
+[4.151s]   Manually-specified variables were not used by the project:
+[4.151s] 
+[4.151s]     CATKIN_INSTALL_INTO_PREFIX_ROOT
+[4.151s] 
+[4.151s] 
+[4.207s] -- Build files have been written to: /Volumes/Data/SamHyun/HRController/build/ros2_interfaces/ros2_interfaces
+[4.215s] Invoked command in '/Volumes/Data/SamHyun/HRController/build/ros2_interfaces/ros2_interfaces' returned '0': CONDA_PROMPT_MODIFIER=(ros2_humble) SHLVL=2 _=/usr/bin/env /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/bin/cmake /Volumes/Data/SamHyun/HRController/ros2_interfaces -DPython3_EXECUTABLE=/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/bin/python -DPython3_INCLUDE_DIR=/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/include/python3.10 -DPython3_LIBRARY=/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/lib/libpython3.10.dylib -DPython3_NumPy_INCLUDE_DIRS=/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/lib/python3.10/site-packages/numpy/core/include -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/Volumes/Data/SamHyun/HRController/install/ros2_interfaces
+[4.218s] Invoking command in '/Volumes/Data/SamHyun/HRController/build/ros2_interfaces/ros2_interfaces': CONDA_PROMPT_MODIFIER=(ros2_humble) SHLVL=2 _=/usr/bin/env /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/bin/cmake --build /Volumes/Data/SamHyun/HRController/build/ros2_interfaces/ros2_interfaces -- -j12 -l12
+[4.321s] [  1%] Generating C code for ROS interfaces
+[4.347s] [  3%] Generating C++ code for ROS interfaces
+[4.365s] [  3%] Built target ament_cmake_python_copy_ros2_interfaces
+[4.821s] running egg_info
+[4.821s] creating ros2_interfaces.egg-info
+[4.875s] writing ros2_interfaces.egg-info/PKG-INFO
+[4.917s] [  3%] Built target ros2_interfaces__cpp
+[4.918s] [  4%] Building C object CMakeFiles/ros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros2_interfaces/msg/detail/upper_body_command__functions.c.o
+[4.919s] [  6%] Building C object CMakeFiles/ros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros2_interfaces/msg/detail/upper_body_system_state__functions.c.o
+[4.919s] [  7%] Building C object CMakeFiles/ros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros2_interfaces/srv/detail/enable_motors__functions.c.o
+[4.920s] [  9%] Building C object CMakeFiles/ros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros2_interfaces/msg/detail/upper_motor_state__functions.c.o
+[4.924s] [ 11%] Building C object CMakeFiles/ros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros2_interfaces/srv/detail/simple_motor_result__functions.c.o
+[4.924s] writing dependency_links to ros2_interfaces.egg-info/dependency_links.txt
+[4.946s] [ 12%] Generating C++ type support dispatch for ROS interfaces
+[4.949s] [ 15%] Generating C++ introspection for ROS interfaces
+[4.949s] [ 15%] Generating C++ type support for eProsima Fast-RTPS
+[5.005s] [ 17%] Linking C shared library libros2_interfaces__rosidl_generator_c.dylib
+[5.108s] [ 17%] Built target ros2_interfaces__rosidl_generator_c
+[5.136s] [ 19%] Generating C introspection for ROS interfaces
+[5.138s] [ 20%] Generating C type support dispatch for ROS interfaces
+[5.138s] [ 22%] Generating C type support for eProsima Fast-RTPS
+[5.234s] writing top-level names to ros2_interfaces.egg-info/top_level.txt
+[5.234s] writing manifest file 'ros2_interfaces.egg-info/SOURCES.txt'
+[5.315s] reading manifest file 'ros2_interfaces.egg-info/SOURCES.txt'
+[5.316s] writing manifest file 'ros2_interfaces.egg-info/SOURCES.txt'
+[5.394s] [ 22%] Built target ament_cmake_python_build_ros2_interfaces_egg
+[5.443s] [ 23%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros2_interfaces/msg/upper_body_system_state__type_support.cpp.o
+[5.446s] [ 25%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros2_interfaces/msg/upper_body_command__type_support.cpp.o
+[5.456s] [ 26%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros2_interfaces/msg/upper_motor_state__type_support.cpp.o
+[5.472s] [ 28%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros2_interfaces/srv/enable_motors__type_support.cpp.o
+[5.474s] [ 30%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros2_interfaces/srv/simple_motor_result__type_support.cpp.o
+[5.511s] [ 31%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros2_interfaces/msg/detail/upper_body_command__type_support.cpp.o
+[5.515s] [ 33%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros2_interfaces/msg/detail/upper_body_system_state__type_support.cpp.o
+[5.523s] [ 34%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros2_interfaces/msg/detail/upper_motor_state__type_support.cpp.o
+[5.574s] [ 36%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros2_interfaces/msg/detail/dds_fastrtps/upper_body_command__type_support.cpp.o
+[5.784s] [ 38%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros2_interfaces/msg/upper_body_command__type_support.cpp.o
+[5.863s] [ 39%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros2_interfaces/msg/upper_body_system_state__type_support.cpp.o
+[5.939s] [ 41%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros2_interfaces/msg/upper_motor_state__type_support.cpp.o
+[5.958s] [ 42%] Building C object CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_interfaces/msg/detail/upper_body_command__type_support.c.o
+[6.024s] [ 44%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros2_interfaces/srv/detail/enable_motors__type_support.cpp.o
+[6.032s] [ 46%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros2_interfaces/srv/enable_motors__type_support.cpp.o
+[6.044s] [ 47%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros2_interfaces/msg/detail/upper_body_command__type_support_c.cpp.o
+[6.064s] [ 49%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros2_interfaces/msg/detail/dds_fastrtps/upper_body_system_state__type_support.cpp.o
+[6.074s] [ 50%] Building C object CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_interfaces/msg/detail/upper_body_system_state__type_support.c.o
+[6.081s] [ 52%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros2_interfaces/srv/simple_motor_result__type_support.cpp.o
+[6.085s] [ 53%] Building C object CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_interfaces/msg/detail/upper_motor_state__type_support.c.o
+[6.095s] [ 55%] Linking CXX shared library libros2_interfaces__rosidl_typesupport_cpp.dylib
+[6.110s] [ 57%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros2_interfaces/srv/detail/simple_motor_result__type_support.cpp.o
+[6.115s] [ 58%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros2_interfaces/msg/detail/upper_body_system_state__type_support_c.cpp.o
+[6.118s] [ 60%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros2_interfaces/msg/detail/dds_fastrtps/upper_motor_state__type_support.cpp.o
+[6.123s] [ 61%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros2_interfaces/msg/detail/upper_motor_state__type_support_c.cpp.o
+[6.151s] [ 63%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros2_interfaces/srv/detail/dds_fastrtps/enable_motors__type_support.cpp.o
+[6.163s] [ 65%] Linking CXX shared library libros2_interfaces__rosidl_typesupport_c.dylib
+[6.170s] [ 66%] Building C object CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_interfaces/srv/detail/enable_motors__type_support.c.o
+[6.214s] [ 66%] Built target ros2_interfaces__rosidl_typesupport_cpp
+[6.242s] [ 68%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros2_interfaces/srv/detail/enable_motors__type_support_c.cpp.o
+[6.260s] [ 69%] Building C object CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_interfaces/srv/detail/simple_motor_result__type_support.c.o
+[6.282s] [ 69%] Built target ros2_interfaces__rosidl_typesupport_c
+[6.311s] [ 71%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros2_interfaces/srv/detail/dds_fastrtps/simple_motor_result__type_support.cpp.o
+[6.351s] [ 73%] Linking C shared library libros2_interfaces__rosidl_typesupport_introspection_c.dylib
+[6.442s] [ 74%] Building CXX object CMakeFiles/ros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros2_interfaces/srv/detail/simple_motor_result__type_support_c.cpp.o
+[6.514s] [ 74%] Built target ros2_interfaces__rosidl_typesupport_introspection_c
+[6.774s] [ 76%] Linking CXX shared library libros2_interfaces__rosidl_typesupport_introspection_cpp.dylib
+[6.869s] [ 76%] Built target ros2_interfaces__rosidl_typesupport_introspection_cpp
+[6.924s] [ 77%] Linking CXX shared library libros2_interfaces__rosidl_typesupport_fastrtps_cpp.dylib
+[6.977s] [ 79%] Linking CXX shared library libros2_interfaces__rosidl_typesupport_fastrtps_c.dylib
+[7.000s] [ 79%] Built target ros2_interfaces__rosidl_typesupport_fastrtps_cpp
+[7.051s] [ 79%] Built target ros2_interfaces__rosidl_typesupport_fastrtps_c
+[7.098s] [ 79%] Built target ros2_interfaces
+[7.143s] [ 80%] Generating Python code for ROS interfaces
+[7.913s] [ 80%] Built target ros2_interfaces__py
+[7.960s] [ 85%] Building C object CMakeFiles/ros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros2_interfaces/msg/_upper_body_system_state_s.c.o
+[7.960s] [ 85%] Building C object CMakeFiles/ros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros2_interfaces/srv/_simple_motor_result_s.c.o
+[7.960s] [ 85%] Building C object CMakeFiles/ros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros2_interfaces/srv/_enable_motors_s.c.o
+[7.960s] [ 87%] Building C object CMakeFiles/ros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros2_interfaces/msg/_upper_body_command_s.c.o
+[7.962s] [ 88%] Building C object CMakeFiles/ros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros2_interfaces/msg/_upper_motor_state_s.c.o
+[8.069s] [ 90%] Linking C shared library rosidl_generator_py/ros2_interfaces/libros2_interfaces__rosidl_generator_py.dylib
+[8.184s] [ 90%] Built target ros2_interfaces__rosidl_generator_py
+[8.234s] [ 92%] Building C object CMakeFiles/ros2_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/ros2_interfaces/_ros2_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o
+[8.235s] [ 95%] Building C object CMakeFiles/ros2_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/ros2_interfaces/_ros2_interfaces_s.ep.rosidl_typesupport_c.c.o
+[8.235s] [ 95%] Building C object CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/ros2_interfaces/_ros2_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o
+[8.333s] [100%] Linking C shared library rosidl_generator_py/ros2_interfaces/ros2_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-darwin.so
+[8.333s] [100%] Linking C shared library rosidl_generator_py/ros2_interfaces/ros2_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-darwin.so
+[8.333s] [100%] Linking C shared library rosidl_generator_py/ros2_interfaces/ros2_interfaces_s__rosidl_typesupport_c.cpython-310-darwin.so
+[8.419s] [100%] Built target ros2_interfaces__rosidl_typesupport_introspection_c__pyext
+[8.419s] [100%] Built target ros2_interfaces__rosidl_typesupport_c__pyext
+[8.421s] [100%] Built target ros2_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[8.441s] Invoked command in '/Volumes/Data/SamHyun/HRController/build/ros2_interfaces/ros2_interfaces' returned '0': CONDA_PROMPT_MODIFIER=(ros2_humble) SHLVL=2 _=/usr/bin/env /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/bin/cmake --build /Volumes/Data/SamHyun/HRController/build/ros2_interfaces/ros2_interfaces -- -j12 -l12
+[8.462s] Invoking command in '/Volumes/Data/SamHyun/HRController/build/ros2_interfaces/ros2_interfaces': CONDA_PROMPT_MODIFIER=(ros2_humble) SHLVL=2 _=/usr/bin/env /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/bin/cmake --install /Volumes/Data/SamHyun/HRController/build/ros2_interfaces/ros2_interfaces
+[8.480s] -- Install configuration: ""
+[8.480s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ament_index/resource_index/rosidl_interfaces/ros2_interfaces
+[8.480s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces
+[8.481s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg
+[8.481s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/rosidl_generator_c__visibility_control.h
+[8.481s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail
+[8.481s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_system_state__struct.h
+[8.482s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_command__struct.h
+[8.482s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_command__type_support.h
+[8.482s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_command__functions.h
+[8.482s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_system_state__functions.c
+[8.483s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_motor_state__struct.h
+[8.483s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_motor_state__type_support.h
+[8.483s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_motor_state__functions.h
+[8.484s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_system_state__type_support.h
+[8.484s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_system_state__functions.h
+[8.484s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_command__functions.c
+[8.484s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_motor_state__functions.c
+[8.485s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/upper_body_system_state.h
+[8.485s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/upper_motor_state.h
+[8.485s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/upper_body_command.h
+[8.486s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv
+[8.486s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/enable_motors.h
+[8.486s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail
+[8.486s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/enable_motors__functions.h
+[8.486s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/simple_motor_result__struct.h
+[8.486s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/simple_motor_result__functions.c
+[8.487s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/enable_motors__struct.h
+[8.487s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/enable_motors__functions.c
+[8.487s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/simple_motor_result__functions.h
+[8.488s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/simple_motor_result__type_support.h
+[8.488s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/enable_motors__type_support.h
+[8.488s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/simple_motor_result.h
+[8.488s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/libros2_interfaces__rosidl_generator_c.dylib
+[8.502s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces
+[8.502s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg
+[8.502s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail
+[8.502s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_system_state__rosidl_typesupport_fastrtps_c.h
+[8.502s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_command__rosidl_typesupport_fastrtps_c.h
+[8.502s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_motor_state__rosidl_typesupport_fastrtps_c.h
+[8.503s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[8.503s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv
+[8.504s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail
+[8.504s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/enable_motors__rosidl_typesupport_fastrtps_c.h
+[8.504s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/simple_motor_result__rosidl_typesupport_fastrtps_c.h
+[8.504s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/libros2_interfaces__rosidl_typesupport_fastrtps_c.dylib
+[8.519s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces
+[8.520s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg
+[8.520s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail
+[8.520s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_system_state__type_support.c
+[8.520s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_command__rosidl_typesupport_introspection_c.h
+[8.520s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_command__type_support.c
+[8.520s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_system_state__rosidl_typesupport_introspection_c.h
+[8.521s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_motor_state__rosidl_typesupport_introspection_c.h
+[8.521s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_motor_state__type_support.c
+[8.521s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[8.521s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv
+[8.521s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail
+[8.521s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/simple_motor_result__rosidl_typesupport_introspection_c.h
+[8.522s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/enable_motors__type_support.c
+[8.522s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/simple_motor_result__type_support.c
+[8.522s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/enable_motors__rosidl_typesupport_introspection_c.h
+[8.523s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/libros2_interfaces__rosidl_typesupport_introspection_c.dylib
+[8.538s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/libros2_interfaces__rosidl_typesupport_c.dylib
+[8.551s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces
+[8.551s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg
+[8.551s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/upper_motor_state.hpp
+[8.551s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail
+[8.551s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_system_state__builder.hpp
+[8.551s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_motor_state__traits.hpp
+[8.552s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_system_state__traits.hpp
+[8.552s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_command__struct.hpp
+[8.552s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_motor_state__builder.hpp
+[8.552s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_command__builder.hpp
+[8.553s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_motor_state__struct.hpp
+[8.553s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_system_state__struct.hpp
+[8.553s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_command__traits.hpp
+[8.554s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/upper_body_command.hpp
+[8.554s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/upper_body_system_state.hpp
+[8.554s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv
+[8.554s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/simple_motor_result.hpp
+[8.554s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/enable_motors.hpp
+[8.555s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail
+[8.555s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/simple_motor_result__struct.hpp
+[8.555s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/enable_motors__traits.hpp
+[8.555s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/simple_motor_result__builder.hpp
+[8.556s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/simple_motor_result__traits.hpp
+[8.556s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/enable_motors__struct.hpp
+[8.556s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/enable_motors__builder.hpp
+[8.556s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces
+[8.557s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg
+[8.557s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[8.557s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail
+[8.557s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_system_state__rosidl_typesupport_fastrtps_cpp.hpp
+[8.557s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_command__rosidl_typesupport_fastrtps_cpp.hpp
+[8.558s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_motor_state__rosidl_typesupport_fastrtps_cpp.hpp
+[8.558s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/dds_fastrtps
+[8.558s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv
+[8.558s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail
+[8.558s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/simple_motor_result__rosidl_typesupport_fastrtps_cpp.hpp
+[8.558s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/dds_fastrtps
+[8.558s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/enable_motors__rosidl_typesupport_fastrtps_cpp.hpp
+[8.559s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/libros2_interfaces__rosidl_typesupport_fastrtps_cpp.dylib
+[8.575s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces
+[8.575s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg
+[8.575s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail
+[8.575s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_system_state__rosidl_typesupport_introspection_cpp.hpp
+[8.575s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_motor_state__rosidl_typesupport_introspection_cpp.hpp
+[8.576s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_motor_state__type_support.cpp
+[8.576s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_command__rosidl_typesupport_introspection_cpp.hpp
+[8.576s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_command__type_support.cpp
+[8.577s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/msg/detail/upper_body_system_state__type_support.cpp
+[8.577s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv
+[8.577s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail
+[8.577s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/simple_motor_result__rosidl_typesupport_introspection_cpp.hpp
+[8.577s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/enable_motors__rosidl_typesupport_introspection_cpp.hpp
+[8.578s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/enable_motors__type_support.cpp
+[8.578s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/include/ros2_interfaces/ros2_interfaces/srv/detail/simple_motor_result__type_support.cpp
+[8.578s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/libros2_interfaces__rosidl_typesupport_introspection_cpp.dylib
+[8.595s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/libros2_interfaces__rosidl_typesupport_cpp.dylib
+[8.608s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/environment/pythonpath.sh
+[8.608s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/environment/pythonpath.dsv
+[8.608s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces-0.0.1-py3.10.egg-info
+[8.608s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces-0.0.1-py3.10.egg-info/PKG-INFO
+[8.609s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces-0.0.1-py3.10.egg-info/SOURCES.txt
+[8.609s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces-0.0.1-py3.10.egg-info/top_level.txt
+[8.609s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces-0.0.1-py3.10.egg-info/dependency_links.txt
+[8.610s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces
+[8.610s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/_ros2_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[8.610s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/libros2_interfaces__rosidl_generator_py.dylib
+[8.611s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/_ros2_interfaces_s.ep.rosidl_typesupport_c.c
+[8.611s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/msg
+[8.611s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/msg/_upper_body_system_state_s.c
+[8.611s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/msg/_upper_motor_state.py
+[8.612s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/msg/__init__.py
+[8.612s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/msg/_upper_body_command_s.c
+[8.612s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/msg/_upper_body_system_state.py
+[8.613s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/msg/_upper_motor_state_s.c
+[8.613s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/msg/_upper_body_command.py
+[8.613s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/ros2_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-darwin.so
+[8.614s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/__init__.py
+[8.615s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/ros2_interfaces_s__rosidl_typesupport_c.cpython-310-darwin.so
+[8.615s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/ros2_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-darwin.so
+[8.615s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/_ros2_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[8.616s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/srv
+[8.616s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/srv/_simple_motor_result.py
+[8.616s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/srv/_enable_motors.py
+[8.616s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/srv/_enable_motors_s.c
+[8.616s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/srv/_simple_motor_result_s.c
+[8.616s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/srv/__init__.py
+[8.644s] Listing 'lib/python3.10/site-packages/ros2_interfaces'...
+[8.644s] Can't list 'lib/python3.10/site-packages/ros2_interfaces'
+[8.648s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/ros2_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-darwin.so
+[8.663s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/ros2_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-darwin.so
+[8.678s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/python3.10/site-packages/ros2_interfaces/ros2_interfaces_s__rosidl_typesupport_c.cpython-310-darwin.so
+[8.692s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/lib/libros2_interfaces__rosidl_generator_py.dylib
+[8.708s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/msg/UpperBodyCommand.idl
+[8.708s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/msg/UpperBodySystemState.idl
+[8.711s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/msg/UpperMotorState.idl
+[8.712s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/srv/EnableMotors.idl
+[8.712s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/srv/SimpleMotorResult.idl
+[8.712s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/msg/UpperBodyCommand.msg
+[8.712s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/msg/UpperBodySystemState.msg
+[8.713s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/msg/UpperMotorState.msg
+[8.713s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/srv/EnableMotors.srv
+[8.713s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/srv/EnableMotors_Request.msg
+[8.714s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/srv/EnableMotors_Response.msg
+[8.714s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/srv/SimpleMotorResult.srv
+[8.714s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/srv/SimpleMotorResult_Request.msg
+[8.714s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/srv/SimpleMotorResult_Response.msg
+[8.715s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ament_index/resource_index/package_run_dependencies/ros2_interfaces
+[8.715s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ament_index/resource_index/parent_prefix_path/ros2_interfaces
+[8.715s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/environment/ament_prefix_path.sh
+[8.715s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/environment/ament_prefix_path.dsv
+[8.716s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/environment/path.sh
+[8.716s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/environment/path.dsv
+[8.716s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/local_setup.bash
+[8.716s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/local_setup.sh
+[8.717s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/local_setup.zsh
+[8.717s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/local_setup.dsv
+[8.718s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/package.dsv
+[8.718s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ament_index/resource_index/packages/ros2_interfaces
+[8.718s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/export_ros2_interfaces__rosidl_generator_cExport.cmake
+[8.719s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/export_ros2_interfaces__rosidl_generator_cExport-noconfig.cmake
+[8.719s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/export_ros2_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[8.719s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/export_ros2_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[8.720s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/ros2_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[8.720s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/ros2_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[8.721s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/ros2_interfaces__rosidl_typesupport_cExport.cmake
+[8.721s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/ros2_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[8.721s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/export_ros2_interfaces__rosidl_generator_cppExport.cmake
+[8.722s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/export_ros2_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[8.722s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/export_ros2_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[8.722s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/ros2_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[8.727s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/ros2_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[8.728s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/ros2_interfaces__rosidl_typesupport_cppExport.cmake
+[8.728s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/ros2_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[8.728s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/export_ros2_interfaces__rosidl_generator_pyExport.cmake
+[8.728s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/export_ros2_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[8.729s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/rosidl_cmake-extras.cmake
+[8.729s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[8.783s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[8.783s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[8.784s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[8.784s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[8.784s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[8.784s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/ros2_interfacesConfig.cmake
+[8.785s] -- Installing: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/cmake/ros2_interfacesConfig-version.cmake
+[8.785s] -- Up-to-date: /Volumes/Data/SamHyun/HRController/install/ros2_interfaces/share/ros2_interfaces/package.xml
+[8.787s] Invoked command in '/Volumes/Data/SamHyun/HRController/build/ros2_interfaces/ros2_interfaces' returned '0': CONDA_PROMPT_MODIFIER=(ros2_humble) SHLVL=2 _=/usr/bin/env /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/bin/cmake --install /Volumes/Data/SamHyun/HRController/build/ros2_interfaces/ros2_interfaces

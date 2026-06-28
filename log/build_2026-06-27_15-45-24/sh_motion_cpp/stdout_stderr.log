@@ -1,0 +1,13 @@
+[ 33%] Built target joint_state_bridge
+[ 66%] Built target wave
+[ 83%] [32mBuilding CXX object CMakeFiles/trajectory_bridge_node.dir/src/trajectory_bridge_node.cpp.o[0m
+[01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:[m[K In member function ‘[01m[Kvoid TrajectoryBridge::[01;32m[KonTimer[m[K()[m[K’:
+[01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:198:14:[m[K [01;31m[Kerror: [m[K‘[01m[Kis_running_[m[K’ was not declared in this scope
+  198 |         if (![01;31m[Kis_running_[m[K)
+      |              [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:235:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kis_running_[m[K’ was not declared in this scope
+  235 |             [01;31m[Kis_running_[m[K = false;
+      |             [01;31m[K^~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/trajectory_bridge_node.dir/build.make:76: CMakeFiles/trajectory_bridge_node.dir/src/trajectory_bridge_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:167: CMakeFiles/trajectory_bridge_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

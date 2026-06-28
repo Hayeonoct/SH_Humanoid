@@ -1,0 +1,17 @@
+{
+  "package_name": "ros2_interfaces",
+  "output_dir": "/home/sejong/Desktop/SH_ws/build/ros2_interfaces/rosidl_generator_type_description/ros2_interfaces",
+  "idl_tuples": [
+    "/home/sejong/Desktop/SH_ws/build/ros2_interfaces/rosidl_adapter/ros2_interfaces:msg/UpperBodyCommand.idl",
+    "/home/sejong/Desktop/SH_ws/build/ros2_interfaces/rosidl_adapter/ros2_interfaces:msg/UpperBodySystemState.idl",
+    "/home/sejong/Desktop/SH_ws/build/ros2_interfaces/rosidl_adapter/ros2_interfaces:msg/UpperMotorState.idl",
+    "/home/sejong/Desktop/SH_ws/build/ros2_interfaces/rosidl_adapter/ros2_interfaces:srv/EnableMotors.idl",
+    "/home/sejong/Desktop/SH_ws/build/ros2_interfaces/rosidl_adapter/ros2_interfaces:srv/SetRunMode.idl",
+    "/home/sejong/Desktop/SH_ws/build/ros2_interfaces/rosidl_adapter/ros2_interfaces:srv/SimpleMotorResult.idl"
+  ],
+  "include_paths": [
+    "std_msgs:/opt/ros/jazzy/share/std_msgs",
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces",
+    "service_msgs:/opt/ros/jazzy/share/service_msgs"
+  ]
+}

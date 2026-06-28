@@ -1,0 +1,10 @@
+[ 33%] Built target joint_state_bridge
+[ 50%] [32mBuilding CXX object CMakeFiles/trajectory_bridge_node.dir/src/trajectory_bridge_node.cpp.o[0m
+[ 83%] Built target wave
+[01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:13:10:[m[K [01;31m[Kfatal error: [m[Kros2_interfaces/msg/upper_body_system_state: No such file or directory
+   13 | #include [01;31m[K"ros2_interfaces/msg/upper_body_system_state"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/trajectory_bridge_node.dir/build.make:76: CMakeFiles/trajectory_bridge_node.dir/src/trajectory_bridge_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:167: CMakeFiles/trajectory_bridge_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

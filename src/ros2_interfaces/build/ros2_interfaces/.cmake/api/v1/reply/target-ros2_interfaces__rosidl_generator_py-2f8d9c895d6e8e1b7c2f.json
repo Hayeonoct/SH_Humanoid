@@ -1,0 +1,552 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "rosidl_generator_py/ros2_interfaces/libros2_interfaces__rosidl_generator_py.dylib"
+		}
+	],
+	"backtrace" : 5,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"include",
+			"ament_execute_extensions",
+			"rosidl_generate_interfaces",
+			"install",
+			"target_link_libraries",
+			"add_dependencies",
+			"set_target_properties",
+			"set_lib_properties",
+			"add_definitions",
+			"find_package",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake",
+			"/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake",
+			"/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake",
+			"CMakeLists.txt",
+			"/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_typesupport_c/cmake/rosidl_typesupport_c_generate_interfaces.cmake",
+			"/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_generator_c/cmake/rosidl_generator_c_generate_interfaces.cmake",
+			"/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/ament_cmake_ros/cmake/ament_cmake_ros-extras.cmake",
+			"/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/ament_cmake_ros/cmake/ament_cmake_rosConfig.cmake",
+			"/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_typesupport_fastrtps_c/cmake/rosidl_typesupport_fastrtps_c_generate_interfaces.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 3,
+				"line" : 8,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 286,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 48,
+				"parent" : 2
+			},
+			{
+				"file" : 0,
+				"parent" : 3
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 167,
+				"parent" : 4
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 275,
+				"parent" : 4
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 182,
+				"parent" : 4
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 185,
+				"parent" : 4
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 264,
+				"parent" : 4
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 264,
+				"parent" : 4
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 168,
+				"parent" : 4
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 48,
+				"parent" : 2
+			},
+			{
+				"file" : 4,
+				"parent" : 12
+			},
+			{
+				"command" : 5,
+				"file" : 4,
+				"line" : 130,
+				"parent" : 13
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 48,
+				"parent" : 2
+			},
+			{
+				"file" : 5,
+				"parent" : 15
+			},
+			{
+				"command" : 5,
+				"file" : 5,
+				"line" : 132,
+				"parent" : 16
+			},
+			{
+				"command" : 5,
+				"file" : 4,
+				"line" : 130,
+				"parent" : 13
+			},
+			{
+				"command" : 5,
+				"file" : 5,
+				"line" : 132,
+				"parent" : 16
+			},
+			{
+				"command" : 5,
+				"file" : 5,
+				"line" : 137,
+				"parent" : 16
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 171,
+				"parent" : 4
+			},
+			{
+				"command" : 8,
+				"file" : 0,
+				"line" : 267,
+				"parent" : 4
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 157,
+				"parent" : 22
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 48,
+				"parent" : 2
+			},
+			{
+				"file" : 8,
+				"parent" : 24
+			},
+			{
+				"command" : 10,
+				"file" : 8,
+				"line" : 21,
+				"parent" : 25
+			},
+			{
+				"file" : 7,
+				"parent" : 26
+			},
+			{
+				"command" : 1,
+				"file" : 7,
+				"line" : 41,
+				"parent" : 27
+			},
+			{
+				"file" : 6,
+				"parent" : 28
+			},
+			{
+				"command" : 9,
+				"file" : 6,
+				"line" : 25,
+				"parent" : 29
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 176,
+				"parent" : 4
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 10
+	},
+	"compileDependencies" : 
+	[
+		{
+			"backtrace" : 11,
+			"id" : "ros2_interfaces__rosidl_generator_c::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "Python3::NumPy::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "Python3::Module::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 8,
+			"id" : "ros2_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 9,
+			"id" : "std_msgs::std_msgs__rosidl_generator_py::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "builtin_interfaces::builtin_interfaces__rosidl_generator_py::@6890427a1f51a3e7e1df"
+		}
+	],
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -arch arm64 -fPIC"
+				},
+				{
+					"backtrace" : 23,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 23,
+					"fragment" : "-Wextra"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 30,
+					"define" : "ROS_PACKAGE_NAME=\"ros2_interfaces\""
+				},
+				{
+					"define" : "ros2_interfaces__rosidl_generator_py_EXPORTS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 31,
+					"path" : "/Volumes/Data/SamHyun/HRController/ros2_interfaces/build/ros2_interfaces/rosidl_generator_c"
+				},
+				{
+					"backtrace" : 31,
+					"path" : "/Volumes/Data/SamHyun/HRController/ros2_interfaces/build/ros2_interfaces/rosidl_generator_py"
+				},
+				{
+					"backtrace" : 11,
+					"isSystem" : true,
+					"path" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/include/std_msgs"
+				},
+				{
+					"backtrace" : 11,
+					"isSystem" : true,
+					"path" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/include/builtin_interfaces"
+				},
+				{
+					"backtrace" : 11,
+					"isSystem" : true,
+					"path" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/include/rosidl_runtime_c"
+				},
+				{
+					"backtrace" : 11,
+					"isSystem" : true,
+					"path" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/include/rcutils"
+				},
+				{
+					"backtrace" : 11,
+					"isSystem" : true,
+					"path" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/include/rosidl_typesupport_interface"
+				},
+				{
+					"backtrace" : 7,
+					"isSystem" : true,
+					"path" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/lib/python3.10/site-packages/numpy/core/include"
+				},
+				{
+					"backtrace" : 7,
+					"isSystem" : true,
+					"path" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/include/python3.10"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 11,
+			"id" : "ros2_interfaces__rosidl_generator_c::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 21,
+			"id" : "ros2_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 21,
+			"id" : "ros2_interfaces__py::@43d539bdf1965aed63f2"
+		}
+	],
+	"id" : "ros2_interfaces__rosidl_generator_py::@6890427a1f51a3e7e1df",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 6,
+				"path" : "lib"
+			},
+			{
+				"backtrace" : 6,
+				"path" : "lib"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/Volumes/Data/SamHyun/HRController/ros2_interfaces/install/ros2_interfaces"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-dynamiclib -Wl,-headerpad_max_install_names",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "-Xlinker",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "-undefined",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "-Xlinker",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "dynamic_lookup",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/Volumes/Data/SamHyun/HRController/ros2_interfaces/build/ros2_interfaces -Wl,-rpath,/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 8,
+				"fragment" : "libros2_interfaces__rosidl_typesupport_c.dylib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 9,
+				"fragment" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/lib/libstd_msgs__rosidl_generator_py.dylib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 10,
+				"fragment" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/lib/libbuiltin_interfaces__rosidl_generator_py.dylib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "libros2_interfaces__rosidl_generator_c.dylib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 14,
+				"fragment" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/lib/libstd_msgs__rosidl_typesupport_c.dylib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 17,
+				"fragment" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/lib/libstd_msgs__rosidl_generator_c.dylib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 18,
+				"fragment" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/lib/libbuiltin_interfaces__rosidl_typesupport_c.dylib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 19,
+				"fragment" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/lib/libbuiltin_interfaces__rosidl_generator_c.dylib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 20,
+				"fragment" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/lib/librosidl_runtime_c.dylib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 20,
+				"fragment" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/lib/librcutils.dylib",
+				"role" : "libraries"
+			}
+		],
+		"language" : "C"
+	},
+	"linkLibraries" : 
+	[
+		{
+			"backtrace" : 11,
+			"id" : "ros2_interfaces__rosidl_generator_c::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "Python3::NumPy::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "Python3::Module::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 8,
+			"id" : "ros2_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 9,
+			"id" : "std_msgs::std_msgs__rosidl_generator_py::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "builtin_interfaces::builtin_interfaces__rosidl_generator_py::@6890427a1f51a3e7e1df"
+		}
+	],
+	"name" : "ros2_interfaces__rosidl_generator_py",
+	"nameOnDisk" : "libros2_interfaces__rosidl_generator_py.dylib",
+	"orderDependencies" : 
+	[
+		{
+			"backtrace" : 21,
+			"id" : "ros2_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 21,
+			"id" : "ros2_interfaces__py::@43d539bdf1965aed63f2"
+		}
+	],
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/ros2_interfaces/rosidl_generator_py/ros2_interfaces/msg/_upper_body_command_s.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/ros2_interfaces/rosidl_generator_py/ros2_interfaces/msg/_upper_body_system_state_s.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/ros2_interfaces/rosidl_generator_py/ros2_interfaces/msg/_upper_motor_state_s.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/ros2_interfaces/rosidl_generator_py/ros2_interfaces/srv/_enable_motors_s.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/ros2_interfaces/rosidl_generator_py/ros2_interfaces/srv/_simple_motor_result_s.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "SHARED_LIBRARY"
+}

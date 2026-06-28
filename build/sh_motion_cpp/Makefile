@@ -210,6 +210,80 @@ wave/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wave.dir/build.make CMakeFiles/wave.dir/build
 .PHONY : wave/fast
 
+#=============================================================================
+# Target rules for targets named trajectory_bridge_node
+
+# Build rule for target.
+trajectory_bridge_node: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 trajectory_bridge_node
+.PHONY : trajectory_bridge_node
+
+# fast build rule for target.
+trajectory_bridge_node/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trajectory_bridge_node.dir/build.make CMakeFiles/trajectory_bridge_node.dir/build
+.PHONY : trajectory_bridge_node/fast
+
+#=============================================================================
+# Target rules for targets named joint_state_bridge
+
+# Build rule for target.
+joint_state_bridge: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 joint_state_bridge
+.PHONY : joint_state_bridge
+
+# fast build rule for target.
+joint_state_bridge/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joint_state_bridge.dir/build.make CMakeFiles/joint_state_bridge.dir/build
+.PHONY : joint_state_bridge/fast
+
+src/joint_state_bridge.o: src/joint_state_bridge.cpp.o
+.PHONY : src/joint_state_bridge.o
+
+# target to build an object file
+src/joint_state_bridge.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joint_state_bridge.dir/build.make CMakeFiles/joint_state_bridge.dir/src/joint_state_bridge.cpp.o
+.PHONY : src/joint_state_bridge.cpp.o
+
+src/joint_state_bridge.i: src/joint_state_bridge.cpp.i
+.PHONY : src/joint_state_bridge.i
+
+# target to preprocess a source file
+src/joint_state_bridge.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joint_state_bridge.dir/build.make CMakeFiles/joint_state_bridge.dir/src/joint_state_bridge.cpp.i
+.PHONY : src/joint_state_bridge.cpp.i
+
+src/joint_state_bridge.s: src/joint_state_bridge.cpp.s
+.PHONY : src/joint_state_bridge.s
+
+# target to generate assembly for a file
+src/joint_state_bridge.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joint_state_bridge.dir/build.make CMakeFiles/joint_state_bridge.dir/src/joint_state_bridge.cpp.s
+.PHONY : src/joint_state_bridge.cpp.s
+
+src/trajectory_bridge_node.o: src/trajectory_bridge_node.cpp.o
+.PHONY : src/trajectory_bridge_node.o
+
+# target to build an object file
+src/trajectory_bridge_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trajectory_bridge_node.dir/build.make CMakeFiles/trajectory_bridge_node.dir/src/trajectory_bridge_node.cpp.o
+.PHONY : src/trajectory_bridge_node.cpp.o
+
+src/trajectory_bridge_node.i: src/trajectory_bridge_node.cpp.i
+.PHONY : src/trajectory_bridge_node.i
+
+# target to preprocess a source file
+src/trajectory_bridge_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trajectory_bridge_node.dir/build.make CMakeFiles/trajectory_bridge_node.dir/src/trajectory_bridge_node.cpp.i
+.PHONY : src/trajectory_bridge_node.cpp.i
+
+src/trajectory_bridge_node.s: src/trajectory_bridge_node.cpp.s
+.PHONY : src/trajectory_bridge_node.s
+
+# target to generate assembly for a file
+src/trajectory_bridge_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trajectory_bridge_node.dir/build.make CMakeFiles/trajectory_bridge_node.dir/src/trajectory_bridge_node.cpp.s
+.PHONY : src/trajectory_bridge_node.cpp.s
+
 src/wave.o: src/wave.cpp.o
 .PHONY : src/wave.o
 
@@ -249,7 +323,15 @@ help:
 	@echo "... test"
 	@echo "... sh_motion_cpp_uninstall"
 	@echo "... uninstall"
+	@echo "... joint_state_bridge"
+	@echo "... trajectory_bridge_node"
 	@echo "... wave"
+	@echo "... src/joint_state_bridge.o"
+	@echo "... src/joint_state_bridge.i"
+	@echo "... src/joint_state_bridge.s"
+	@echo "... src/trajectory_bridge_node.o"
+	@echo "... src/trajectory_bridge_node.i"
+	@echo "... src/trajectory_bridge_node.s"
 	@echo "... src/wave.o"
 	@echo "... src/wave.i"
 	@echo "... src/wave.s"

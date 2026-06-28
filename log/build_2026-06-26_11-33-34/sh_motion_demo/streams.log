@@ -1,0 +1,36 @@
+[1.013s] Invoking command in '/home/sejong/Desktop/SH_ws/build/sh_motion_demo': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sejong/Desktop/SH_ws/build/sh_motion_demo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/sejong/Desktop/SH_ws/build/sh_motion_demo/build
+[1.259s] running develop
+[1.389s] Removing /home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages/sh-motion-demo.egg-link (link to .)
+[1.439s] Invoked command in '/home/sejong/Desktop/SH_ws/build/sh_motion_demo' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sejong/Desktop/SH_ws/build/sh_motion_demo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/sejong/Desktop/SH_ws/build/sh_motion_demo/build
+[1.441s] Invoking command in '/home/sejong/Desktop/SH_ws/src/sh_motion_demo': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sejong/Desktop/SH_ws/build/sh_motion_demo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/sh_motion_demo build --build-base /home/sejong/Desktop/SH_ws/build/sh_motion_demo/build install --record /home/sejong/Desktop/SH_ws/build/sh_motion_demo/install.log --single-version-externally-managed install_data --force
+[1.638s] running egg_info
+[1.649s] writing ../../build/sh_motion_demo/sh_motion_demo.egg-info/PKG-INFO
+[1.650s] writing dependency_links to ../../build/sh_motion_demo/sh_motion_demo.egg-info/dependency_links.txt
+[1.650s] writing entry points to ../../build/sh_motion_demo/sh_motion_demo.egg-info/entry_points.txt
+[1.652s] writing requirements to ../../build/sh_motion_demo/sh_motion_demo.egg-info/requires.txt
+[1.652s] writing top-level names to ../../build/sh_motion_demo/sh_motion_demo.egg-info/top_level.txt
+[1.676s] reading manifest file '../../build/sh_motion_demo/sh_motion_demo.egg-info/SOURCES.txt'
+[1.676s] writing manifest file '../../build/sh_motion_demo/sh_motion_demo.egg-info/SOURCES.txt'
+[1.676s] running build
+[1.676s] running build_py
+[1.676s] creating /home/sejong/Desktop/SH_ws/build/sh_motion_demo/build
+[1.676s] creating /home/sejong/Desktop/SH_ws/build/sh_motion_demo/build/lib
+[1.677s] creating /home/sejong/Desktop/SH_ws/build/sh_motion_demo/build/lib/sh_motion_demo
+[1.677s] copying sh_motion_demo/wave.py -> /home/sejong/Desktop/SH_ws/build/sh_motion_demo/build/lib/sh_motion_demo
+[1.677s] copying sh_motion_demo/__init__.py -> /home/sejong/Desktop/SH_ws/build/sh_motion_demo/build/lib/sh_motion_demo
+[1.677s] running install
+[1.682s] running install_lib
+[1.693s] creating /home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages/sh_motion_demo
+[1.693s] copying /home/sejong/Desktop/SH_ws/build/sh_motion_demo/build/lib/sh_motion_demo/wave.py -> /home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages/sh_motion_demo
+[1.693s] copying /home/sejong/Desktop/SH_ws/build/sh_motion_demo/build/lib/sh_motion_demo/__init__.py -> /home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages/sh_motion_demo
+[1.693s] byte-compiling /home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages/sh_motion_demo/wave.py to wave.cpython-312.pyc
+[1.694s] byte-compiling /home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages/sh_motion_demo/__init__.py to __init__.cpython-312.pyc
+[1.698s] running install_data
+[1.699s] copying resource/sh_motion_demo -> /home/sejong/Desktop/SH_ws/install/sh_motion_demo/share/ament_index/resource_index/packages
+[1.699s] copying package.xml -> /home/sejong/Desktop/SH_ws/install/sh_motion_demo/share/sh_motion_demo
+[1.699s] running install_egg_info
+[1.710s] Copying ../../build/sh_motion_demo/sh_motion_demo.egg-info to /home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages/sh_motion_demo-0.0.0-py3.12.egg-info
+[1.710s] running install_scripts
+[1.801s] Installing wave script to /home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/sh_motion_demo
+[1.802s] writing list of installed files to '/home/sejong/Desktop/SH_ws/build/sh_motion_demo/install.log'
+[1.837s] Invoked command in '/home/sejong/Desktop/SH_ws/src/sh_motion_demo' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sejong/Desktop/SH_ws/build/sh_motion_demo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/sh_motion_demo build --build-base /home/sejong/Desktop/SH_ws/build/sh_motion_demo/build install --record /home/sejong/Desktop/SH_ws/build/sh_motion_demo/install.log --single-version-externally-managed install_data --force
