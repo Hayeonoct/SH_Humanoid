@@ -31,6 +31,10 @@
 /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/moveit.rviz
 /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/moveit_controllers.yaml
 /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/pilz_cartesian_limits.yaml
+/home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/poses/home.yaml
+/home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/poses/wave_left.yaml
+/home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/poses/wave_ready.yaml
+/home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/poses/wave_right.yaml
 /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/ros2_controllers.yaml
 /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/config/servo.yaml
 /home/sejong/Desktop/SH_ws/install/SH_moveit_demo_config/share/SH_moveit_demo_config/.setup_assistant

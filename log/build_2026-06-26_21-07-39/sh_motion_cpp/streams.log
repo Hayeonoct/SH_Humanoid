@@ -1,0 +1,29 @@
+[0.013s] Invoking command in '/home/sejong/Desktop/SH_ws/build/sh_motion_cpp': CMAKE_PREFIX_PATH=/opt/ros/jazzy:/home/sejong/Desktop/SH_ws/install/ros2_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/sejong/Desktop/SH_ws/install/ros2_interfaces/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/usr/local/cuda-13.2/lib64 PKG_CONFIG_PATH=/home/sejong/Desktop/SH_ws/install/ros2_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/sejong/Desktop/SH_ws/install/ros2_interfaces/lib/pkgconfig PYTHONPATH=/home/sejong/Desktop/SH_ws/install/ros2_interfaces/lib/python3.12/site-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/sejong/Desktop/SH_ws/install/ros2_interfaces/share /usr/bin/cmake --build /home/sejong/Desktop/SH_ws/build/sh_motion_cpp -- -j14 -l14
+[0.078s] [ 16%] [32mBuilding CXX object CMakeFiles/joint_state_bridge.dir/src/joint_state_bridge.cpp.o[0m
+[0.086s] [ 50%] Built target wave
+[0.095s] [ 66%] [32mBuilding CXX object CMakeFiles/trajectory_bridge_node.dir/src/trajectory_bridge_node.cpp.o[0m
+[1.939s] [01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:61:5:[m[K [01;31m[Kerror: [m[Kinvalid use of template-name ‘[01m[Krclcpp::Publisher[m[K’ without an argument list
+[1.939s]    61 |     [01;31m[Krclcpp[m[K::Publisher
+[1.939s]       |     [01;31m[K^~~~~~[m[K
+[1.939s] [01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:62:31:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+[1.939s]    62 |         ros2_interfaces::msg::[01;31m[KUpperBodyCommand[m[K>::SharedPtr command_pub_;
+[1.939s]       |                               [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[1.939s]       |                                               [32m[K;[m[K
+[1.940s] [01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:62:47:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K>[m[K’ token
+[1.940s]    62 |         ros2_interfaces::msg::UpperBodyCommand[01;31m[K>[m[K::SharedPtr command_pub_;
+[1.940s]       |                                               [01;31m[K^[m[K
+[1.970s] [01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:[m[K In constructor ‘[01m[KTrajectoryBridge::[01;32m[KTrajectoryBridge[m[K()[m[K’:
+[1.970s] [01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:46:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kcommand_pub_[m[K’ was not declared in this scope
+[1.970s]    46 |         [01;31m[Kcommand_pub_[m[K =
+[1.970s]       |         [01;31m[K^~~~~~~~~~~~[m[K
+[1.985s] [01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:[m[K In member function ‘[01m[Kvoid TrajectoryBridge::[01;32m[KpublishCommand[m[K(double)[m[K’:
+[1.985s] [01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:219:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kcommand_pub_[m[K’ was not declared in this scope
+[1.985s]   219 |         [01;31m[Kcommand_pub_[m[K->publish(cmd);
+[1.985s]       |         [01;31m[K^~~~~~~~~~~~[m[K
+[3.236s] gmake[2]: *** [CMakeFiles/trajectory_bridge_node.dir/build.make:76: CMakeFiles/trajectory_bridge_node.dir/src/trajectory_bridge_node.cpp.o] Error 1
+[3.236s] gmake[1]: *** [CMakeFiles/Makefile2:167: CMakeFiles/trajectory_bridge_node.dir/all] Error 2
+[3.236s] gmake[1]: *** Waiting for unfinished jobs....
+[7.389s] [ 83%] [32m[1mLinking CXX executable joint_state_bridge[0m
+[7.814s] [ 83%] Built target joint_state_bridge
+[7.818s] gmake: *** [Makefile:146: all] Error 2
+[7.825s] Invoked command in '/home/sejong/Desktop/SH_ws/build/sh_motion_cpp' returned '2': CMAKE_PREFIX_PATH=/opt/ros/jazzy:/home/sejong/Desktop/SH_ws/install/ros2_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/sejong/Desktop/SH_ws/install/ros2_interfaces/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/usr/local/cuda-13.2/lib64 PKG_CONFIG_PATH=/home/sejong/Desktop/SH_ws/install/ros2_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/sejong/Desktop/SH_ws/install/ros2_interfaces/lib/pkgconfig PYTHONPATH=/home/sejong/Desktop/SH_ws/install/ros2_interfaces/lib/python3.12/site-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/sejong/Desktop/SH_ws/install/ros2_interfaces/share /usr/bin/cmake --build /home/sejong/Desktop/SH_ws/build/sh_motion_cpp -- -j14 -l14

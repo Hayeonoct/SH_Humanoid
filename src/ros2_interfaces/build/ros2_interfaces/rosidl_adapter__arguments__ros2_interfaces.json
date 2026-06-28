@@ -1,0 +1,10 @@
+{
+  "package_name": "ros2_interfaces",
+  "non_idl_tuples": [
+    "/Volumes/Data/SamHyun/HRController/ros2_interfaces:msg/UpperBodyCommand.msg",
+    "/Volumes/Data/SamHyun/HRController/ros2_interfaces:msg/UpperBodySystemState.msg",
+    "/Volumes/Data/SamHyun/HRController/ros2_interfaces:msg/UpperMotorState.msg",
+    "/Volumes/Data/SamHyun/HRController/ros2_interfaces:srv/EnableMotors.srv",
+    "/Volumes/Data/SamHyun/HRController/ros2_interfaces:srv/SimpleMotorResult.srv"
+  ]
+}

@@ -1,4 +1,6 @@
 /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/lib/sh_motion_cpp/wave
+/home/sejong/Desktop/SH_ws/install/sh_motion_cpp/lib/sh_motion_cpp/trajectory_bridge_node
+/home/sejong/Desktop/SH_ws/install/sh_motion_cpp/lib/sh_motion_cpp/joint_state_bridge
 /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/share/ament_index/resource_index/package_run_dependencies/sh_motion_cpp
 /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/share/ament_index/resource_index/parent_prefix_path/sh_motion_cpp
 /home/sejong/Desktop/SH_ws/install/sh_motion_cpp/share/sh_motion_cpp/environment/ament_prefix_path.sh

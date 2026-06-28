@@ -34,6 +34,18 @@ right_arm_controller:
       - position
       - velocity
     allow_nonzero_velocity_at_trajectory_end: true
+
+    constraints:
+      goal_time: 0.5            # 목표 지점에 도달해야 하는 시간 허용치 (초)
+      stopped_velocity_tolerance: 0.1 # 정지 시 속도 허용치
+      joint1: {goal: 0.05}      # 오차 허용치 (라디안), 0.05 rad는 약 2.8도 (+2.8, -2.8. 총 5.6도)
+      joint2: {goal: 0.05}
+      joint3: {goal: 0.05}
+      joint4: {goal: 0.05}
+      joint5: {goal: 0.05}
+      joint6: {goal: 0.05}
+      joint7: {goal: 0.05}
+
 left_arm_controller:
   ros__parameters:
     joints:
@@ -60,3 +72,14 @@ head_controller:
       - position
       - velocity
     allow_nonzero_velocity_at_trajectory_end: true
+
+    constraints:
+      goal_time: 0.5            # 목표 지점에 도달해야 하는 시간 허용치 (초)
+      stopped_velocity_tolerance: 0.1 # 정지 시 속도 허용치
+      joint8: {goal: 0.05}      # 오차 허용치 (라디안), 0.05 rad는 약 2.8도
+      joint9: {goal: 0.05}
+      joint10: {goal: 0.05}
+      joint11: {goal: 0.05}
+      joint12: {goal: 0.05}
+      joint13: {goal: 0.05}
+      joint14: {goal: 0.05}

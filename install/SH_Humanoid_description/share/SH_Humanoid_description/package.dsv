@@ -4,6 +4,3 @@ source;share/SH_Humanoid_description/hook/pythonpath.sh
 source;share/SH_Humanoid_description/hook/ament_prefix_path.ps1
 source;share/SH_Humanoid_description/hook/ament_prefix_path.dsv
 source;share/SH_Humanoid_description/hook/ament_prefix_path.sh
-source;../../build/SH_Humanoid_description/share/SH_Humanoid_description/hook/pythonpath_develop.ps1
-source;../../build/SH_Humanoid_description/share/SH_Humanoid_description/hook/pythonpath_develop.dsv
-source;../../build/SH_Humanoid_description/share/SH_Humanoid_description/hook/pythonpath_develop.sh

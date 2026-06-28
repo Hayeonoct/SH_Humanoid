@@ -1,0 +1,29 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_interfaces/msg/detail/upper_body_command__type_support.c.o"
+  "CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_interfaces/msg/detail/upper_body_command__type_support.c.o.d"
+  "CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_interfaces/msg/detail/upper_body_system_state__type_support.c.o"
+  "CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_interfaces/msg/detail/upper_body_system_state__type_support.c.o.d"
+  "CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_interfaces/msg/detail/upper_motor_state__type_support.c.o"
+  "CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_interfaces/msg/detail/upper_motor_state__type_support.c.o.d"
+  "CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_interfaces/srv/detail/enable_motors__type_support.c.o"
+  "CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_interfaces/srv/detail/enable_motors__type_support.c.o.d"
+  "CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_interfaces/srv/detail/simple_motor_result__type_support.c.o"
+  "CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_interfaces/srv/detail/simple_motor_result__type_support.c.o.d"
+  "libros2_interfaces__rosidl_typesupport_introspection_c.dylib"
+  "libros2_interfaces__rosidl_typesupport_introspection_c.pdb"
+  "rosidl_typesupport_introspection_c/ros2_interfaces/msg/detail/upper_body_command__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/ros2_interfaces/msg/detail/upper_body_command__type_support.c"
+  "rosidl_typesupport_introspection_c/ros2_interfaces/msg/detail/upper_body_system_state__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/ros2_interfaces/msg/detail/upper_body_system_state__type_support.c"
+  "rosidl_typesupport_introspection_c/ros2_interfaces/msg/detail/upper_motor_state__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/ros2_interfaces/msg/detail/upper_motor_state__type_support.c"
+  "rosidl_typesupport_introspection_c/ros2_interfaces/srv/detail/enable_motors__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/ros2_interfaces/srv/detail/enable_motors__type_support.c"
+  "rosidl_typesupport_introspection_c/ros2_interfaces/srv/detail/simple_motor_result__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/ros2_interfaces/srv/detail/simple_motor_result__type_support.c"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/ros2_interfaces__rosidl_typesupport_introspection_c.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

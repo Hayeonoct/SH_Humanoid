@@ -1,0 +1,40 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ros2_interfaces/msg/UpperMotorState.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module ros2_interfaces {
+  module msg {
+    typedef boolean boolean__15[15];
+    typedef uint16 uint16__15[15];
+    typedef float float__15[15];
+    @verbatim (language="comment", text=
+      "Upper motor state feedback for 15 motors.")
+    struct UpperMotorState {
+      std_msgs::msg::Header header;
+
+      boolean__15 is_ready;
+
+      boolean__15 is_enabled;
+
+      boolean__15 has_fault;
+
+      uint16__15 motor_id;
+
+      float__15 position;
+
+      float__15 velocity;
+
+      float__15 effort;
+
+      uint16__15 error_code;
+
+      float__15 temperature;
+
+      float__15 voltage;
+
+      float__15 current;
+    };
+  };
+};

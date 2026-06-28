@@ -1,0 +1,27 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from ros2_interfaces/srv/SetRunMode.srv
+// generated code does not contain a copyright notice
+
+
+module ros2_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      "Request")
+    struct SetRunMode_Request {
+      uint8 mode;
+
+      sequence<uint8> motor_id_list;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct SetRunMode_Response {
+      boolean success;
+
+      string message;
+
+      sequence<uint8> applied_motor_ids;
+
+      sequence<uint8> failed_motor_ids;
+    };
+  };
+};

@@ -1,0 +1,119 @@
+[0.000000] (-) TimerEvent: {}
+[0.000314] (-) JobUnselected: {'identifier': 'SH_Humanoid_description'}
+[0.000543] (-) JobUnselected: {'identifier': 'SH_moveit_config'}
+[0.000642] (-) JobUnselected: {'identifier': 'SH_moveit_demo_config'}
+[0.000758] (-) JobUnselected: {'identifier': 'SH_moveit_head_config'}
+[0.000844] (-) JobUnselected: {'identifier': 'ros2_interfaces'}
+[0.000877] (-) JobUnselected: {'identifier': 'sh_motion_demo'}
+[0.000943] (sh_motion_cpp) JobQueued: {'identifier': 'sh_motion_cpp', 'dependencies': OrderedDict({'ros2_interfaces': '/home/sejong/Desktop/SH_ws/install/ros2_interfaces'})}
+[0.000980] (sh_motion_cpp) JobStarted: {'identifier': 'sh_motion_cpp'}
+[0.011344] (sh_motion_cpp) JobProgress: {'identifier': 'sh_motion_cpp', 'progress': 'cmake'}
+[0.011973] (sh_motion_cpp) JobProgress: {'identifier': 'sh_motion_cpp', 'progress': 'build'}
+[0.012577] (sh_motion_cpp) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/sejong/Desktop/SH_ws/build/sh_motion_cpp', '--', '-j14', '-l14'], 'cwd': '/home/sejong/Desktop/SH_ws/build/sh_motion_cpp', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'sejong', 'SSH_CLIENT': '192.168.10.10 51936 22', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/sdformat_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'ROS_PACKAGE_PATH': '/home/sejong/Desktop/SH_ws/install/ros2_interfaces/share', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/sejong/Desktop/SH_ws/install/ros2_interfaces/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/usr/local/cuda-13.2/lib64', 'HOME': '/home/sejong', 'OLDPWD': '/home/sejong', 'SSH_TTY': '/dev/pts/8', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/2001/bus', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'sejong', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'PKG_CONFIG_PATH': '/home/sejong/Desktop/SH_ws/install/ros2_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/sejong/Desktop/SH_ws/install/ros2_interfaces/lib/pkgconfig', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '40', 'PATH': '/home/sejong/.local/bin:/home/sejong/.local/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/bin:/usr/local/cuda-13.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/2001', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/sejong/Desktop/SH_ws/build/sh_motion_cpp', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.10.10 51936 192.168.10.7 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/sejong/Desktop/SH_ws/install/ros2_interfaces/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy:/home/sejong/Desktop/SH_ws/install/ros2_interfaces:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}), 'shell': False}
+[0.079074] (sh_motion_cpp) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding CXX object CMakeFiles/joint_state_bridge.dir/src/joint_state_bridge.cpp.o\x1b[0m\n'}
+[0.086840] (sh_motion_cpp) StdoutLine: {'line': b'[ 50%] Built target wave\n'}
+[0.095223] (sh_motion_cpp) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/trajectory_bridge_node.dir/src/trajectory_bridge_node.cpp.o\x1b[0m\n'}
+[0.099726] (-) TimerEvent: {}
+[0.200275] (-) TimerEvent: {}
+[0.300922] (-) TimerEvent: {}
+[0.401606] (-) TimerEvent: {}
+[0.502286] (-) TimerEvent: {}
+[0.602932] (-) TimerEvent: {}
+[0.703604] (-) TimerEvent: {}
+[0.804268] (-) TimerEvent: {}
+[0.904944] (-) TimerEvent: {}
+[1.005595] (-) TimerEvent: {}
+[1.106267] (-) TimerEvent: {}
+[1.206933] (-) TimerEvent: {}
+[1.307596] (-) TimerEvent: {}
+[1.408278] (-) TimerEvent: {}
+[1.508927] (-) TimerEvent: {}
+[1.609578] (-) TimerEvent: {}
+[1.710227] (-) TimerEvent: {}
+[1.810752] (-) TimerEvent: {}
+[1.911409] (-) TimerEvent: {}
+[1.939115] (sh_motion_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:61:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of template-name \xe2\x80\x98\x1b[01m\x1b[Krclcpp::Publisher\x1b[m\x1b[K\xe2\x80\x99 without an argument list\n'}
+[1.939714] (sh_motion_cpp) StderrLine: {'line': b'   61 |     \x1b[01;31m\x1b[Krclcpp\x1b[m\x1b[K::Publisher\n'}
+[1.940072] (sh_motion_cpp) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[1.940167] (sh_motion_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:62:31:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K;\x1b[m\x1b[K\xe2\x80\x99 at end of member declaration\n'}
+[1.940260] (sh_motion_cpp) StderrLine: {'line': b'   62 |         ros2_interfaces::msg::\x1b[01;31m\x1b[KUpperBodyCommand\x1b[m\x1b[K>::SharedPtr command_pub_;\n'}
+[1.940345] (sh_motion_cpp) StderrLine: {'line': b'      |                               \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.940429] (sh_motion_cpp) StderrLine: {'line': b'      |                                               \x1b[32m\x1b[K;\x1b[m\x1b[K\n'}
+[1.940508] (sh_motion_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:62:47:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected unqualified-id before \xe2\x80\x98\x1b[01m\x1b[K>\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[1.940589] (sh_motion_cpp) StderrLine: {'line': b'   62 |         ros2_interfaces::msg::UpperBodyCommand\x1b[01;31m\x1b[K>\x1b[m\x1b[K::SharedPtr command_pub_;\n'}
+[1.940668] (sh_motion_cpp) StderrLine: {'line': b'      |                                               \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[1.970433] (sh_motion_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KTrajectoryBridge::\x1b[01;32m\x1b[KTrajectoryBridge\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.970838] (sh_motion_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:46:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kcommand_pub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[1.970992] (sh_motion_cpp) StderrLine: {'line': b'   46 |         \x1b[01;31m\x1b[Kcommand_pub_\x1b[m\x1b[K =\n'}
+[1.971125] (sh_motion_cpp) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.985790] (sh_motion_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid TrajectoryBridge::\x1b[01;32m\x1b[KpublishCommand\x1b[m\x1b[K(double)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.986017] (sh_motion_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:219:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kcommand_pub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[1.986156] (sh_motion_cpp) StderrLine: {'line': b'  219 |         \x1b[01;31m\x1b[Kcommand_pub_\x1b[m\x1b[K->publish(cmd);\n'}
+[1.986318] (sh_motion_cpp) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.011498] (-) TimerEvent: {}
+[2.112044] (-) TimerEvent: {}
+[2.212687] (-) TimerEvent: {}
+[2.313331] (-) TimerEvent: {}
+[2.414001] (-) TimerEvent: {}
+[2.514692] (-) TimerEvent: {}
+[2.615355] (-) TimerEvent: {}
+[2.716009] (-) TimerEvent: {}
+[2.816643] (-) TimerEvent: {}
+[2.917305] (-) TimerEvent: {}
+[3.017904] (-) TimerEvent: {}
+[3.118535] (-) TimerEvent: {}
+[3.219188] (-) TimerEvent: {}
+[3.236017] (sh_motion_cpp) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/trajectory_bridge_node.dir/build.make:76: CMakeFiles/trajectory_bridge_node.dir/src/trajectory_bridge_node.cpp.o] Error 1\n'}
+[3.236776] (sh_motion_cpp) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:167: CMakeFiles/trajectory_bridge_node.dir/all] Error 2\n'}
+[3.237222] (sh_motion_cpp) StderrLine: {'line': b'gmake[1]: *** Waiting for unfinished jobs....\n'}
+[3.319332] (-) TimerEvent: {}
+[3.419990] (-) TimerEvent: {}
+[3.520640] (-) TimerEvent: {}
+[3.621286] (-) TimerEvent: {}
+[3.721940] (-) TimerEvent: {}
+[3.822607] (-) TimerEvent: {}
+[3.923216] (-) TimerEvent: {}
+[4.023842] (-) TimerEvent: {}
+[4.124492] (-) TimerEvent: {}
+[4.225139] (-) TimerEvent: {}
+[4.325777] (-) TimerEvent: {}
+[4.426413] (-) TimerEvent: {}
+[4.527255] (-) TimerEvent: {}
+[4.628475] (-) TimerEvent: {}
+[4.729580] (-) TimerEvent: {}
+[4.830631] (-) TimerEvent: {}
+[4.931689] (-) TimerEvent: {}
+[5.033211] (-) TimerEvent: {}
+[5.134508] (-) TimerEvent: {}
+[5.235696] (-) TimerEvent: {}
+[5.336813] (-) TimerEvent: {}
+[5.438174] (-) TimerEvent: {}
+[5.539352] (-) TimerEvent: {}
+[5.640822] (-) TimerEvent: {}
+[5.741985] (-) TimerEvent: {}
+[5.843262] (-) TimerEvent: {}
+[5.944764] (-) TimerEvent: {}
+[6.045975] (-) TimerEvent: {}
+[6.147166] (-) TimerEvent: {}
+[6.248321] (-) TimerEvent: {}
+[6.349507] (-) TimerEvent: {}
+[6.451188] (-) TimerEvent: {}
+[6.552535] (-) TimerEvent: {}
+[6.653411] (-) TimerEvent: {}
+[6.754811] (-) TimerEvent: {}
+[6.856153] (-) TimerEvent: {}
+[6.957504] (-) TimerEvent: {}
+[7.059271] (-) TimerEvent: {}
+[7.160539] (-) TimerEvent: {}
+[7.262037] (-) TimerEvent: {}
+[7.363647] (-) TimerEvent: {}
+[7.389775] (sh_motion_cpp) StdoutLine: {'line': b'[ 83%] \x1b[32m\x1b[1mLinking CXX executable joint_state_bridge\x1b[0m\n'}
+[7.464313] (-) TimerEvent: {}
+[7.565315] (-) TimerEvent: {}
+[7.666248] (-) TimerEvent: {}
+[7.767158] (-) TimerEvent: {}
+[7.814568] (sh_motion_cpp) StdoutLine: {'line': b'[ 83%] Built target joint_state_bridge\n'}
+[7.818499] (sh_motion_cpp) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[7.825742] (sh_motion_cpp) CommandEnded: {'returncode': 2}
+[7.846484] (sh_motion_cpp) JobEnded: {'identifier': 'sh_motion_cpp', 'rc': 2}
+[7.857398] (-) EventReactorShutdown: {}

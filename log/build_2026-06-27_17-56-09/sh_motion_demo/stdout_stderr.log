@@ -1,0 +1,19 @@
+running egg_info
+writing ../../build/sh_motion_demo/sh_motion_demo.egg-info/PKG-INFO
+writing dependency_links to ../../build/sh_motion_demo/sh_motion_demo.egg-info/dependency_links.txt
+writing entry points to ../../build/sh_motion_demo/sh_motion_demo.egg-info/entry_points.txt
+writing requirements to ../../build/sh_motion_demo/sh_motion_demo.egg-info/requires.txt
+writing top-level names to ../../build/sh_motion_demo/sh_motion_demo.egg-info/top_level.txt
+reading manifest file '../../build/sh_motion_demo/sh_motion_demo.egg-info/SOURCES.txt'
+writing manifest file '../../build/sh_motion_demo/sh_motion_demo.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+running install_egg_info
+removing '/home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages/sh_motion_demo-0.0.0-py3.12.egg-info' (and everything under it)
+Copying ../../build/sh_motion_demo/sh_motion_demo.egg-info to /home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/python3.12/site-packages/sh_motion_demo-0.0.0-py3.12.egg-info
+running install_scripts
+Installing wave script to /home/sejong/Desktop/SH_ws/install/sh_motion_demo/lib/sh_motion_demo
+writing list of installed files to '/home/sejong/Desktop/SH_ws/build/sh_motion_demo/install.log'

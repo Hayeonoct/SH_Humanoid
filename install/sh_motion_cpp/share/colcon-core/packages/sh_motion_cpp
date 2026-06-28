@@ -1,1 +1,1 @@
-moveit_ros_planning_interface:rclcpp
+builtin_interfaces:control_msgs:moveit_ros_planning_interface:rclcpp:rclcpp_action:ros2_interfaces:sensor_msgs:trajectory_msgs

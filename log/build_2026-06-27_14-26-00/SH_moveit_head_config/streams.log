@@ -1,0 +1,47 @@
+[0.017s] Invoking command in '/home/sejong/Desktop/SH_ws/build/SH_moveit_head_config': AMENT_PREFIX_PATH=/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/sejong/Desktop/SH_ws/build/SH_moveit_head_config -- -j14 -l14
+[0.055s] Invoked command in '/home/sejong/Desktop/SH_ws/build/SH_moveit_head_config' returned '0': AMENT_PREFIX_PATH=/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/sejong/Desktop/SH_ws/build/SH_moveit_head_config -- -j14 -l14
+[0.056s] Invoking command in '/home/sejong/Desktop/SH_ws/build/SH_moveit_head_config': AMENT_PREFIX_PATH=/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/sejong/Desktop/SH_ws/build/SH_moveit_head_config
+[0.065s] -- Install configuration: ""
+[0.065s] -- Execute custom install script
+[0.065s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/ament_index/resource_index/package_run_dependencies/SH_moveit_head_config
+[0.065s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/ament_index/resource_index/parent_prefix_path/SH_moveit_head_config
+[0.065s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/environment/ament_prefix_path.sh
+[0.065s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/environment/ament_prefix_path.dsv
+[0.065s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/environment/path.sh
+[0.065s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/environment/path.dsv
+[0.066s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/local_setup.bash
+[0.066s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/local_setup.sh
+[0.066s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/local_setup.zsh
+[0.066s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/local_setup.dsv
+[0.066s] -- Symlinking: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/package.dsv
+[0.076s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/ament_index/resource_index/packages/SH_moveit_head_config
+[0.076s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/cmake/SH_moveit_head_configConfig.cmake
+[0.076s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/cmake/SH_moveit_head_configConfig-version.cmake
+[0.076s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/package.xml
+[0.078s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/demo.launch.py
+[0.078s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/demo_bridge.launch.py
+[0.078s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/move_group.launch.py
+[0.078s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/moveit_rviz.launch.py
+[0.078s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/rsp.launch.py
+[0.078s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/servo.launch.py
+[0.079s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/setup_assistant.launch.py
+[0.079s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/spawn_controllers.launch.py
+[0.079s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/static_virtual_joint_tfs.launch.py
+[0.079s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/warehouse_db.launch.py
+[0.079s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/SH_Humanoid.ros2_control.xacro
+[0.079s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/SH_Humanoid.srdf
+[0.079s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/SH_Humanoid.urdf.xacro
+[0.079s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/initial_positions.yaml
+[0.079s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/joint_limits.yaml
+[0.079s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/kinematics.yaml
+[0.079s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/moveit.rviz
+[0.079s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/moveit_controllers.yaml
+[0.079s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/pilz_cartesian_limits.yaml
+[0.080s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/poses/home.yaml
+[0.080s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/poses/wave_left.yaml
+[0.080s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/poses/wave_ready.yaml
+[0.080s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/poses/wave_right.yaml
+[0.080s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/ros2_controllers.yaml
+[0.081s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/servo.yaml
+[0.081s] -- Up-to-date symlink: /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/.setup_assistant
+[0.109s] Invoked command in '/home/sejong/Desktop/SH_ws/build/SH_moveit_head_config' returned '0': AMENT_PREFIX_PATH=/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/sejong/Desktop/SH_ws/build/SH_moveit_head_config

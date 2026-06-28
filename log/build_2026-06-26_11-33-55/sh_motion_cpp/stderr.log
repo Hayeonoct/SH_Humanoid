@@ -1,0 +1,4 @@
+[01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:[m[K In member function ‘[01m[Kvoid TrajectoryBridge::[01;32m[KpublishTrajectory[m[K(std::shared_ptr<const control_msgs::action::FollowJointTrajectory_Goal_<std::allocator<void> > >, bool)[m[K’:
+[01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:192:16:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kprevious_time[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+  192 |         double [01;35m[Kprevious_time[m[K = 0.0;
+      |                [01;35m[K^~~~~~~~~~~~~[m[K

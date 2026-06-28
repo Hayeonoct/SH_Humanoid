@@ -315,7 +315,7 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install("TARGETS" "wave" "DESTINATION" "lib/sh_motion_cpp")
+# install("TARGETS" "wave" "trajectory_bridge_node" "joint_state_bridge" "DESTINATION" "lib/sh_motion_cpp")
 include("/home/sejong/Desktop/SH_ws/build/sh_motion_cpp/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
 # install(FILES "/home/sejong/Desktop/SH_ws/build/sh_motion_cpp/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/sh_motion_cpp" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

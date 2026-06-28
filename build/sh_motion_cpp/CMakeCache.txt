@@ -329,7 +329,7 @@ SITE:STRING=localhost.localdomain
 TinyXML2_DIR:PATH=/usr/lib/aarch64-linux-gnu/cmake/tinyxml2
 
 //Path to a library.
-_lib:FILEPATH=/opt/ros/jazzy/lib/libstd_srvs__rosidl_typesupport_fastrtps_cpp.so
+_lib:FILEPATH=/home/sejong/Desktop/SH_ws/install/ros2_interfaces/lib/libros2_interfaces__rosidl_typesupport_fastrtps_cpp.so
 
 //The directory containing a CMake configuration file for action_msgs.
 action_msgs_DIR:PATH=/opt/ros/jazzy/share/action_msgs/cmake
@@ -480,6 +480,9 @@ console_bridge_DIR:PATH=/usr/lib/aarch64-linux-gnu/console_bridge/cmake
 
 //The directory containing a CMake configuration file for console_bridge_vendor.
 console_bridge_vendor_DIR:PATH=/opt/ros/jazzy/share/console_bridge_vendor/cmake
+
+//The directory containing a CMake configuration file for control_msgs.
+control_msgs_DIR:PATH=/opt/ros/jazzy/share/control_msgs/cmake
 
 //The directory containing a CMake configuration file for eigen3_cmake_module.
 eigen3_cmake_module_DIR:PATH=/opt/ros/jazzy/share/eigen3_cmake_module/cmake
@@ -645,6 +648,9 @@ rmw_implementation_DIR:PATH=/opt/ros/jazzy/share/rmw_implementation/cmake
 
 //The directory containing a CMake configuration file for rmw_implementation_cmake.
 rmw_implementation_cmake_DIR:PATH=/opt/ros/jazzy/share/rmw_implementation_cmake/cmake
+
+//The directory containing a CMake configuration file for ros2_interfaces.
+ros2_interfaces_DIR:PATH=/home/sejong/Desktop/SH_ws/install/ros2_interfaces/share/ros2_interfaces/cmake
 
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/jazzy/share/rosgraph_msgs/cmake

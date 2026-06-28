@@ -1,0 +1,97 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-535f1a5a2b59e370be72.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "sh_motion_cpp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "joint_state_bridge::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-joint_state_bridge-7a46da9ec5847c9e473f.json",
+					"name" : "joint_state_bridge",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sh_motion_cpp_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sh_motion_cpp_uninstall-1a4cc0a35063e06da1f9.json",
+					"name" : "sh_motion_cpp_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trajectory_bridge_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trajectory_bridge_node-1a221e39c978f40d1115.json",
+					"name" : "trajectory_bridge_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-60c0e39d551d25c4c81e.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "wave::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-wave-f561016f5ac25bc13a12.json",
+					"name" : "wave",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/sejong/Desktop/SH_ws/build/sh_motion_cpp",
+		"source" : "/home/sejong/Desktop/SH_ws/src/sh_motion_cpp"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

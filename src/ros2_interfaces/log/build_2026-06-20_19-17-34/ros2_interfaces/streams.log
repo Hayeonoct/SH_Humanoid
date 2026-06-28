@@ -1,0 +1,75 @@
+[0.022s] Invoking command in '/Volumes/Data/SamHyun/HRController/ros2_interfaces/build/ros2_interfaces': CONDA_PROMPT_MODIFIER=(ros2_humble) SHLVL=2 _=/usr/bin/env /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/bin/cmake /Volumes/Data/SamHyun/HRController/ros2_interfaces -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/Volumes/Data/SamHyun/HRController/ros2_interfaces/install/ros2_interfaces
+[0.133s] CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.133s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.133s]   CMake.
+[0.133s] 
+[0.133s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.133s]   to tell CMake that the project requires at least <min> but has been updated
+[0.133s]   to work with policies introduced by <max> or earlier.
+[0.133s] 
+[0.133s] 
+[0.328s] -- The C compiler identification is AppleClang 21.0.0.21000101
+[1.255s] -- The CXX compiler identification is AppleClang 21.0.0.21000101
+[1.297s] -- Detecting C compiler ABI info
+[2.088s] -- Detecting C compiler ABI info - done
+[2.111s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.112s] -- Detecting C compile features
+[2.112s] -- Detecting C compile features - done
+[2.123s] -- Detecting CXX compiler ABI info
+[2.359s] -- Detecting CXX compiler ABI info - done
+[2.381s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.382s] -- Detecting CXX compile features
+[2.382s] -- Detecting CXX compile features - done
+[2.403s] -- Found ament_cmake: 1.3.3 (/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/ament_cmake/cmake)
+[5.097s] -- Found Python3: /opt/homebrew/Frameworks/Python.framework/Versions/3.11/bin/python3.11 (found version "3.11.15") found components: Interpreter
+[5.431s] -- Found rosidl_default_generators: 1.2.0 (/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_default_generators/cmake)
+[5.444s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[5.478s] -- Found rosidl_adapter: 3.1.4 (/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_adapter/cmake)
+[5.613s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[5.732s] -- Found std_msgs: 4.2.3 (/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/std_msgs/cmake)
+[6.494s] -- Found ament_cmake_ros: 0.10.0 (/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/ament_cmake_ros/cmake)
+[7.278s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[8.295s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[8.297s] CMake Warning (dev) at /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:20 (find_package):
+[8.297s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[8.297s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[8.297s]   the cmake_policy command to set the policy and suppress this warning.
+[8.297s] 
+[8.298s] Call Stack (most recent call first):
+[8.298s]   /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+[8.298s]   /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+[8.298s]   CMakeLists.txt:8 (rosidl_generate_interfaces)
+[8.298s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[8.298s] 
+[8.314s] -- Found PythonInterp: /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/bin/python3 (found suitable version "3.10.20", minimum required is "3.6")
+[8.326s] -- Found python_cmake_module: 0.10.0 (/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/python_cmake_module/cmake)
+[8.326s] CMake Warning (dev) at /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/python_cmake_module/cmake/Modules/FindPythonExtra.cmake:52 (find_package):
+[8.326s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[8.327s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[8.327s]   the cmake_policy command to set the policy and suppress this warning.
+[8.327s] 
+[8.327s] Call Stack (most recent call first):
+[8.327s]   /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:23 (find_package)
+[8.327s]   /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+[8.327s]   /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+[8.327s]   CMakeLists.txt:8 (rosidl_generate_interfaces)
+[8.327s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[8.327s] 
+[8.369s] -- Using PythonExtra_INCLUDE_DIRS: /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/include/python3.10;/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/include/python3.10
+[8.398s] -- Using PythonExtra_LIBRARIES: /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/lib/libpython3.10.dylib
+[8.420s] -- Found PythonExtra: .so
+[8.751s] CMake Error at /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/cmake-4.3/Modules/FindPackageHandleStandardArgs.cmake:290 (message):
+[8.751s]   Could NOT find Python3 (missing: Python3_NumPy_INCLUDE_DIRS NumPy) (found
+[8.751s]   version "3.11.15")
+[8.752s] Call Stack (most recent call first):
+[8.752s]   /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/cmake-4.3/Modules/FindPackageHandleStandardArgs.cmake:654 (_FPHSA_FAILURE_MESSAGE)
+[8.752s]   /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/cmake-4.3/Modules/FindPython/Support.cmake:4334 (find_package_handle_standard_args)
+[8.752s]   /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/cmake-4.3/Modules/FindPython3.cmake:671 (include)
+[8.752s]   /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:24 (find_package)
+[8.752s]   /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+[8.752s]   /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+[8.752s]   CMakeLists.txt:8 (rosidl_generate_interfaces)
+[8.752s] 
+[8.752s] 
+[8.752s] -- Configuring incomplete, errors occurred!
+[8.760s] Invoked command in '/Volumes/Data/SamHyun/HRController/ros2_interfaces/build/ros2_interfaces' returned '1': CONDA_PROMPT_MODIFIER=(ros2_humble) SHLVL=2 _=/usr/bin/env /opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/bin/cmake /Volumes/Data/SamHyun/HRController/ros2_interfaces -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/Volumes/Data/SamHyun/HRController/ros2_interfaces/install/ros2_interfaces

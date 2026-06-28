@@ -1,0 +1,12 @@
+msg/UpperBodyCommand.idl
+msg/UpperBodyCommand.msg
+msg/UpperBodySystemState.idl
+msg/UpperBodySystemState.msg
+msg/UpperMotorState.idl
+msg/UpperMotorState.msg
+srv/EnableMotors.idl
+srv/EnableMotors.srv
+srv/SetRunMode.idl
+srv/SetRunMode.srv
+srv/SimpleMotorResult.idl
+srv/SimpleMotorResult.srv

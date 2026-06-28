@@ -1,0 +1,30 @@
+[1.041s] Invoking command in '/home/sejong/Desktop/SH_ws/build/SH_Humanoid_description': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/build --no-deps symlink_data
+[1.166s] /usr/lib/python3/dist-packages/setuptools/dist.py:744: SetuptoolsDeprecationWarning: Invalid dash-separated options
+[1.167s] !!
+[1.167s] 
+[1.167s]         ********************************************************************************
+[1.167s]         Usage of dash-separated 'script-dir' will not be supported in future
+[1.167s]         versions. Please use the underscore name 'script_dir' instead.
+[1.167s] 
+[1.167s]         This deprecation is overdue, please update your project and remove deprecated
+[1.167s]         calls to avoid build errors in the future.
+[1.168s] 
+[1.168s]         See https://setuptools.pypa.io/en/latest/userguide/declarative_config.html for details.
+[1.168s]         ********************************************************************************
+[1.168s] 
+[1.168s] !!
+[1.168s]   opt = self.warn_dash_deprecation(opt, section)
+[1.315s] running develop
+[1.440s] running egg_info
+[1.453s] writing SH_Humanoid_description.egg-info/PKG-INFO
+[1.453s] writing dependency_links to SH_Humanoid_description.egg-info/dependency_links.txt
+[1.454s] writing requirements to SH_Humanoid_description.egg-info/requires.txt
+[1.454s] writing top-level names to SH_Humanoid_description.egg-info/top_level.txt
+[1.481s] reading manifest file 'SH_Humanoid_description.egg-info/SOURCES.txt'
+[1.483s] writing manifest file 'SH_Humanoid_description.egg-info/SOURCES.txt'
+[1.497s] running build_ext
+[1.497s] Creating /home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/lib/python3.12/site-packages/SH-Humanoid-description.egg-link (link to .)
+[1.497s] 
+[1.498s] Installed /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description
+[1.498s] running symlink_data
+[1.569s] Invoked command in '/home/sejong/Desktop/SH_ws/build/SH_Humanoid_description' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sejong/Desktop/SH_ws/install/SH_Humanoid_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/sejong/Desktop/SH_ws/build/SH_Humanoid_description/build --no-deps symlink_data

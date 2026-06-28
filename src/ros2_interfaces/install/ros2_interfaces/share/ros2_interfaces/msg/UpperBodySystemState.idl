@@ -1,0 +1,50 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ros2_interfaces/msg/UpperBodySystemState.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module ros2_interfaces {
+  module msg {
+    typedef boolean boolean__15[15];
+    module UpperBodySystemState_Constants {
+      @verbatim (language="comment", text=
+        "FSM states")
+      const uint8 POWER_OFF = 0;
+      const uint8 DRIVER_INIT = 1;
+      const uint8 READY = 2;
+      const uint8 ENABLING = 3;
+      const uint8 ENABLED = 4;
+      const uint8 RUNNING = 5;
+      const uint8 FAULT = 6;
+      @verbatim (language="comment", text=
+        "Run mode values (SamHyun OD 0x7005)")
+      const uint8 MODE_IDLE = 0;
+      const uint8 MODE_TORQUE = 1;
+      const uint8 MODE_VELOCITY = 2;
+      const uint8 MODE_POSITION = 3;
+      const uint8 MODE_IMPEDANCE = 4;
+    };
+    @verbatim (language="comment", text=
+      "Upper body system-level state.")
+    struct UpperBodySystemState {
+      std_msgs::msg::Header header;
+
+      uint8 state;
+
+      uint8 run_mode;
+
+      uint8 ready_motor_count;
+
+      uint8 enabled_motor_count;
+
+      uint8 fault_motor_count;
+
+      boolean__15 is_connected;
+
+      boolean all_motors_enabled;
+
+      boolean command_accepted;
+    };
+  };
+};

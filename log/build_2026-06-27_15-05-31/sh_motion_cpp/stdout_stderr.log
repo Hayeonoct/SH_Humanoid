@@ -1,0 +1,15 @@
+[ 33%] Built target joint_state_bridge
+[ 66%] Built target wave
+[ 83%] [32mBuilding CXX object CMakeFiles/trajectory_bridge_node.dir/src/trajectory_bridge_node.cpp.o[0m
+[01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:[m[K In constructor ‘[01m[KTrajectoryBridge::[01;32m[KTrajectoryBridge[m[K()[m[K’:
+[01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:38:24:[m[K [01;31m[Kerror: [m[K‘[01m[KServerOptions[m[K’ is not a member of ‘[01m[Krclcpp_action[m[K’; did you mean ‘[01m[Kexceptions[m[K’?
+   38 |         rclcpp_action::[01;31m[KServerOptions[m[K action_options;
+      |                        [01;31m[K^~~~~~~~~~~~~[m[K
+      |                        [32m[Kexceptions[m[K
+[01m[K/home/sejong/Desktop/SH_ws/src/sh_motion_cpp/src/trajectory_bridge_node.cpp:39:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kaction_options[m[K’ was not declared in this scope; did you mean ‘[01m[Kget_node_options[m[K’?
+   39 |         [01;31m[Kaction_options[m[K.callback_group = action_cb_group_;
+      |         [01;31m[K^~~~~~~~~~~~~~[m[K
+      |         [32m[Kget_node_options[m[K
+gmake[2]: *** [CMakeFiles/trajectory_bridge_node.dir/build.make:76: CMakeFiles/trajectory_bridge_node.dir/src/trajectory_bridge_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:167: CMakeFiles/trajectory_bridge_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,54 @@
+{
+	"cmake" : 
+	{
+		"generator" : 
+		{
+			"multiConfig" : false,
+			"name" : "Unix Makefiles"
+		},
+		"paths" : 
+		{
+			"cmake" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/bin/cmake",
+			"cpack" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/bin/cpack",
+			"ctest" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/bin/ctest",
+			"root" : "/opt/homebrew/Caskroom/miniforge/base/envs/ros2_humble/share/cmake-4.3"
+		},
+		"version" : 
+		{
+			"isDirty" : false,
+			"major" : 4,
+			"minor" : 3,
+			"patch" : 3,
+			"string" : "4.3.3",
+			"suffix" : ""
+		}
+	},
+	"objects" : 
+	[
+		{
+			"jsonFile" : "codemodel-v2-12feb5325b707c773059.json",
+			"kind" : "codemodel",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 10
+			}
+		}
+	],
+	"reply" : 
+	{
+		"client-colcon-cmake" : 
+		{
+			"codemodel-v2" : 
+			{
+				"jsonFile" : "codemodel-v2-12feb5325b707c773059.json",
+				"kind" : "codemodel",
+				"version" : 
+				{
+					"major" : 2,
+					"minor" : 10
+				}
+			}
+		}
+	}
+}
