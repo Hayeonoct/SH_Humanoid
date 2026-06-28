@@ -1,9 +1,10 @@
 moveit_simple_controller_manager:
   controller_names:
-    - upper_body_controller
+    - right_arm_controller
+    - left_arm_controller
     - head_controller
 
-  upper_body_controller:
+  right_arm_controller:
     type: FollowJointTrajectory
     action_ns: follow_joint_trajectory
     default: true
@@ -15,6 +16,12 @@ moveit_simple_controller_manager:
       - joint5
       - joint6
       - joint7
+
+  left_arm_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
       - joint8
       - joint9
       - joint10
