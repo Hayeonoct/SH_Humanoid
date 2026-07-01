@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: SH_Humanoid_description
+    relative_path: urdf/SH_Humanoid_head.urdf
+  srdf:
+    relative_path: config/SH_Humanoid.srdf
+  package_settings:
+    author_name: hy
+    author_email: octopuscurry@naver.com
+    generated_timestamp: 1782812104
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

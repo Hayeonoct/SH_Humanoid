@@ -14,6 +14,9 @@ from moveit_msgs.msg import Constraints, JointConstraint
 from moveit_msgs.msg import MoveItErrorCodes
 from control_msgs.action import FollowJointTrajectory
 
+# --- 추가된 부분: JointState 임포트 ---
+from sensor_msgs.msg import JointState
+
 
 class MoveItPlanThenBothExecute(Node):
     # 부호 매핑 딕셔너리 추가
@@ -179,7 +182,8 @@ class MoveItPlanThenBothExecute(Node):
     # MoveIt planning
     # -------------------------------------------------------
 
-    def plan_arm(self, group_name, target_joints_degrees, desired_duration=None):
+    # --- 수정된 부분: start_joints_degrees 매개변수 추가 ---
+    def plan_arm(self, group_name, target_joints_degrees, desired_duration=None, start_joints_degrees=None):
         self.get_logger().info(
             f'MoveGroup action server 대기 중... group={group_name}'
         )
@@ -190,10 +194,20 @@ class MoveItPlanThenBothExecute(Node):
         goal_msg.request.allowed_planning_time = 5.0
         goal_msg.planning_options.plan_only = True
 
-        # 현재 /joint_states 기반 시작 상태 사용
-        goal_msg.request.start_state.is_diff = True
+        # 현재 /joint_states 기반 시작 상태 사용 여부 (이전 값 덮어쓰기를 위해 False로 변경)
+        goal_msg.request.start_state.is_diff = False
 
-        # 부호 매핑 적용 (추가된 부분)
+        # --- 추가된 부분: start_state를 이전 goal로 덮어씌우기 ---
+        if start_joints_degrees is not None:
+            start_joints_moveit = self.convert_user_deg_to_moveit_deg(start_joints_degrees)
+            js = JointState()
+            for j_name, j_pos_deg in start_joints_moveit.items():
+                js.name.append(j_name)
+                js.position.append(math.radians(j_pos_deg))
+            goal_msg.request.start_state.joint_state = js
+        # ----------------------------------------------------
+
+        # 부호 매핑 적용
         target_joints_degrees = self.convert_user_deg_to_moveit_deg(
             target_joints_degrees
         )
@@ -322,6 +336,11 @@ class MotionCSVControlGUI:
 
         self.motion_library = {}
         self.preview_sequence_index = 0
+
+        # --- 추가된 부분: 이전에 실행 성공한 목표값을 기억할 변수 ---
+        self.last_executed_target_right = None
+        self.last_executed_target_left = None
+        # ------------------------------------------------------
 
         self.root = tk.Tk()
         self.root.title('Dual Arm CSV Motion Control')
@@ -909,14 +928,6 @@ class MotionCSVControlGUI:
         self.log_status(f'Preview 대상 변경: {motion_name}')
 
     def on_plan_selected_motion(self):
-        """
-        선택된 CSV motion을 RViz에 preview planning.
-        실제 실행은 하지 않음.
-
-        주의:
-        motion 내부 step이 여러 개면 각 step을 순서대로 planning합니다.
-        RViz에는 보통 마지막 planning 결과가 남습니다.
-        """
         if not self.motion_library:
             messagebox.showwarning(
                 '모션 없음',
@@ -957,6 +968,11 @@ class MotionCSVControlGUI:
                 f'==== 선택 모션 Planning 시작: {motion_name} ===='
             )
 
+            # --- 수정된 부분: 미리보기 시에도 내부에서만 연속 궤적을 잇기 위해 로컬 복사본 사용 ---
+            current_start_right = self.last_executed_target_right
+            current_start_left = self.last_executed_target_left
+            # ------------------------------------------------------------------
+
             for step_data in steps:
                 step = step_data['step']
                 duration = step_data['duration']
@@ -979,12 +995,13 @@ class MotionCSVControlGUI:
 
                 desired_duration = None if duration < 0 else duration
 
+                # --- 수정된 부분: 이전 step의 위치를 현재 step의 시작점으로 지정 ---
                 right_traj = self.node.plan_arm(
                     'right_arm',
                     right_target,
-                    desired_duration=desired_duration
+                    desired_duration=desired_duration,
+                    start_joints_degrees=current_start_right
                 )
-
                 if right_traj is None:
                     messagebox.showerror(
                         'Planning 실패',
@@ -995,15 +1012,20 @@ class MotionCSVControlGUI:
                 left_traj = self.node.plan_arm(
                     'left_arm',
                     left_target,
-                    desired_duration=desired_duration
+                    desired_duration=desired_duration,
+                    start_joints_degrees=current_start_left
                 )
-
                 if left_traj is None:
                     messagebox.showerror(
                         'Planning 실패',
                         f'{motion_name} step {step} 왼팔 planning 실패'
                     )
                     return
+
+                # 다음 스텝을 위해 목표 지점을 새 시작점으로 갱신
+                current_start_right = right_target
+                current_start_left = left_target
+                # --------------------------------------------------------
 
             self.log_status(
                 f'==== 선택 모션 Planning 완료: {motion_name} ===='
@@ -1088,12 +1110,13 @@ class MotionCSVControlGUI:
 
                     desired_duration = None if duration < 0 else duration
 
+                    # --- 수정된 부분: 이전에 성공적으로 도착한 위치를 출발 위치로 지정 ---
                     right_traj = self.node.plan_arm(
                         'right_arm',
                         right_target,
-                        desired_duration=desired_duration
+                        desired_duration=desired_duration,
+                        start_joints_degrees=self.last_executed_target_right
                     )
-
                     if right_traj is None:
                         messagebox.showerror(
                             'Planning 실패',
@@ -1104,9 +1127,9 @@ class MotionCSVControlGUI:
                     left_traj = self.node.plan_arm(
                         'left_arm',
                         left_target,
-                        desired_duration=desired_duration
+                        desired_duration=desired_duration,
+                        start_joints_degrees=self.last_executed_target_left
                     )
-
                     if left_traj is None:
                         messagebox.showerror(
                             'Planning 실패',
@@ -1129,6 +1152,11 @@ class MotionCSVControlGUI:
                             f'{motion_name} step {step} 실행 실패'
                         )
                         return
+
+                    # 실행이 성공하면, 다음 step 또는 모션의 출발점을 위해 현재 목표값을 저장
+                    self.last_executed_target_right = right_target
+                    self.last_executed_target_left = left_target
+                    # -------------------------------------------------------------
 
                     self.log_status(
                         f'{motion_name} step {step} 실행 완료'

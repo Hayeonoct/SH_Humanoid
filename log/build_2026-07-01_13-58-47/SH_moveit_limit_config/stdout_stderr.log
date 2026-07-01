@@ -1,0 +1,56 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+WARNING: Package name "SH_moveit_limit_config" does not follow the naming conventions. It should start with a lower case letter and only contain lower case letters, digits, underscores, and dashes.
+-- Configuring done (0.8s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/sejong/Desktop/SH_ws/build/SH_moveit_limit_config
+-- Install configuration: ""
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/ament_index/resource_index/package_run_dependencies/SH_moveit_limit_config
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/ament_index/resource_index/parent_prefix_path/SH_moveit_limit_config
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/environment/ament_prefix_path.sh
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/environment/ament_prefix_path.dsv
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/environment/path.sh
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/environment/path.dsv
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/local_setup.bash
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/local_setup.sh
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/local_setup.zsh
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/local_setup.dsv
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/package.dsv
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/ament_index/resource_index/packages/SH_moveit_limit_config
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/cmake/SH_moveit_limit_configConfig.cmake
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/cmake/SH_moveit_limit_configConfig-version.cmake
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/package.xml
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/launch
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/launch/static_virtual_joint_tfs.launch.py
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/launch/spawn_controllers.launch.py
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/launch/warehouse_db.launch.py
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/launch/rsp.launch.py
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/launch/demo.launch.py
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/launch/demo_bridge.launch.py
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/launch/setup_assistant.launch.py
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/launch/move_group.launch.py
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/launch/moveit_rviz.launch.py
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/config
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/config/pilz_cartesian_limits.yaml
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/config/SH_Humanoid.ros2_control.xacro
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/config/initial_positions.yaml
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/config/SH_Humanoid.srdf
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/config/moveit_controllers.yaml
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/config/joint_limits.yaml
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/config/moveit.rviz
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/config/SH_Humanoid.urdf.xacro
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/config/kinematics.yaml
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/config/ros2_controllers.yaml
+-- Installing: /home/sejong/Desktop/SH_ws/install/SH_moveit_limit_config/share/SH_moveit_limit_config/.setup_assistant

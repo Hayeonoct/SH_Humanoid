@@ -1,0 +1,93 @@
+# joint_limits.yaml allows the dynamics properties specified in the URDF to be overwritten or augmented as needed
+
+# For beginners, we downscale velocity and acceleration limits.
+# You can always specify higher scaling factors (<= 1.0) in your motion requests.  # Increase the values below to 1.0 to always move at maximum speed.
+# 0.05일 때 최대 속도
+# 0.2 rad/s -> 0.016 rad/s -> 0.92 deg/s -> 3초에 2.76 deg
+# 0.4 rad/s -> 0.032 rad/s -> 1.83 deg/s -> 3초에 5.49 deg
+# 0.5 rad/s -> 0.004 rad/s -> 2.29 deg/s -> 3초에 6.87 deg
+default_velocity_scaling_factor: 1.0
+default_acceleration_scaling_factor: 1.0
+
+# Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
+# Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
+# 0.2 rad/s -> 11.45 deg/s
+# 0.4 rad/s -> 22.91 deg/s
+# 0.5 rad/s -> 28.64 deg/s
+
+joint_limits:
+  Revolute15:
+    has_velocity_limits: true
+    max_velocity: 1.4
+    has_acceleration_limits: true
+    max_acceleration: 0.6
+  joint1:
+    has_velocity_limits: true
+    max_velocity: 1.4
+    has_acceleration_limits: true
+    max_acceleration: 0.6
+  joint10:
+    has_velocity_limits: true
+    max_velocity: 1.4
+    has_acceleration_limits: true
+    max_acceleration: 0.6
+  joint11:
+    has_velocity_limits: true
+    max_velocity: 1.4
+    has_acceleration_limits: true
+    max_acceleration: 0.6
+  joint12:
+    has_velocity_limits: true
+    max_velocity: 1.4
+    has_acceleration_limits: true
+    max_acceleration: 0.6
+  joint13:
+    has_velocity_limits: true
+    max_velocity: 1.4
+    has_acceleration_limits: true
+    max_acceleration: 0.6
+  joint14:
+    has_velocity_limits: true
+    max_velocity: 1.4
+    has_acceleration_limits: true
+    max_acceleration: 0.6
+  joint2:
+    has_velocity_limits: true
+    max_velocity: 1.4
+    has_acceleration_limits: true
+    max_acceleration: 0.6
+  joint3:
+    has_velocity_limits: true
+    max_velocity: 1.4
+    has_acceleration_limits: true
+    max_acceleration: 0.6
+  joint4:
+    has_velocity_limits: true
+    max_velocity: 1.4
+    has_acceleration_limits: true
+    max_acceleration: 0.6
+  joint5:
+    has_velocity_limits: true
+    max_velocity: 1.4
+    has_acceleration_limits: true
+    max_acceleration: 0.6
+  joint6:
+    has_velocity_limits: true
+    max_velocity: 1.4
+    has_acceleration_limits: true
+    max_acceleration: 0.6
+  joint7:
+    has_velocity_limits: true
+    max_velocity: 1.4
+    has_acceleration_limits: true
+    max_acceleration: 0.6
+  joint8:
+    has_velocity_limits: true
+    max_velocity: 1.4
+    has_acceleration_limits: true
+    max_acceleration: 0.6
+  joint9:
+    has_velocity_limits: true
+    max_velocity: 1.4
+    has_acceleration_limits: true
+    max_acceleration: 0.6
