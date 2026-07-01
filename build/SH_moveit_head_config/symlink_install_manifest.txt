@@ -13,7 +13,6 @@
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/cmake/SH_moveit_head_configConfig.cmake
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/cmake/SH_moveit_head_configConfig-version.cmake
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/package.xml
-/home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/both_arm_control.launch.py
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/demo.launch.py
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/demo_bridge.launch.py
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/launch/move_group.launch.py
@@ -39,6 +38,7 @@
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/poses/wave_right.yaml
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/previous.srdf
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/ros2_controllers.yaml
+/home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/sensors_3d.yaml
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/seperated_moveit_controllers.yaml
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/config/servo.yaml
 /home/sejong/Desktop/SH_ws/install/SH_moveit_head_config/share/SH_moveit_head_config/.setup_assistant
