@@ -589,7 +589,7 @@
     <parent link="arm1_r_1"/>
     <child link="arm2_r_1"/>
     <axis xyz="-0.0 -0.863518 0.504318"/>
-    <limit effort="200.02" lower="-1.658063" upper="0.0" velocity="2.826"/>
+    <limit effort="200.02" lower="-2.181661" upper="0.0" velocity="2.826"/>
   </joint>
   <joint name="joint3" type="revolute">
     <origin rpy="0 0 0" xyz="0.0 -0.102845 -0.198505"/>
@@ -638,7 +638,7 @@
     <parent link="arm1_l_1"/>
     <child link="arm2_l_1"/>
     <axis xyz="0.0 -1.0 0.0"/>
-    <limit effort="200.02" lower="0.0" upper="1.658063" velocity="2.826"/>
+    <limit effort="200.02" lower="0.0" upper="2.181661" velocity="2.826"/>
   </joint>
   <joint name="joint10" type="revolute">
     <origin rpy="0 0 0" xyz="0.0 0.0114 -0.2069"/>
@@ -675,7 +675,7 @@
     <axis xyz="-0.0 1.0 -0.0"/>
     <limit effort="38.44" lower="-1.396263" upper="1.396263" velocity="8.61"/>
   </joint>
-  <joint name="Revolute 15" type="continuous">
+  <joint name="Revolute15" type="continuous">
     <origin rpy="0 0 0" xyz="0.0 0.105 0.203731"/>
     <parent link="base_link"/>
     <child link="Head__1__1"/>

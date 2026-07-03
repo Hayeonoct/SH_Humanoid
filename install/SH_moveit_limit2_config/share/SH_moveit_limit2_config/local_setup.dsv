@@ -1,0 +1,2 @@
+source;share/SH_moveit_limit2_config/environment/ament_prefix_path.sh
+source;share/SH_moveit_limit2_config/environment/path.sh

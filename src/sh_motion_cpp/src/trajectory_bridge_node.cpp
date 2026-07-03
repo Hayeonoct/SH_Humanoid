@@ -60,6 +60,19 @@ public:
                 rcl_action_server_get_default_options(),
                 action_cb_group_);
 
+        head_server_ =
+            rclcpp_action::create_server<FollowJT>(
+                this,
+                "/head_controller/follow_joint_trajectory",
+                std::bind(&TrajectoryBridge::goalCallbackHead, this,
+                    std::placeholders::_1, std::placeholders::_2),
+                std::bind(&TrajectoryBridge::cancelCallback, this,
+                    std::placeholders::_1),
+                std::bind(&TrajectoryBridge::acceptedCallbackHead, this,
+                    std::placeholders::_1),
+                rcl_action_server_get_default_options(),
+                action_cb_group_);
+
         command_pub_ =
             create_publisher<ros2_interfaces::msg::UpperBodyCommand>(
                 "/upper_body/command", 10);
@@ -109,6 +122,7 @@ private:
 
     ArmState right_arm_;
     ArmState left_arm_;
+    ArmState head_; 
 
     // -------------------------------------------------------
     // ROS 객체
@@ -116,6 +130,7 @@ private:
 
     rclcpp_action::Server<FollowJT>::SharedPtr right_server_;
     rclcpp_action::Server<FollowJT>::SharedPtr left_server_;
+    rclcpp_action::Server<FollowJT>::SharedPtr head_server_;
 
     rclcpp::Publisher<ros2_interfaces::msg::UpperBodyCommand>::SharedPtr
         command_pub_;
@@ -142,7 +157,7 @@ private:
     {
         34, 113, 125, 52, 105, 115, 57,  // axis1~7  왼팔
         51,  32,  33, 31,  35,  36, 37,  // axis8~14 오른팔
-        0                                // head
+        90                                // head
     };
 
     // MoveIt joint 이름 → /upper_body/command 배열 index
@@ -165,7 +180,9 @@ private:
         {"joint11",  3},
         {"joint12",  4},
         {"joint13",  5},
-        {"joint14",  6}
+        {"joint14",  6},
+        
+        {"Revolute15", 14} //목
     };
 
     // -------------------------------------------------------
@@ -227,6 +244,14 @@ private:
         return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
     }
 
+    rclcpp_action::GoalResponse goalCallbackHead(
+        const rclcpp_action::GoalUUID &,
+        std::shared_ptr<const FollowJT::Goal>)
+    {
+        RCLCPP_INFO(get_logger(), "Head goal received");
+        return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
+    }
+
     rclcpp_action::CancelResponse cancelCallback(
         const std::shared_ptr<GoalHandle> goal_handle)
     {
@@ -236,6 +261,7 @@ private:
 
         cancelArmIfMatched(right_arm_, goal_handle);
         cancelArmIfMatched(left_arm_, goal_handle);
+        cancelArmIfMatched(head_, goal_handle);
 
         return rclcpp_action::CancelResponse::ACCEPT;
     }
@@ -243,13 +269,19 @@ private:
     void acceptedCallbackRight(
         const std::shared_ptr<GoalHandle> goal_handle)
     {
-        startTrajectory(goal_handle, true);
+        startTrajectory(right_arm_, goal_handle, "RIGHT");
     }
 
     void acceptedCallbackLeft(
         const std::shared_ptr<GoalHandle> goal_handle)
     {
-        startTrajectory(goal_handle, false);
+        startTrajectory(left_arm_, goal_handle, "LEFT");
+    }
+
+    void acceptedCallbackHead(
+        const std::shared_ptr<GoalHandle> goal_handle)
+    {
+        startTrajectory(head_, goal_handle, "HEAD");
     }
 
     // -------------------------------------------------------
@@ -257,14 +289,13 @@ private:
     // -------------------------------------------------------
 
     void startTrajectory(
+        ArmState &arm,
         const std::shared_ptr<GoalHandle> goal_handle,
-        bool is_right)
+        const char *label)
     {
         std::lock_guard<std::mutex> lock(mutex_);
 
-        ArmState &arm = is_right ? right_arm_ : left_arm_;
-
-        // 같은 팔에 기존 goal이 살아 있으면 중단 처리
+        // 같은 축(팔/목)에 기존 goal이 살아 있으면 중단 처리
         if (arm.active_goal_handle && arm.active_goal_handle->is_active())
         {
             auto result = std::make_shared<FollowJT::Result>();
@@ -288,7 +319,7 @@ private:
 
             RCLCPP_WARN(get_logger(),
                 "%s received empty trajectory",
-                is_right ? "RIGHT" : "LEFT");
+                label);
 
             return;
         }
@@ -298,21 +329,20 @@ private:
         arm.current_point_idx  = 0;
         arm.traj_start_time    = now();
         arm.is_running         = true;
-        arm.is_right           = is_right;
         arm.active_goal_handle = goal_handle;
 
         for (size_t i = 0; i < arm.joint_names.size(); ++i)
         {
             RCLCPP_INFO(get_logger(),
                 "%s trajectory.joint_names[%zu] = %s",
-                is_right ? "RIGHT" : "LEFT",
+                label,
                 i,
                 arm.joint_names[i].c_str());
         }
 
         RCLCPP_INFO(get_logger(),
             "%s trajectory started — %zu points",
-            is_right ? "RIGHT" : "LEFT",
+            label,
             arm.point_queue.size());
     }
 
@@ -341,19 +371,19 @@ private:
     // -------------------------------------------------------
     // Timer
     // -------------------------------------------------------
-
     void onTimer()
     {
         std::lock_guard<std::mutex> lock(mutex_);
 
         bool was_running =
-            right_arm_.is_running || left_arm_.is_running;
+            right_arm_.is_running || left_arm_.is_running || head_.is_running;
 
         processArm(right_arm_);
         processArm(left_arm_);
+        processArm(head_);
 
         bool is_running_now =
-            right_arm_.is_running || left_arm_.is_running;
+            right_arm_.is_running || left_arm_.is_running || head_.is_running;
 
         // was_running을 같이 보는 이유:
         // 이번 tick에서 trajectory가 끝났더라도 마지막 position을 한 번 publish하기 위함.

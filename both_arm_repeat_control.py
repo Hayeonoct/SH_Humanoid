@@ -14,6 +14,18 @@ from control_msgs.action import FollowJointTrajectory
 from sensor_msgs.msg import JointState
 
 
+# ============================================================
+# Revolute15 설정 - 환경에 맞게 반드시 확인/수정하세요
+# ============================================================
+# 1) MoveIt planning group 이름 (SRDF에 정의된 group 이름)
+REVOLUTE15_GROUP = 'head'
+# 2) joint 이름 (URDF/SRDF 기준)
+REVOLUTE15_JOINT = 'Revolute15'
+# 3) 이미 만들어 둔 controller의 action topic
+REVOLUTE15_CONTROLLER = '/head_controller/follow_joint_trajectory'
+# ============================================================
+
+
 class MoveItPlanThenBothExecute(Node):
     USER_TO_MOVEIT_SIGN = {
         'joint1':  1.0,
@@ -31,6 +43,9 @@ class MoveItPlanThenBothExecute(Node):
         'joint12':  1.0,
         'joint13': -1.0,
         'joint14': -1.0,
+
+        # 방향이 반대로 움직이면 1.0 <-> -1.0 만 바꾸세요.
+        REVOLUTE15_JOINT: 1.0,
     }
 
     def convert_user_deg_to_moveit_deg(self, target_joints_degrees):
@@ -58,6 +73,13 @@ class MoveItPlanThenBothExecute(Node):
             self,
             FollowJointTrajectory,
             '/left_arm_controller/follow_joint_trajectory'
+        )
+
+        # Revolute15 전용 controller
+        self.revolute15_client = ActionClient(
+            self,
+            FollowJointTrajectory,
+            REVOLUTE15_CONTROLLER
         )
 
     # -------------------------------------------------------
@@ -181,6 +203,7 @@ class MoveItPlanThenBothExecute(Node):
         group_name:
           - right_arm
           - left_arm
+          - revolute15_group (REVOLUTE15_GROUP)
 
         target_joints_degrees:
           - degree 단위
@@ -199,7 +222,7 @@ class MoveItPlanThenBothExecute(Node):
         # 현재 /joint_states 기반 시작 상태 사용
         goal_msg.request.start_state.is_diff = False
 
-        # --- 추가된 부분: start_state를 이전 goal로 덮어씌우기 ---
+        # --- start_state를 이전 goal로 덮어씌우기 ---
         if start_joints_degrees is not None:
             start_joints_moveit = self.convert_user_deg_to_moveit_deg(start_joints_degrees)
             js = JointState()
@@ -256,7 +279,7 @@ class MoveItPlanThenBothExecute(Node):
 
         trajectory = self.apply_soft_landing(
             trajectory,
-            threshold_deg=5.0,
+            threshold_deg=1.0,
             max_factor=5.0
         )
 
@@ -278,23 +301,33 @@ class MoveItPlanThenBothExecute(Node):
         goal.trajectory = joint_trajectory
         return goal
 
-    def execute_both_planned_trajectories(self, right_trajectory, left_trajectory):
+    def execute_all_planned_trajectories(
+        self,
+        right_trajectory,
+        left_trajectory,
+        revolute15_trajectory
+    ):
         self.right_client.wait_for_server()
         self.left_client.wait_for_server()
+        self.revolute15_client.wait_for_server()
 
         right_goal = self.make_follow_goal_from_trajectory(right_trajectory)
         left_goal = self.make_follow_goal_from_trajectory(left_trajectory)
+        revolute15_goal = self.make_follow_goal_from_trajectory(revolute15_trajectory)
 
-        self.get_logger().info('오른팔/왼팔 trajectory 동시 전송 중...')
+        self.get_logger().info('오른팔/왼팔/Revolute15 trajectory 동시 전송 중...')
 
         right_send_future = self.right_client.send_goal_async(right_goal)
         left_send_future = self.left_client.send_goal_async(left_goal)
+        revolute15_send_future = self.revolute15_client.send_goal_async(revolute15_goal)
 
         rclpy.spin_until_future_complete(self, right_send_future)
         rclpy.spin_until_future_complete(self, left_send_future)
+        rclpy.spin_until_future_complete(self, revolute15_send_future)
 
         right_handle = right_send_future.result()
         left_handle = left_send_future.result()
+        revolute15_handle = revolute15_send_future.result()
 
         if right_handle is None or not right_handle.accepted:
             self.get_logger().error('Right arm Action Goal이 거부되었습니다.')
@@ -304,14 +337,21 @@ class MoveItPlanThenBothExecute(Node):
             self.get_logger().error('Left arm Action Goal이 거부되었습니다.')
             return False
 
+        if revolute15_handle is None or not revolute15_handle.accepted:
+            self.get_logger().error('Revolute15 Action Goal이 거부되었습니다.')
+            return False
+
         right_result_future = right_handle.get_result_async()
         left_result_future = left_handle.get_result_async()
+        revolute15_result_future = revolute15_handle.get_result_async()
 
         rclpy.spin_until_future_complete(self, right_result_future)
         rclpy.spin_until_future_complete(self, left_result_future)
+        rclpy.spin_until_future_complete(self, revolute15_result_future)
 
         right_result = right_result_future.result().result
         left_result = left_result_future.result().result
+        revolute15_result = revolute15_result_future.result().result
 
         self.get_logger().info(
             f'Right result: error_code={right_result.error_code}, '
@@ -323,7 +363,12 @@ class MoveItPlanThenBothExecute(Node):
             f'error_string="{left_result.error_string}"'
         )
 
-        self.get_logger().info('양팔 이동 완료')
+        self.get_logger().info(
+            f'Revolute15 result: error_code={revolute15_result.error_code}, '
+            f'error_string="{revolute15_result.error_string}"'
+        )
+
+        self.get_logger().info('양팔 + Revolute15 이동 완료')
 
         return True
 
@@ -333,18 +378,21 @@ class ManualArmControlGUI:
         self.node = ros_node
 
         self.root = tk.Tk()
-        self.root.title('Dual Arm Manual Joint Control')
-        self.root.geometry('820x680')
+        self.root.title('Dual Arm + Revolute15 Manual Joint Control')
+        self.root.geometry('820x740')
 
         self.right_vars = []
         self.left_vars = []
+        self.revolute15_var = None
 
         self.right_planned_traj = None
         self.left_planned_traj = None
+        self.revolute15_planned_traj = None
 
-        # --- 추가할 부분: 이전에 성공적으로 실행한 목표값을 기억할 변수 ---
+        # --- 이전에 성공적으로 실행한 목표값을 기억할 변수 ---
         self.last_executed_target_right = None
         self.last_executed_target_left = None
+        self.last_executed_target_revolute15 = None
         # --------------------------------------------------------
 
         self.create_gui()
@@ -415,6 +463,31 @@ class ManualArmControlGUI:
                 var,
                 i
             )
+
+        # -------------------------------------------------------
+        # Revolute15 단독 제어 영역
+        # -------------------------------------------------------
+        self.revolute15_frame = tk.LabelFrame(
+            self.main_frame,
+            text='Revolute15',
+            padx=10,
+            pady=10
+        )
+        self.revolute15_frame.pack(
+            pady=10,
+            fill='x',
+            padx=50
+        )
+
+        self.revolute15_var = tk.DoubleVar(value=0.0)
+        self.revolute15_var.trace_add('write', self.on_manual_value_changed)
+
+        self.create_joint_row(
+            self.revolute15_frame,
+            'Revolute15',
+            self.revolute15_var,
+            0
+        )
 
         self.option_frame = tk.Frame(self.main_frame)
         self.option_frame.pack(
@@ -490,7 +563,22 @@ class ManualArmControlGUI:
             height=2
         )
         self.plan_left_btn.pack(
-            side='right',
+            side='left',
+            fill='x',
+            expand=True,
+            padx=5
+        )
+
+        self.plan_revolute15_btn = tk.Button(
+            self.btn_frame1,
+            text='3. Revolute15 미리보기',
+            command=self.on_plan_revolute15,
+            bg='khaki',
+            font=('Arial', 11, 'bold'),
+            height=2
+        )
+        self.plan_revolute15_btn.pack(
+            side='left',
             fill='x',
             expand=True,
             padx=5
@@ -505,7 +593,7 @@ class ManualArmControlGUI:
 
         self.exec_btn = tk.Button(
             self.btn_frame2,
-            text='3. 양팔 실행',
+            text='4. 전체 동시 실행',
             command=self.on_execute_manual,
             bg='lightgreen',
             font=('Arial', 12, 'bold'),
@@ -543,7 +631,7 @@ class ManualArmControlGUI:
 
         self.repeat_btn = tk.Button(
             self.btn_frame3,
-            text='4. 반복 실행 (목표 → 0도 반복)',
+            text='5. 반복 실행 (목표 → 0도 반복)',
             command=self.on_repeat_execute,
             bg='#ffd27f',
             font=('Arial', 12, 'bold'),
@@ -612,10 +700,13 @@ class ManualArmControlGUI:
     def on_manual_value_changed(self, *args):
         self.right_planned_traj = None
         self.left_planned_traj = None
+        self.revolute15_planned_traj = None
         self.check_ready_to_execute()
 
     def check_ready_to_execute(self):
-        if self.right_planned_traj is not None and self.left_planned_traj is not None:
+        if (self.right_planned_traj is not None
+                and self.left_planned_traj is not None
+                and self.revolute15_planned_traj is not None):
             self.exec_btn.config(state='normal')
         else:
             self.exec_btn.config(state='disabled')
@@ -645,11 +736,19 @@ class ManualArmControlGUI:
             for i, var in enumerate(self.left_vars)
         }
 
+    def get_revolute15_target(self):
+        return {
+            REVOLUTE15_JOINT: self.revolute15_var.get()
+        }
+
     def get_zero_right(self):
         return {f'joint{i + 1}': 0.0 for i in range(7)}
 
     def get_zero_left(self):
         return {f'joint{i + 8}': 0.0 for i in range(7)}
+
+    def get_zero_revolute15(self):
+        return {REVOLUTE15_JOINT: 0.0}
 
     def on_plan_right(self):
         target_right = self.get_right_target()
@@ -657,14 +756,12 @@ class ManualArmControlGUI:
 
         self.log_status('==== 오른팔 플래닝 생성 중 ====')
 
-        # --- 수정할 부분: start_joints_degrees 에 이전 목표값 전달 ---
         self.right_planned_traj = self.node.plan_arm(
             'right_arm',
             target_right,
             desired_duration=duration,
             start_joints_degrees=self.last_executed_target_right
         )
-        # ----------------------------------------------------
 
         if self.right_planned_traj is not None:
             self.log_status('오른팔 플래닝 완료')
@@ -682,14 +779,12 @@ class ManualArmControlGUI:
 
         self.log_status('==== 왼팔 플래닝 생성 중 ====')
 
-        # --- 수정할 부분: start_joints_degrees 에 이전 목표값 전달 ---
         self.left_planned_traj = self.node.plan_arm(
             'left_arm',
             target_left,
             desired_duration=duration,
             start_joints_degrees=self.last_executed_target_left
         )
-        # ----------------------------------------------------
 
         if self.left_planned_traj is not None:
             self.log_status('왼팔 플래닝 완료')
@@ -701,11 +796,36 @@ class ManualArmControlGUI:
 
         self.check_ready_to_execute()
 
+    def on_plan_revolute15(self):
+        target = self.get_revolute15_target()
+        duration = self.get_duration()
+
+        self.log_status('==== Revolute15 플래닝 생성 중 ====')
+
+        self.revolute15_planned_traj = self.node.plan_arm(
+            REVOLUTE15_GROUP,
+            target,
+            desired_duration=duration,
+            start_joints_degrees=self.last_executed_target_revolute15
+        )
+
+        if self.revolute15_planned_traj is not None:
+            self.log_status('Revolute15 플래닝 완료')
+        else:
+            messagebox.showerror(
+                'Revolute15 플래닝 실패',
+                'Revolute15 경로를 생성할 수 없습니다.'
+            )
+
+        self.check_ready_to_execute()
+
     def on_execute_manual(self):
-        if self.right_planned_traj is None or self.left_planned_traj is None:
+        if (self.right_planned_traj is None
+                or self.left_planned_traj is None
+                or self.revolute15_planned_traj is None):
             messagebox.showwarning(
                 '실행 불가',
-                '오른팔과 왼팔 미리보기를 먼저 생성하세요.'
+                '오른팔 / 왼팔 / Revolute15 미리보기를 모두 먼저 생성하세요.'
             )
             return
 
@@ -721,22 +841,25 @@ class ManualArmControlGUI:
         try:
             self.log_status('==== 수동 입력 목표 자세 실행 ====')
 
-            success = self.node.execute_both_planned_trajectories(
+            success = self.node.execute_all_planned_trajectories(
                 self.right_planned_traj,
-                self.left_planned_traj
+                self.left_planned_traj,
+                self.revolute15_planned_traj
             )
 
             if success:
                 self.log_status('수동 입력 목표 자세 실행 완료')
 
-                # --- 추가할 부분: 성공적으로 이동을 마친 목표값을 다음번 출발점으로 저장 ---
+                # --- 성공적으로 이동을 마친 목표값을 다음번 출발점으로 저장 ---
                 self.last_executed_target_right = self.get_right_target()
                 self.last_executed_target_left = self.get_left_target()
+                self.last_executed_target_revolute15 = self.get_revolute15_target()
                 # -----------------------------------------------------------------
 
             # 실행 후에도 입력창 값은 유지.
             self.right_planned_traj = None
             self.left_planned_traj = None
+            self.revolute15_planned_traj = None
 
         finally:
             self.enable_buttons()
@@ -744,8 +867,11 @@ class ManualArmControlGUI:
     def on_repeat_execute(self):
         target_right = self.get_right_target()
         target_left = self.get_left_target()
+        target_revolute15 = self.get_revolute15_target()
+
         zero_right = self.get_zero_right()
         zero_left = self.get_zero_left()
+        zero_revolute15 = self.get_zero_revolute15()
 
         duration = self.get_duration()
         repeat_count = self.get_repeat_count()
@@ -762,8 +888,14 @@ class ManualArmControlGUI:
             'left_arm', target_left, desired_duration=duration,
             start_joints_degrees=self.last_executed_target_left
         )
+        revolute15_target_traj = self.node.plan_arm(
+            REVOLUTE15_GROUP, target_revolute15, desired_duration=duration,
+            start_joints_degrees=self.last_executed_target_revolute15
+        )
 
-        if right_target_traj is None or left_target_traj is None:
+        if (right_target_traj is None
+                or left_target_traj is None
+                or revolute15_target_traj is None):
             messagebox.showerror('반복 실행 실패', '목표 경로를 생성할 수 없습니다.')
             return
 
@@ -784,7 +916,11 @@ class ManualArmControlGUI:
                 self.log_status(f'---- 반복 {i + 1}/{repeat_count}: 목표 자세 이동 ----')
 
                 if i == 0:
-                    rt, lt = right_target_traj, left_target_traj
+                    rt, lt, r15t = (
+                        right_target_traj,
+                        left_target_traj,
+                        revolute15_target_traj
+                    )
                 else:
                     # 2회차부터는 이전 단계의 끝 지점인 '0도(zero)'를 출발점으로 플래닝
                     rt = self.node.plan_arm(
@@ -793,11 +929,14 @@ class ManualArmControlGUI:
                     lt = self.node.plan_arm(
                         'left_arm', target_left, desired_duration=duration, start_joints_degrees=zero_left
                     )
-                    if rt is None or lt is None:
+                    r15t = self.node.plan_arm(
+                        REVOLUTE15_GROUP, target_revolute15, desired_duration=duration, start_joints_degrees=zero_revolute15
+                    )
+                    if rt is None or lt is None or r15t is None:
                         self.log_status('목표 경로 재생성 실패, 반복 중단')
                         break
 
-                if not self.node.execute_both_planned_trajectories(rt, lt):
+                if not self.node.execute_all_planned_trajectories(rt, lt, r15t):
                     self.log_status('목표 자세 실행 실패, 반복 중단')
                     break
 
@@ -813,32 +952,40 @@ class ManualArmControlGUI:
                 lz = self.node.plan_arm(
                     'left_arm', zero_left, desired_duration=duration, start_joints_degrees=target_left
                 )
-                if rz is None or lz is None:
+                r15z = self.node.plan_arm(
+                    REVOLUTE15_GROUP, zero_revolute15, desired_duration=duration, start_joints_degrees=target_revolute15
+                )
+                if rz is None or lz is None or r15z is None:
                     self.log_status('0도 경로 생성 실패, 반복 중단')
                     break
 
-                if not self.node.execute_both_planned_trajectories(rz, lz):
+                if not self.node.execute_all_planned_trajectories(rz, lz, r15z):
                     self.log_status('0도 복귀 실행 실패, 반복 중단')
                     break
 
                 self.root.update()
 
             self.log_status('==== 반복 실행 종료 ====')
-            
+
             self.last_executed_target_right = zero_right
             self.last_executed_target_left = zero_left
+            self.last_executed_target_revolute15 = zero_revolute15
 
         finally:
             self.right_planned_traj = None
             self.left_planned_traj = None
+            self.revolute15_planned_traj = None
             self.enable_buttons()
 
     def on_clear_values(self):
         for var in self.right_vars + self.left_vars:
             var.set(0.0)
 
+        self.revolute15_var.set(0.0)
+
         self.right_planned_traj = None
         self.left_planned_traj = None
+        self.revolute15_planned_traj = None
 
         self.check_ready_to_execute()
 
@@ -847,6 +994,7 @@ class ManualArmControlGUI:
     def disable_buttons(self):
         self.plan_right_btn.config(state='disabled')
         self.plan_left_btn.config(state='disabled')
+        self.plan_revolute15_btn.config(state='disabled')
         self.exec_btn.config(state='disabled')
         self.clear_btn.config(state='disabled')
         self.repeat_btn.config(state='disabled')
@@ -854,6 +1002,7 @@ class ManualArmControlGUI:
     def enable_buttons(self):
         self.plan_right_btn.config(state='normal')
         self.plan_left_btn.config(state='normal')
+        self.plan_revolute15_btn.config(state='normal')
         self.clear_btn.config(state='normal')
         self.repeat_btn.config(state='normal')
         self.check_ready_to_execute()
