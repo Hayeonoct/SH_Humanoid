@@ -19,6 +19,9 @@ from sensor_msgs.msg import JointState
 
 
 class MoveItPlanThenBothExecute(Node):
+
+    SOFT_LANDING_EXCLUDE_JOINTS = ['Revolute15']
+
     # 부호 매핑 딕셔너리 추가
     USER_TO_MOVEIT_SIGN = {
         'joint1':  1.0,
@@ -66,6 +69,12 @@ class MoveItPlanThenBothExecute(Node):
             '/left_arm_controller/follow_joint_trajectory'
         )
 
+        self.head_client = ActionClient(
+            self,
+            FollowJointTrajectory,
+            '/head_controller/follow_joint_trajectory'
+        )
+
     # -------------------------------------------------------
     # Trajectory time helpers
     # -------------------------------------------------------
@@ -73,11 +82,19 @@ class MoveItPlanThenBothExecute(Node):
     def get_point_time(self, point):
         return point.time_from_start.sec + point.time_from_start.nanosec * 1e-9
 
-    def apply_soft_landing(self, joint_trajectory, threshold_deg=10.0, max_factor=5.0):
+    def apply_soft_landing(self, joint_trajectory, threshold_deg=5.0, max_factor=5.0):
         points = joint_trajectory.points
 
         if len(points) < 2:
             return joint_trajectory
+
+        # --- 추가: soft landing 계산에서 제외할 joint의 인덱스 구하기 ---
+        joint_names = list(joint_trajectory.joint_names)
+        excluded_indices = {
+            idx for idx, name in enumerate(joint_names)
+            if name in self.SOFT_LANDING_EXCLUDE_JOINTS
+        }
+        # -----------------------------------------------------------
 
         final_positions = points[-1].positions
         threshold_rad = math.radians(threshold_deg)
@@ -96,28 +113,35 @@ class MoveItPlanThenBothExecute(Node):
             if len(curr_pt.positions) == 0:
                 continue
 
-            max_dist = max(
+            # --- 수정: 제외 joint(Revolute15)는 max_dist 계산에서 빼기 ---
+            dist_values = [
                 abs(final_positions[j] - curr_pt.positions[j])
                 for j in range(len(curr_pt.positions))
-            )
+                if j not in excluded_indices
+            ]
 
-            if max_dist <= threshold_rad:
-                ratio = 1.0 - (max_dist / threshold_rad)
-                current_factor = 1.0 + (max_factor - 1.0) * ratio
+            # 제외하고 나서 남는 joint가 없으면 soft landing 적용 안 함
+            if dist_values:
+                max_dist = max(dist_values)
 
-                dt *= current_factor
+                if max_dist <= threshold_rad:
+                    ratio = 1.0 - (max_dist / threshold_rad)
+                    current_factor = 1.0 + (max_factor - 1.0) * ratio
 
-                if curr_pt.velocities:
-                    curr_pt.velocities = [
-                        v / current_factor
-                        for v in curr_pt.velocities
-                    ]
+                    dt *= current_factor
 
-                if curr_pt.accelerations:
-                    curr_pt.accelerations = [
-                        a / (current_factor ** 2)
-                        for a in curr_pt.accelerations
-                    ]
+                    if curr_pt.velocities:
+                        curr_pt.velocities = [
+                            v / current_factor
+                            for v in curr_pt.velocities
+                        ]
+
+                    if curr_pt.accelerations:
+                        curr_pt.accelerations = [
+                            a / (current_factor ** 2)
+                            for a in curr_pt.accelerations
+                        ]
+            # -----------------------------------------------------------
 
             new_time += dt
 

@@ -28,7 +28,7 @@ public:
         {
             "joint1", "joint2", "joint3", "joint4", "joint5",
             "joint6", "joint7", "joint8", "joint9", "joint10",
-            "joint11", "joint12", "joint13", "joint14", "Revolute 15"
+            "joint11", "joint12", "joint13", "joint14", "Revolute15"
         };
 
         joint_msg_.position.resize(15, 0.0);
@@ -49,7 +49,7 @@ public:
         motor_to_joint_[105] = 11;
         motor_to_joint_[115] = 12;
         motor_to_joint_[57]  = 13;
-        motor_to_joint_[0]   = 14;
+        motor_to_joint_[90]   = 14;
 
         // 10Hz 타이머 — 값 갱신과 무관하게 항상 최신 stamp로 퍼블리시
         timer_ = create_wall_timer(

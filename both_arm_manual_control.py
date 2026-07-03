@@ -58,6 +58,12 @@ class MoveItPlanThenBothExecute(Node):
             '/left_arm_controller/follow_joint_trajectory'
         )
 
+        self.head_client = ActionClient(
+            self,
+            FollowJointTrajectory,
+            '/head_controller/follow_joint_trajectory'
+        )
+
     # -------------------------------------------------------
     # Trajectory time helpers
     # -------------------------------------------------------
