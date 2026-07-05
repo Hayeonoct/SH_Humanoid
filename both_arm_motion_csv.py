@@ -14,15 +14,11 @@ from moveit_msgs.msg import Constraints, JointConstraint
 from moveit_msgs.msg import MoveItErrorCodes
 from control_msgs.action import FollowJointTrajectory
 
-# --- 추가된 부분: JointState 임포트 ---
 from sensor_msgs.msg import JointState
 
 
 class MoveItPlanThenBothExecute(Node):
 
-    SOFT_LANDING_EXCLUDE_JOINTS = ['Revolute15']
-
-    # 부호 매핑 딕셔너리 추가
     USER_TO_MOVEIT_SIGN = {
         'joint1':  1.0,
         'joint2': -1.0,
@@ -39,9 +35,9 @@ class MoveItPlanThenBothExecute(Node):
         'joint12':  1.0,
         'joint13': -1.0,
         'joint14': -1.0,
+        'Revolute15': 1.0
     }
 
-    # 부호 변환 함수 추가
     def convert_user_deg_to_moveit_deg(self, target_joints_degrees):
         return {
             joint_name: value * self.USER_TO_MOVEIT_SIGN.get(joint_name, 1.0)
@@ -75,9 +71,33 @@ class MoveItPlanThenBothExecute(Node):
             '/head_controller/follow_joint_trajectory'
         )
 
-    # -------------------------------------------------------
-    # Trajectory time helpers
-    # -------------------------------------------------------
+        # --- 추가: 강제 중단 및 실행 중인 액션 핸들을 관리하기 위한 변수 ---
+        self.is_interrupted = False
+        self.active_handles = []
+
+    # --- 추가: GUI와 연동하여 멈춤 없이 통신을 대기하고 중단 신호를 감지하는 함수 ---
+    def wait_for_future_with_cb(self, future, update_cb=None):
+        while rclpy.ok() and not future.done():
+            rclpy.spin_once(self, timeout_sec=0.02)
+            if update_cb:
+                try:
+                    update_cb()
+                except Exception:
+                    pass
+            # 강제 정지 플래그가 켜지면 즉시 대기를 중단
+            if self.is_interrupted:
+                return False
+        return True
+
+    # --- 추가: 진행 중인 모든 ROS 액션을 즉시 취소하는 함수 ---
+    def cancel_all_goals(self):
+        for handle in list(self.active_handles):
+            try:
+                handle.cancel_goal_async()
+            except Exception:
+                pass
+        self.active_handles.clear()
+    # -----------------------------------------------------------------
 
     def get_point_time(self, point):
         return point.time_from_start.sec + point.time_from_start.nanosec * 1e-9
@@ -87,14 +107,6 @@ class MoveItPlanThenBothExecute(Node):
 
         if len(points) < 2:
             return joint_trajectory
-
-        # --- 추가: soft landing 계산에서 제외할 joint의 인덱스 구하기 ---
-        joint_names = list(joint_trajectory.joint_names)
-        excluded_indices = {
-            idx for idx, name in enumerate(joint_names)
-            if name in self.SOFT_LANDING_EXCLUDE_JOINTS
-        }
-        # -----------------------------------------------------------
 
         final_positions = points[-1].positions
         threshold_rad = math.radians(threshold_deg)
@@ -113,14 +125,11 @@ class MoveItPlanThenBothExecute(Node):
             if len(curr_pt.positions) == 0:
                 continue
 
-            # --- 수정: 제외 joint(Revolute15)는 max_dist 계산에서 빼기 ---
             dist_values = [
                 abs(final_positions[j] - curr_pt.positions[j])
                 for j in range(len(curr_pt.positions))
-                if j not in excluded_indices
             ]
 
-            # 제외하고 나서 남는 joint가 없으면 soft landing 적용 안 함
             if dist_values:
                 max_dist = max(dist_values)
 
@@ -141,7 +150,6 @@ class MoveItPlanThenBothExecute(Node):
                             a / (current_factor ** 2)
                             for a in curr_pt.accelerations
                         ]
-            # -----------------------------------------------------------
 
             new_time += dt
 
@@ -153,11 +161,6 @@ class MoveItPlanThenBothExecute(Node):
         return joint_trajectory
 
     def scale_trajectory_duration(self, joint_trajectory, desired_duration):
-        """
-        desired_duration:
-          - None 또는 -1 이하: MoveIt 기본 trajectory 시간 사용
-          - 양수: trajectory 전체 시간을 해당 초로 스케일링
-        """
         if desired_duration is None:
             return joint_trajectory
 
@@ -203,11 +206,10 @@ class MoveItPlanThenBothExecute(Node):
         return joint_trajectory
 
     # -------------------------------------------------------
-    # MoveIt planning
+    # MoveIt planning (업데이트된 대기 함수 적용)
     # -------------------------------------------------------
 
-    # --- 수정된 부분: start_joints_degrees 매개변수 추가 ---
-    def plan_arm(self, group_name, target_joints_degrees, desired_duration=None, start_joints_degrees=None):
+    def plan_arm(self, group_name, target_joints_degrees, desired_duration=None, start_joints_degrees=None, update_cb=None, **kwargs):
         self.get_logger().info(
             f'MoveGroup action server 대기 중... group={group_name}'
         )
@@ -218,20 +220,35 @@ class MoveItPlanThenBothExecute(Node):
         goal_msg.request.allowed_planning_time = 5.0
         goal_msg.planning_options.plan_only = True
 
-        # 현재 /joint_states 기반 시작 상태 사용 여부 (이전 값 덮어쓰기를 위해 False로 변경)
-        goal_msg.request.start_state.is_diff = False
+        # 현재 상태를 베이스로 쓰되, 우리가 지정한 관절 값만 덮어쓰기 위해 True로 설정
+        goal_msg.request.start_state.is_diff = True
 
-        # --- 추가된 부분: start_state를 이전 goal로 덮어씌우기 ---
+        js = JointState()
+
         if start_joints_degrees is not None:
+            # 1. 연속 실행인 경우: 이전 스텝의 목표 위치(성공값)를 시작점으로 사용
             start_joints_moveit = self.convert_user_deg_to_moveit_deg(start_joints_degrees)
-            js = JointState()
             for j_name, j_pos_deg in start_joints_moveit.items():
                 js.name.append(j_name)
                 js.position.append(math.radians(j_pos_deg))
-            goal_msg.request.start_state.joint_state = js
-        # ----------------------------------------------------
+        else:
+            # 2. 처음 시작할 때: 실제 센서 값을 무시하고 해당 그룹의 모든 관절을 강제로 '0도'로 설정
+            self.get_logger().info(f"[{group_name}] 첫 시작 상태를 모든 관절 0도로 강제 지정합니다 (센서 오차 방지).")
+            
+            if group_name == 'right_arm':
+                group_joints = [f'joint{i}' for i in range(1, 8)]
+            elif group_name == 'left_arm':
+                group_joints = [f'joint{i}' for i in range(8, 15)]
+            else:
+                group_joints = []
 
-        # 부호 매핑 적용
+            for j_name in group_joints:
+                js.name.append(j_name)
+                js.position.append(0.0)  # 0도 = 0.0 라디안
+
+        goal_msg.request.start_state.joint_state = js
+
+        # --- 이 아래부터는 기존 부호 매핑 및 제약 조건(Constraints) 로직과 동일합니다 ---
         target_joints_degrees = self.convert_user_deg_to_moveit_deg(
             target_joints_degrees
         )
@@ -293,7 +310,7 @@ class MoveItPlanThenBothExecute(Node):
         return trajectory
 
     # -------------------------------------------------------
-    # Execute
+    # Execute (업데이트된 대기 함수 및 취소 기능 적용)
     # -------------------------------------------------------
 
     def make_follow_goal_from_trajectory(self, joint_trajectory):
@@ -301,52 +318,57 @@ class MoveItPlanThenBothExecute(Node):
         goal.trajectory = joint_trajectory
         return goal
 
-    def execute_both_planned_trajectories(self, right_trajectory, left_trajectory):
+    def execute_all_planned_trajectories(self, right_trajectory, left_trajectory, head_trajectory, update_cb=None):
         self.right_client.wait_for_server()
         self.left_client.wait_for_server()
+        self.head_client.wait_for_server()
 
         right_goal = self.make_follow_goal_from_trajectory(right_trajectory)
         left_goal = self.make_follow_goal_from_trajectory(left_trajectory)
+        head_goal = self.make_follow_goal_from_trajectory(head_trajectory)
 
-        self.get_logger().info('오른팔/왼팔 trajectory 동시 전송 중...')
+        self.get_logger().info('양팔 및 머리 trajectory 동시 전송 중...')
 
         right_send_future = self.right_client.send_goal_async(right_goal)
         left_send_future = self.left_client.send_goal_async(left_goal)
+        head_send_future = self.head_client.send_goal_async(head_goal)
 
-        rclpy.spin_until_future_complete(self, right_send_future)
-        rclpy.spin_until_future_complete(self, left_send_future)
+        if not self.wait_for_future_with_cb(right_send_future, update_cb): return False
+        if not self.wait_for_future_with_cb(left_send_future, update_cb): return False
+        if not self.wait_for_future_with_cb(head_send_future, update_cb): return False
 
         right_handle = right_send_future.result()
         left_handle = left_send_future.result()
+        head_handle = head_send_future.result()
 
         if right_handle is None or not right_handle.accepted:
             self.get_logger().error('Right arm Action Goal이 거부되었습니다.')
             return False
-
         if left_handle is None or not left_handle.accepted:
             self.get_logger().error('Left arm Action Goal이 거부되었습니다.')
             return False
+        if head_handle is None or not head_handle.accepted:
+            self.get_logger().error('Head Action Goal이 거부되었습니다.')
+            return False
+
+        # 추적을 위해 핸들 저장 (강제 정지 시 취소 가능하게 함)
+        self.active_handles.extend([right_handle, left_handle, head_handle])
 
         right_result_future = right_handle.get_result_async()
         left_result_future = left_handle.get_result_async()
+        head_result_future = head_handle.get_result_async()
 
-        rclpy.spin_until_future_complete(self, right_result_future)
-        rclpy.spin_until_future_complete(self, left_result_future)
+        if not self.wait_for_future_with_cb(right_result_future, update_cb): return False
+        if not self.wait_for_future_with_cb(left_result_future, update_cb): return False
+        if not self.wait_for_future_with_cb(head_result_future, update_cb): return False
+
+        self.active_handles.clear()
 
         right_result = right_result_future.result().result
         left_result = left_result_future.result().result
+        head_result = head_result_future.result().result
 
-        self.get_logger().info(
-            f'Right result: error_code={right_result.error_code}, '
-            f'error_string="{right_result.error_string}"'
-        )
-
-        self.get_logger().info(
-            f'Left result: error_code={left_result.error_code}, '
-            f'error_string="{left_result.error_string}"'
-        )
-
-        self.get_logger().info('양팔 이동 완료')
+        self.get_logger().info('양팔 및 머리 이동 완료')
 
         return True
 
@@ -361,21 +383,16 @@ class MotionCSVControlGUI:
         self.motion_library = {}
         self.preview_sequence_index = 0
 
-        # --- 추가된 부분: 이전에 실행 성공한 목표값을 기억할 변수 ---
         self.last_executed_target_right = None
         self.last_executed_target_left = None
-        # ------------------------------------------------------
+        self.last_executed_target_head = None
 
         self.root = tk.Tk()
-        self.root.title('Dual Arm CSV Motion Control')
-        self.root.geometry('860x760')
+        self.root.title('Dual Arm & Head CSV Motion Control')
+        self.root.geometry('860x860') # 높이 약간 증가
 
         self.create_gui()
         self.load_default_motion_csv(show_message=False)
-
-    # -------------------------------------------------------
-    # GUI layout
-    # -------------------------------------------------------
 
     def create_gui(self):
         self.main_frame = tk.LabelFrame(
@@ -467,12 +484,7 @@ class MotionCSVControlGUI:
             bg='mistyrose',
             font=('Arial', 10, 'bold')
         )
-        self.remove_selected_btn.pack(
-            side='left',
-            fill='x',
-            expand=True,
-            padx=3
-        )
+        self.remove_selected_btn.pack(side='left', fill='x', expand=True, padx=3)
 
         self.move_up_btn = tk.Button(
             self.sequence_control_frame,
@@ -481,12 +493,7 @@ class MotionCSVControlGUI:
             bg='lightyellow',
             font=('Arial', 10, 'bold')
         )
-        self.move_up_btn.pack(
-            side='left',
-            fill='x',
-            expand=True,
-            padx=3
-        )
+        self.move_up_btn.pack(side='left', fill='x', expand=True, padx=3)
 
         self.move_down_btn = tk.Button(
             self.sequence_control_frame,
@@ -495,12 +502,7 @@ class MotionCSVControlGUI:
             bg='lightyellow',
             font=('Arial', 10, 'bold')
         )
-        self.move_down_btn.pack(
-            side='left',
-            fill='x',
-            expand=True,
-            padx=3
-        )
+        self.move_down_btn.pack(side='left', fill='x', expand=True, padx=3)
 
         self.clear_sequence_btn = tk.Button(
             self.sequence_control_frame,
@@ -509,12 +511,7 @@ class MotionCSVControlGUI:
             bg='lightgray',
             font=('Arial', 10, 'bold')
         )
-        self.clear_sequence_btn.pack(
-            side='left',
-            fill='x',
-            expand=True,
-            padx=3
-        )
+        self.clear_sequence_btn.pack(side='left', fill='x', expand=True, padx=3)
 
         self.preview_control_frame = tk.Frame(self.main_frame)
         self.preview_control_frame.pack(fill='x', pady=5)
@@ -526,12 +523,7 @@ class MotionCSVControlGUI:
             bg='lightcyan',
             font=('Arial', 10, 'bold')
         )
-        self.prev_preview_btn.pack(
-            side='left',
-            fill='x',
-            expand=True,
-            padx=3
-        )
+        self.prev_preview_btn.pack(side='left', fill='x', expand=True, padx=3)
 
         self.plan_selected_motion_btn = tk.Button(
             self.preview_control_frame,
@@ -540,12 +532,7 @@ class MotionCSVControlGUI:
             bg='lightskyblue',
             font=('Arial', 10, 'bold')
         )
-        self.plan_selected_motion_btn.pack(
-            side='left',
-            fill='x',
-            expand=True,
-            padx=3
-        )
+        self.plan_selected_motion_btn.pack(side='left', fill='x', expand=True, padx=3)
 
         self.next_preview_btn = tk.Button(
             self.preview_control_frame,
@@ -554,12 +541,7 @@ class MotionCSVControlGUI:
             bg='lightcyan',
             font=('Arial', 10, 'bold')
         )
-        self.next_preview_btn.pack(
-            side='left',
-            fill='x',
-            expand=True,
-            padx=3
-        )
+        self.next_preview_btn.pack(side='left', fill='x', expand=True, padx=3)
 
         self.preview_label = tk.Label(
             self.main_frame,
@@ -580,6 +562,18 @@ class MotionCSVControlGUI:
         )
         self.exec_motion_btn.pack(fill='x', pady=8)
 
+        # 🚨 강제 정지 및 초기화 버튼 추가 🚨
+        self.force_init_btn = tk.Button(
+            self.main_frame,
+            text='🚨 강제 정지 및 INIT 자세로 이동 🚨',
+            command=self.on_force_init,
+            bg='red',
+            fg='white',
+            font=('Arial', 14, 'bold'),
+            height=2
+        )
+        self.force_init_btn.pack(fill='x', pady=5)
+
         self.status_text = tk.Text(
             self.main_frame,
             height=10,
@@ -592,7 +586,67 @@ class MotionCSVControlGUI:
         )
 
     # -------------------------------------------------------
-    # CSV load
+    # 강제 초기화(최상위 명령) 기능 추가
+    # -------------------------------------------------------
+    def on_force_init(self):
+        self.log_status("\n!!! [최상위 명령] 모든 동작을 중지하고 INIT 자세로 강제 이동합니다 !!!")
+
+        # 1. 실행 중인 동작 중단 플래그 설정 및 진행 중인 액션 취소
+        self.node.is_interrupted = True
+        self.node.cancel_all_goals()
+
+        # 취소 명령이 ROS 네트워크에 충분히 전달되도록 잠시 대기
+        t_end = time.time() + 0.5
+        while time.time() < t_end:
+            rclpy.spin_once(self.node, timeout_sec=0.05)
+            self.root.update()
+
+        # 2. 강제 이동을 위해 인터럽트 플래그 리셋
+        self.node.is_interrupted = False
+
+        # 3. 버튼 비활성화 (이동 중 중복 클릭 방지)
+        self.disable_all_buttons()
+        self.root.update()
+
+        try:
+            # 4. Init 타겟 설정 (CSV의 init을 우선 참조하고, 없으면 올 0으로 설정)
+            right_target = {f'joint{i}': 0.0 for i in range(1, 8)}
+            left_target = {f'joint{i}': 0.0 for i in range(8, 15)}
+            head_target = {'Revolute15': 0.0}
+
+            if 'init' in self.motion_library and self.motion_library['init']:
+                init_joints = self.motion_library['init'][0]['joints']
+                for i in range(1, 8): right_target[f'joint{i}'] = init_joints.get(f'joint{i}', 0.0)
+                for i in range(8, 15): left_target[f'joint{i}'] = init_joints.get(f'joint{i}', 0.0)
+                head_target['Revolute15'] = init_joints.get('Revolute15', 0.0)
+
+            # 5. Planning
+            self.log_status("Init 자세 Planning 중...")
+            r_traj = self.node.plan_arm('right_arm', right_target, desired_duration=2.0, update_cb=self.root.update)
+            l_traj = self.node.plan_arm('left_arm', left_target, desired_duration=2.0, update_cb=self.root.update)
+            h_traj = self.node.plan_arm('head', head_target, desired_duration=2.0, update_cb=self.root.update)
+
+            if not (r_traj and l_traj and h_traj):
+                self.log_status("Init 자세 Planning 실패. 로봇 상태를 확인하세요.")
+                return
+
+            # 6. Execute
+            self.log_status("Init 자세로 빠르게 복귀 중...")
+            success = self.node.execute_all_planned_trajectories(r_traj, l_traj, h_traj, update_cb=self.root.update)
+
+            if success:
+                self.log_status("강제 Init 이동 완료.")
+                self.last_executed_target_right = right_target
+                self.last_executed_target_left = left_target
+                self.last_executed_target_head = head_target
+            else:
+                self.log_status("Init 이동에 실패했습니다.")
+
+        finally:
+            self.reset_ui_buttons()
+
+    # -------------------------------------------------------
+    # CSV load (기존과 동일하되 변경 없음)
     # -------------------------------------------------------
 
     def load_default_motion_csv(self, show_message=False):
@@ -643,7 +697,6 @@ class MotionCSVControlGUI:
             self.sequence_listbox.delete(0, tk.END)
             self.preview_sequence_index = 0
 
-            # 기본 자세 모션이 있으면 자동으로 stack에 하나 넣음
             if 'motion0' in self.motion_library:
                 self.sequence_listbox.insert(tk.END, 'motion0')
                 self.select_sequence_index(0)
@@ -682,24 +735,10 @@ class MotionCSVControlGUI:
         motion_library = {}
 
         required_cols = [
-            'motion',
-            'step',
-            'duration',
-            'hold',
-            'joint1',
-            'joint2',
-            'joint3',
-            'joint4',
-            'joint5',
-            'joint6',
-            'joint7',
-            'joint8',
-            'joint9',
-            'joint10',
-            'joint11',
-            'joint12',
-            'joint13',
-            'joint14'
+            'motion', 'step', 'duration', 'hold',
+            'joint1', 'joint2', 'joint3', 'joint4', 'joint5', 'joint6', 'joint7',
+            'joint8', 'joint9', 'joint10', 'joint11', 'joint12', 'joint13', 'joint14',
+            'Revolute15'
         ]
 
         with open(path, 'r', newline='', encoding='utf-8-sig') as f:
@@ -736,6 +775,11 @@ class MotionCSVControlGUI:
                         raw_value = '0.0'
 
                     joints[joint_name] = float(raw_value)
+                
+                raw_head_value = row['Revolute15'].strip()
+                if raw_head_value == '':
+                    raw_head_value = '0.0'
+                joints['Revolute15'] = float(raw_head_value)
 
                 step_data = {
                     'step': step,
@@ -780,11 +824,7 @@ class MotionCSVControlGUI:
                 bg='white',
                 font=('Arial', 10, 'bold')
             )
-            btn.pack(
-                side='left',
-                padx=4,
-                pady=4
-            )
+            btn.pack(side='left', padx=4, pady=4)
 
     def on_add_motion_to_sequence(self, motion_name):
         self.sequence_listbox.insert(tk.END, motion_name)
@@ -800,14 +840,12 @@ class MotionCSVControlGUI:
     def on_remove_selected_motion(self):
         selection = self.sequence_listbox.curselection()
 
-        if not selection:
-            return
+        if not selection: return
 
         idx = selection[0]
         motion_name = self.sequence_listbox.get(idx)
 
         self.sequence_listbox.delete(idx)
-
         self.log_status(f'실행 순서에서 삭제: {motion_name}')
 
         size = self.sequence_listbox.size()
@@ -827,22 +865,15 @@ class MotionCSVControlGUI:
 
         self.preview_sequence_index = 0
         self.update_preview_label()
-
         self.log_status('실행 순서를 모두 삭제했습니다.')
 
     def on_move_sequence_up(self):
         selection = self.sequence_listbox.curselection()
-
-        if not selection:
-            return
-
+        if not selection: return
         idx = selection[0]
-
-        if idx == 0:
-            return
+        if idx == 0: return
 
         motion_name = self.sequence_listbox.get(idx)
-
         self.sequence_listbox.delete(idx)
         self.sequence_listbox.insert(idx - 1, motion_name)
         self.sequence_listbox.selection_set(idx - 1)
@@ -850,29 +881,19 @@ class MotionCSVControlGUI:
         self.preview_sequence_index = idx - 1
         self.update_preview_label()
 
-        self.log_status(f'순서 위로 이동: {motion_name}')
-
     def on_move_sequence_down(self):
         selection = self.sequence_listbox.curselection()
-
-        if not selection:
-            return
-
+        if not selection: return
         idx = selection[0]
-
-        if idx >= self.sequence_listbox.size() - 1:
-            return
+        if idx >= self.sequence_listbox.size() - 1: return
 
         motion_name = self.sequence_listbox.get(idx)
-
         self.sequence_listbox.delete(idx)
         self.sequence_listbox.insert(idx + 1, motion_name)
         self.sequence_listbox.selection_set(idx + 1)
 
         self.preview_sequence_index = idx + 1
         self.update_preview_label()
-
-        self.log_status(f'순서 아래로 이동: {motion_name}')
 
     def get_motion_sequence_from_listbox(self):
         return [
@@ -905,155 +926,86 @@ class MotionCSVControlGUI:
 
     def get_selected_preview_motion_name(self):
         size = self.sequence_listbox.size()
-
-        if size == 0:
-            return None
-
+        if size == 0: return None
         index = max(0, min(self.preview_sequence_index, size - 1))
         return self.sequence_listbox.get(index)
 
     def update_preview_label(self):
         size = self.sequence_listbox.size()
-
         if size == 0:
             self.preview_label.config(text='Preview 대상: 없음')
             return
 
         motion_name = self.get_selected_preview_motion_name()
-
         self.preview_label.config(
             text=f'Preview 대상: {self.preview_sequence_index + 1}/{size}  {motion_name}'
         )
 
     def on_preview_prev_motion(self):
-        if self.sequence_listbox.size() == 0:
-            messagebox.showwarning(
-                'Preview 불가',
-                '실행 순서 stack에 모션을 먼저 추가하세요.'
-            )
-            return
-
+        if self.sequence_listbox.size() == 0: return
         self.select_sequence_index(self.preview_sequence_index - 1)
-
-        motion_name = self.get_selected_preview_motion_name()
-        self.log_status(f'Preview 대상 변경: {motion_name}')
+        self.log_status(f'Preview 대상 변경: {self.get_selected_preview_motion_name()}')
 
     def on_preview_next_motion(self):
-        if self.sequence_listbox.size() == 0:
-            messagebox.showwarning(
-                'Preview 불가',
-                '실행 순서 stack에 모션을 먼저 추가하세요.'
-            )
-            return
-
+        if self.sequence_listbox.size() == 0: return
         self.select_sequence_index(self.preview_sequence_index + 1)
-
-        motion_name = self.get_selected_preview_motion_name()
-        self.log_status(f'Preview 대상 변경: {motion_name}')
+        self.log_status(f'Preview 대상 변경: {self.get_selected_preview_motion_name()}')
 
     def on_plan_selected_motion(self):
-        if not self.motion_library:
-            messagebox.showwarning(
-                '모션 없음',
-                'motions.csv 파일을 먼저 로드하세요.'
-            )
-            return
-
+        if not self.motion_library: return
         motion_name = self.get_selected_preview_motion_name()
-
-        if motion_name is None:
-            messagebox.showwarning(
-                'Preview 불가',
-                '실행 순서 stack에 모션을 먼저 추가하세요.'
-            )
-            return
-
-        if motion_name not in self.motion_library:
-            messagebox.showerror(
-                '알 수 없는 모션',
-                f'motions.csv에 없는 모션입니다: {motion_name}'
-            )
-            return
+        if motion_name is None: return
 
         steps = self.motion_library[motion_name]
-
-        if not steps:
-            messagebox.showwarning(
-                '빈 모션',
-                f'{motion_name}에 step이 없습니다.'
-            )
-            return
-
         self.disable_all_buttons()
         self.root.update()
 
         try:
-            self.log_status(
-                f'==== 선택 모션 Planning 시작: {motion_name} ===='
-            )
+            self.log_status(f'==== 선택 모션 Planning 시작: {motion_name} ====')
 
-            # --- 수정된 부분: 미리보기 시에도 내부에서만 연속 궤적을 잇기 위해 로컬 복사본 사용 ---
             current_start_right = self.last_executed_target_right
             current_start_left = self.last_executed_target_left
-            # ------------------------------------------------------------------
+            current_start_head = self.last_executed_target_head
 
             for step_data in steps:
+                if self.node.is_interrupted: break # 중단 체크
+
                 step = step_data['step']
                 duration = step_data['duration']
                 joints = step_data['joints']
 
-                self.log_status(
-                    f'{motion_name} step {step} preview planning 중... '
-                    f'duration={duration}'
-                )
+                self.log_status(f'{motion_name} step {step} preview planning 중... ')
 
-                right_target = {
-                    f'joint{i}': joints[f'joint{i}']
-                    for i in range(1, 8)
-                }
-
-                left_target = {
-                    f'joint{i}': joints[f'joint{i}']
-                    for i in range(8, 15)
-                }
+                right_target = {f'joint{i}': joints[f'joint{i}'] for i in range(1, 8)}
+                left_target = {f'joint{i}': joints[f'joint{i}'] for i in range(8, 15)}
+                head_target = {'Revolute15': joints['Revolute15']}
 
                 desired_duration = None if duration < 0 else duration
 
-                # --- 수정된 부분: 이전 step의 위치를 현재 step의 시작점으로 지정 ---
                 right_traj = self.node.plan_arm(
-                    'right_arm',
-                    right_target,
-                    desired_duration=desired_duration,
-                    start_joints_degrees=current_start_right
+                    'right_arm', right_target, desired_duration=desired_duration,
+                    start_joints_degrees=current_start_right, update_cb=self.root.update
                 )
-                if right_traj is None:
-                    messagebox.showerror(
-                        'Planning 실패',
-                        f'{motion_name} step {step} 오른팔 planning 실패'
-                    )
-                    return
+                if right_traj is None: return
 
                 left_traj = self.node.plan_arm(
-                    'left_arm',
-                    left_target,
-                    desired_duration=desired_duration,
-                    start_joints_degrees=current_start_left
+                    'left_arm', left_target, desired_duration=desired_duration,
+                    start_joints_degrees=current_start_left, update_cb=self.root.update
                 )
-                if left_traj is None:
-                    messagebox.showerror(
-                        'Planning 실패',
-                        f'{motion_name} step {step} 왼팔 planning 실패'
-                    )
-                    return
+                if left_traj is None: return
+                
+                head_traj = self.node.plan_arm(
+                    'head', head_target, desired_duration=desired_duration,
+                    start_joints_degrees=current_start_head, update_cb=self.root.update
+                )
+                if head_traj is None: return
 
-                # 다음 스텝을 위해 목표 지점을 새 시작점으로 갱신
                 current_start_right = right_target
                 current_start_left = left_target
-                # --------------------------------------------------------
+                current_start_head = head_target
 
-            self.log_status(
-                f'==== 선택 모션 Planning 완료: {motion_name} ===='
-            )
+            if not self.node.is_interrupted:
+                self.log_status(f'==== 선택 모션 Planning 완료: {motion_name} ====')
 
         finally:
             self.reset_ui_buttons()
@@ -1063,39 +1015,14 @@ class MotionCSVControlGUI:
     # -------------------------------------------------------
 
     def on_execute_motion_sequence(self):
-        if not self.motion_library:
-            messagebox.showwarning(
-                '모션 없음',
-                'motions.csv 파일을 먼저 로드하세요.'
-            )
-            return
+        if not self.motion_library: return
 
         motion_sequence = self.get_motion_sequence_from_listbox()
-
-        if not motion_sequence:
-            messagebox.showwarning(
-                '시퀀스 없음',
-                '실행할 모션을 버튼으로 추가하세요.'
-            )
-            return
-
-        unknown = [
-            name for name in motion_sequence
-            if name not in self.motion_library
-        ]
-
-        if unknown:
-            messagebox.showerror(
-                '알 수 없는 모션',
-                f'motions.csv에 없는 모션 이름입니다:\n{unknown}'
-            )
-            return
+        if not motion_sequence: return
 
         if not messagebox.askyesno(
             'CSV 모션 시퀀스 실행 확인',
-            '다음 순서로 실행합니다:\n\n'
-            + ' -> '.join(motion_sequence)
-            + '\n\n실제 로봇을 구동할까요?'
+            '다음 순서로 실행합니다:\n\n' + ' -> '.join(motion_sequence) + '\n\n실제 로봇을 구동할까요?'
         ):
             return
 
@@ -1104,98 +1031,71 @@ class MotionCSVControlGUI:
 
         try:
             for motion_idx, motion_name in enumerate(motion_sequence, start=1):
-                self.log_status(
-                    f'==== Sequence {motion_idx}/{len(motion_sequence)}: '
-                    f'{motion_name} 시작 ===='
-                )
+                if self.node.is_interrupted: break # 중단 체크
 
+                self.log_status(f'==== Sequence {motion_idx}/{len(motion_sequence)}: {motion_name} 시작 ====')
                 steps = self.motion_library[motion_name]
 
                 for step_data in steps:
+                    if self.node.is_interrupted: break # 중단 체크
+
                     step = step_data['step']
                     duration = step_data['duration']
                     hold = step_data['hold']
                     joints = step_data['joints']
 
-                    self.log_status(
-                        f'{motion_name} step {step} planning 중... '
-                        f'duration={duration}, hold={hold}'
-                    )
+                    self.log_status(f'{motion_name} step {step} planning 중...')
 
-                    right_target = {
-                        f'joint{i}': joints[f'joint{i}']
-                        for i in range(1, 8)
-                    }
-
-                    left_target = {
-                        f'joint{i}': joints[f'joint{i}']
-                        for i in range(8, 15)
-                    }
+                    right_target = {f'joint{i}': joints[f'joint{i}'] for i in range(1, 8)}
+                    left_target = {f'joint{i}': joints[f'joint{i}'] for i in range(8, 15)}
+                    head_target = {'Revolute15': joints['Revolute15']}
 
                     desired_duration = None if duration < 0 else duration
 
-                    # --- 수정된 부분: 이전에 성공적으로 도착한 위치를 출발 위치로 지정 ---
-                    right_traj = self.node.plan_arm(
-                        'right_arm',
-                        right_target,
-                        desired_duration=desired_duration,
-                        start_joints_degrees=self.last_executed_target_right
-                    )
-                    if right_traj is None:
-                        messagebox.showerror(
-                            'Planning 실패',
-                            f'{motion_name} step {step} 오른팔 planning 실패'
-                        )
+                    # Planning에 update_cb 추가하여 폴링 가능하게 함
+                    right_traj = self.node.plan_arm('right_arm', right_target, desired_duration, self.last_executed_target_right, self.root.update)
+                    left_traj = self.node.plan_arm('left_arm', left_target, desired_duration, self.last_executed_target_left, self.root.update)
+                    head_traj = self.node.plan_arm('head', head_target, desired_duration, self.last_executed_target_head, self.root.update)
+
+                    if not (right_traj and left_traj and head_traj):
+                        if not self.node.is_interrupted:
+                            self.log_status(f"Planning 실패로 동작을 중지합니다.")
                         return
 
-                    left_traj = self.node.plan_arm(
-                        'left_arm',
-                        left_target,
-                        desired_duration=desired_duration,
-                        start_joints_degrees=self.last_executed_target_left
-                    )
-                    if left_traj is None:
-                        messagebox.showerror(
-                            'Planning 실패',
-                            f'{motion_name} step {step} 왼팔 planning 실패'
-                        )
-                        return
+                    self.log_status(f'{motion_name} step {step} 실행 중...')
 
-                    self.log_status(
-                        f'{motion_name} step {step} 실행 중...'
-                    )
-
-                    success = self.node.execute_both_planned_trajectories(
-                        right_traj,
-                        left_traj
+                    success = self.node.execute_all_planned_trajectories(
+                        right_traj, left_traj, head_traj, update_cb=self.root.update
                     )
 
                     if not success:
-                        messagebox.showerror(
-                            '실행 실패',
-                            f'{motion_name} step {step} 실행 실패'
-                        )
+                        if not self.node.is_interrupted:
+                            self.log_status(f"실행 실패로 동작을 중지합니다.")
                         return
 
-                    # 실행이 성공하면, 다음 step 또는 모션의 출발점을 위해 현재 목표값을 저장
                     self.last_executed_target_right = right_target
                     self.last_executed_target_left = left_target
-                    # -------------------------------------------------------------
+                    self.last_executed_target_head = head_target
+                    self.log_status(f'{motion_name} step {step} 실행 완료')
 
-                    self.log_status(
-                        f'{motion_name} step {step} 실행 완료'
-                    )
-
+                    # --- 수정: 대기 시간(hold) 중에도 멈춤 버튼을 누를 수 있도록 변경 ---
                     if hold > 0.0:
                         self.log_status(f'{hold}초 대기')
-                        time.sleep(hold)
+                        t_end = time.time() + hold
+                        while time.time() < t_end:
+                            if self.node.is_interrupted:
+                                break
+                            rclpy.spin_once(self.node, timeout_sec=0.05)
+                            self.root.update()
+                    # -------------------------------------------------------------
 
-                self.log_status(
-                    f'==== Sequence {motion_idx}/{len(motion_sequence)}: '
-                    f'{motion_name} 종료 ===='
-                )
+                if not self.node.is_interrupted:
+                    self.log_status(f'==== Sequence {motion_idx}/{len(motion_sequence)}: {motion_name} 종료 ====')
 
-            self.log_status('==== 전체 CSV 모션 시퀀스 완료 ====')
+            if not self.node.is_interrupted:
+                self.log_status('==== 전체 CSV 모션 시퀀스 완료 ====')
+            else:
+                self.log_status('==== 동작이 강제로 중단되었습니다 ====')
 
         finally:
             self.reset_ui_buttons()
@@ -1220,6 +1120,9 @@ class MotionCSVControlGUI:
         for widget in self.motion_button_frame.winfo_children():
             if isinstance(widget, tk.Button):
                 widget.config(state='disabled')
+        
+        # 🚨 강제 정지 버튼은 항상 활성화 상태로 유지 🚨
+        self.force_init_btn.config(state='normal')
 
     def reset_ui_buttons(self):
         self.reload_csv_btn.config(state='normal')

@@ -6,7 +6,7 @@ from ament_index_python.packages import get_package_share_directory
 import os
 
 def generate_launch_description():
-    pkg = get_package_share_directory("SH_moveit_limit_config")
+    pkg = get_package_share_directory("SH_moveit_limit2_config")
 
     rsp = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
