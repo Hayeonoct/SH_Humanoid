@@ -14,13 +14,10 @@ from moveit_msgs.msg import Constraints, JointConstraint
 from moveit_msgs.msg import MoveItErrorCodes
 from control_msgs.action import FollowJointTrajectory
 
-# --- 추가된 부분: JointState 임포트 ---
 from sensor_msgs.msg import JointState
 
 
 class MoveItPlanThenBothExecute(Node):
-
-    SOFT_LANDING_EXCLUDE_JOINTS = ['Revolute15']
 
     # 부호 매핑 딕셔너리 추가
     USER_TO_MOVEIT_SIGN = {
@@ -39,6 +36,7 @@ class MoveItPlanThenBothExecute(Node):
         'joint12':  1.0,
         'joint13': -1.0,
         'joint14': -1.0,
+        'Revolute15': 1.0
     }
 
     # 부호 변환 함수 추가
@@ -88,14 +86,6 @@ class MoveItPlanThenBothExecute(Node):
         if len(points) < 2:
             return joint_trajectory
 
-        # --- 추가: soft landing 계산에서 제외할 joint의 인덱스 구하기 ---
-        joint_names = list(joint_trajectory.joint_names)
-        excluded_indices = {
-            idx for idx, name in enumerate(joint_names)
-            if name in self.SOFT_LANDING_EXCLUDE_JOINTS
-        }
-        # -----------------------------------------------------------
-
         final_positions = points[-1].positions
         threshold_rad = math.radians(threshold_deg)
 
@@ -113,14 +103,12 @@ class MoveItPlanThenBothExecute(Node):
             if len(curr_pt.positions) == 0:
                 continue
 
-            # --- 수정: 제외 joint(Revolute15)는 max_dist 계산에서 빼기 ---
+            # 모든 joint에 대해 거리 계산 (제외 로직 삭제됨)
             dist_values = [
                 abs(final_positions[j] - curr_pt.positions[j])
                 for j in range(len(curr_pt.positions))
-                if j not in excluded_indices
             ]
 
-            # 제외하고 나서 남는 joint가 없으면 soft landing 적용 안 함
             if dist_values:
                 max_dist = max(dist_values)
 
@@ -141,7 +129,6 @@ class MoveItPlanThenBothExecute(Node):
                             a / (current_factor ** 2)
                             for a in curr_pt.accelerations
                         ]
-            # -----------------------------------------------------------
 
             new_time += dt
 
@@ -153,11 +140,6 @@ class MoveItPlanThenBothExecute(Node):
         return joint_trajectory
 
     def scale_trajectory_duration(self, joint_trajectory, desired_duration):
-        """
-        desired_duration:
-          - None 또는 -1 이하: MoveIt 기본 trajectory 시간 사용
-          - 양수: trajectory 전체 시간을 해당 초로 스케일링
-        """
         if desired_duration is None:
             return joint_trajectory
 
@@ -206,7 +188,6 @@ class MoveItPlanThenBothExecute(Node):
     # MoveIt planning
     # -------------------------------------------------------
 
-    # --- 수정된 부분: start_joints_degrees 매개변수 추가 ---
     def plan_arm(self, group_name, target_joints_degrees, desired_duration=None, start_joints_degrees=None):
         self.get_logger().info(
             f'MoveGroup action server 대기 중... group={group_name}'
@@ -218,20 +199,19 @@ class MoveItPlanThenBothExecute(Node):
         goal_msg.request.allowed_planning_time = 5.0
         goal_msg.planning_options.plan_only = True
 
-        # 현재 /joint_states 기반 시작 상태 사용 여부 (이전 값 덮어쓰기를 위해 False로 변경)
-        goal_msg.request.start_state.is_diff = False
-
-        # --- 추가된 부분: start_state를 이전 goal로 덮어씌우기 ---
+        # --- 수정: start_joints_degrees 유무에 따라 is_diff 다르게 설정 ---
         if start_joints_degrees is not None:
+            goal_msg.request.start_state.is_diff = False  # 이전 목표 위치를 강제 시작점으로 덮어씀
             start_joints_moveit = self.convert_user_deg_to_moveit_deg(start_joints_degrees)
             js = JointState()
             for j_name, j_pos_deg in start_joints_moveit.items():
                 js.name.append(j_name)
                 js.position.append(math.radians(j_pos_deg))
             goal_msg.request.start_state.joint_state = js
-        # ----------------------------------------------------
+        else:
+            # 처음 실행해서 저장된 이전 위치가 없다면, 현재 로봇의 상태를 출발점으로 사용
+            goal_msg.request.start_state.is_diff = True
 
-        # 부호 매핑 적용
         target_joints_degrees = self.convert_user_deg_to_moveit_deg(
             target_joints_degrees
         )
@@ -301,23 +281,28 @@ class MoveItPlanThenBothExecute(Node):
         goal.trajectory = joint_trajectory
         return goal
 
-    def execute_both_planned_trajectories(self, right_trajectory, left_trajectory):
+    def execute_all_planned_trajectories(self, right_trajectory, left_trajectory, head_trajectory):
         self.right_client.wait_for_server()
         self.left_client.wait_for_server()
+        self.head_client.wait_for_server()
 
         right_goal = self.make_follow_goal_from_trajectory(right_trajectory)
         left_goal = self.make_follow_goal_from_trajectory(left_trajectory)
+        head_goal = self.make_follow_goal_from_trajectory(head_trajectory)
 
-        self.get_logger().info('오른팔/왼팔 trajectory 동시 전송 중...')
+        self.get_logger().info('양팔 및 머리 trajectory 동시 전송 중...')
 
         right_send_future = self.right_client.send_goal_async(right_goal)
         left_send_future = self.left_client.send_goal_async(left_goal)
+        head_send_future = self.head_client.send_goal_async(head_goal)
 
         rclpy.spin_until_future_complete(self, right_send_future)
         rclpy.spin_until_future_complete(self, left_send_future)
+        rclpy.spin_until_future_complete(self, head_send_future)
 
         right_handle = right_send_future.result()
         left_handle = left_send_future.result()
+        head_handle = head_send_future.result()
 
         if right_handle is None or not right_handle.accepted:
             self.get_logger().error('Right arm Action Goal이 거부되었습니다.')
@@ -327,14 +312,21 @@ class MoveItPlanThenBothExecute(Node):
             self.get_logger().error('Left arm Action Goal이 거부되었습니다.')
             return False
 
+        if head_handle is None or not head_handle.accepted:
+            self.get_logger().error('Head Action Goal이 거부되었습니다.')
+            return False
+
         right_result_future = right_handle.get_result_async()
         left_result_future = left_handle.get_result_async()
+        head_result_future = head_handle.get_result_async()
 
         rclpy.spin_until_future_complete(self, right_result_future)
         rclpy.spin_until_future_complete(self, left_result_future)
+        rclpy.spin_until_future_complete(self, head_result_future)
 
         right_result = right_result_future.result().result
         left_result = left_result_future.result().result
+        head_result = head_result_future.result().result
 
         self.get_logger().info(
             f'Right result: error_code={right_result.error_code}, '
@@ -345,8 +337,13 @@ class MoveItPlanThenBothExecute(Node):
             f'Left result: error_code={left_result.error_code}, '
             f'error_string="{left_result.error_string}"'
         )
+        
+        self.get_logger().info(
+            f'Head result: error_code={head_result.error_code}, '
+            f'error_string="{head_result.error_string}"'
+        )
 
-        self.get_logger().info('양팔 이동 완료')
+        self.get_logger().info('양팔 및 머리 이동 완료')
 
         return True
 
@@ -361,13 +358,12 @@ class MotionCSVControlGUI:
         self.motion_library = {}
         self.preview_sequence_index = 0
 
-        # --- 추가된 부분: 이전에 실행 성공한 목표값을 기억할 변수 ---
         self.last_executed_target_right = None
         self.last_executed_target_left = None
-        # ------------------------------------------------------
+        self.last_executed_target_head = None
 
         self.root = tk.Tk()
-        self.root.title('Dual Arm CSV Motion Control')
+        self.root.title('Dual Arm & Head CSV Motion Control')
         self.root.geometry('860x760')
 
         self.create_gui()
@@ -643,7 +639,6 @@ class MotionCSVControlGUI:
             self.sequence_listbox.delete(0, tk.END)
             self.preview_sequence_index = 0
 
-            # 기본 자세 모션이 있으면 자동으로 stack에 하나 넣음
             if 'motion0' in self.motion_library:
                 self.sequence_listbox.insert(tk.END, 'motion0')
                 self.select_sequence_index(0)
@@ -699,7 +694,8 @@ class MotionCSVControlGUI:
             'joint11',
             'joint12',
             'joint13',
-            'joint14'
+            'joint14',
+            'Revolute15'
         ]
 
         with open(path, 'r', newline='', encoding='utf-8-sig') as f:
@@ -736,6 +732,11 @@ class MotionCSVControlGUI:
                         raw_value = '0.0'
 
                     joints[joint_name] = float(raw_value)
+                
+                raw_head_value = row['Revolute15'].strip()
+                if raw_head_value == '':
+                    raw_head_value = '0.0'
+                joints['Revolute15'] = float(raw_head_value)
 
                 step_data = {
                     'step': step,
@@ -992,10 +993,9 @@ class MotionCSVControlGUI:
                 f'==== 선택 모션 Planning 시작: {motion_name} ===='
             )
 
-            # --- 수정된 부분: 미리보기 시에도 내부에서만 연속 궤적을 잇기 위해 로컬 복사본 사용 ---
             current_start_right = self.last_executed_target_right
             current_start_left = self.last_executed_target_left
-            # ------------------------------------------------------------------
+            current_start_head = self.last_executed_target_head
 
             for step_data in steps:
                 step = step_data['step']
@@ -1017,9 +1017,12 @@ class MotionCSVControlGUI:
                     for i in range(8, 15)
                 }
 
+                head_target = {
+                    'Revolute15': joints['Revolute15']
+                }
+
                 desired_duration = None if duration < 0 else duration
 
-                # --- 수정된 부분: 이전 step의 위치를 현재 step의 시작점으로 지정 ---
                 right_traj = self.node.plan_arm(
                     'right_arm',
                     right_target,
@@ -1027,10 +1030,7 @@ class MotionCSVControlGUI:
                     start_joints_degrees=current_start_right
                 )
                 if right_traj is None:
-                    messagebox.showerror(
-                        'Planning 실패',
-                        f'{motion_name} step {step} 오른팔 planning 실패'
-                    )
+                    messagebox.showerror('Planning 실패', f'{motion_name} step {step} 오른팔 planning 실패')
                     return
 
                 left_traj = self.node.plan_arm(
@@ -1040,16 +1040,22 @@ class MotionCSVControlGUI:
                     start_joints_degrees=current_start_left
                 )
                 if left_traj is None:
-                    messagebox.showerror(
-                        'Planning 실패',
-                        f'{motion_name} step {step} 왼팔 planning 실패'
-                    )
+                    messagebox.showerror('Planning 실패', f'{motion_name} step {step} 왼팔 planning 실패')
+                    return
+                
+                head_traj = self.node.plan_arm(
+                    'head',
+                    head_target,
+                    desired_duration=desired_duration,
+                    start_joints_degrees=current_start_head
+                )
+                if head_traj is None:
+                    messagebox.showerror('Planning 실패', f'{motion_name} step {step} 머리 planning 실패')
                     return
 
-                # 다음 스텝을 위해 목표 지점을 새 시작점으로 갱신
                 current_start_right = right_target
                 current_start_left = left_target
-                # --------------------------------------------------------
+                current_start_head = head_target
 
             self.log_status(
                 f'==== 선택 모션 Planning 완료: {motion_name} ===='
@@ -1132,9 +1138,12 @@ class MotionCSVControlGUI:
                         for i in range(8, 15)
                     }
 
+                    head_target = {
+                        'Revolute15': joints['Revolute15']
+                    }
+
                     desired_duration = None if duration < 0 else duration
 
-                    # --- 수정된 부분: 이전에 성공적으로 도착한 위치를 출발 위치로 지정 ---
                     right_traj = self.node.plan_arm(
                         'right_arm',
                         right_target,
@@ -1142,10 +1151,7 @@ class MotionCSVControlGUI:
                         start_joints_degrees=self.last_executed_target_right
                     )
                     if right_traj is None:
-                        messagebox.showerror(
-                            'Planning 실패',
-                            f'{motion_name} step {step} 오른팔 planning 실패'
-                        )
+                        messagebox.showerror('Planning 실패', f'{motion_name} step {step} 오른팔 planning 실패')
                         return
 
                     left_traj = self.node.plan_arm(
@@ -1155,19 +1161,27 @@ class MotionCSVControlGUI:
                         start_joints_degrees=self.last_executed_target_left
                     )
                     if left_traj is None:
-                        messagebox.showerror(
-                            'Planning 실패',
-                            f'{motion_name} step {step} 왼팔 planning 실패'
-                        )
+                        messagebox.showerror('Planning 실패', f'{motion_name} step {step} 왼팔 planning 실패')
+                        return
+
+                    head_traj = self.node.plan_arm(
+                        'head',
+                        head_target,
+                        desired_duration=desired_duration,
+                        start_joints_degrees=self.last_executed_target_head
+                    )
+                    if head_traj is None:
+                        messagebox.showerror('Planning 실패', f'{motion_name} step {step} 머리 planning 실패')
                         return
 
                     self.log_status(
                         f'{motion_name} step {step} 실행 중...'
                     )
 
-                    success = self.node.execute_both_planned_trajectories(
+                    success = self.node.execute_all_planned_trajectories(
                         right_traj,
-                        left_traj
+                        left_traj,
+                        head_traj
                     )
 
                     if not success:
@@ -1177,10 +1191,9 @@ class MotionCSVControlGUI:
                         )
                         return
 
-                    # 실행이 성공하면, 다음 step 또는 모션의 출발점을 위해 현재 목표값을 저장
                     self.last_executed_target_right = right_target
                     self.last_executed_target_left = left_target
-                    # -------------------------------------------------------------
+                    self.last_executed_target_head = head_target
 
                     self.log_status(
                         f'{motion_name} step {step} 실행 완료'
